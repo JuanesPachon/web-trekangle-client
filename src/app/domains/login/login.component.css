@@ -1,0 +1,207 @@
+:host {
+    --primary: #000000;
+    --primary-light: #22211f;
+    --primary-disabled: #363435;
+    --primary-lighter: #454344;
+    --secondary: #1d1d1d;
+    --text: #11181c;
+    --text-gray: #687076;
+    --text-placeholder: #8890a7;
+    --border: #dfe3e6;
+    --btn-bg: #ededed;
+    --input-bg: #f1f2f3;
+    --background: #f8f8ff;
+    --error: #e5484d;
+  }
+  
+  .login-component {
+    font-family: "Poppins", sans-serif;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    margin-top: 4rem;
+  }
+  
+  .login-component__container {
+    width: 100%;
+    max-width: 1700px;
+    padding: 1rem;
+    display: grid;
+    place-items: center;
+  }
+  
+  .login-component *::selection {
+    background: var(--primary-light);
+    color: white;
+  }
+  
+  .login-form-wrapper {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    align-items: center;
+    background-image: linear-gradient(to bottom, 
+      rgba(255, 255, 255, 1) 0%, /* Blanco sólido */
+      rgba(255, 255, 255, 0) 65%, /* Blanco transparente */
+      rgba(15, 152, 15, 0) 65%, /* Verde transparente */
+      #A0F69E 100%); /* Verde sólido */
+    border-radius: 40px;
+    border: 6px solid black;
+  }
+  
+  .login-form-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border-radius: 40px;
+    min-height: 78vh;
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    width: 100%;
+    max-width: 26rem;
+  }
+  
+  .login-form-welcome-row {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login-form__button {
+    background: var(--primary);
+    border: 1px solid var(--primary-light);
+    color: white;
+    display: grid;
+    place-items: center;
+    margin-top: 1.5rem;
+    line-height: 2.75rem;
+    outline: none;
+    border: none;
+    font-size: 1.125rem;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+  }
+  
+  .login-form:invalid .login-form__button {
+    pointer-events: none;
+    background: var(--primary-disabled);
+    border: 1px solid var(--primary-light);
+  }
+  
+  .login-form__actions {
+    display: flex;
+    flex-direction: column;
+    color: var(--secondary);
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .login-form__actions a {
+    color: var(--text);
+  }
+  
+  .login-form__actions a:hover {
+    color: var(--text-gray);
+    text-decoration: underline;
+  }
+  
+  .login-form__row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .text-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .text-field input {
+    color: var(--secondary);
+    width: 100%;
+    border: 1px solid var(--border);
+    min-height: 3rem;
+    letter-spacing: 0.03rem;
+    outline: none;
+    background: var(--input-bg);
+    transition: 0.25s;
+    border-radius: 0.5rem;
+    text-indent: 1.25rem;
+  }
+  
+  .text-field label {
+    color: var(--text);
+  }
+  
+  .text-field input:user-invalid {
+    background: var(--input-bg);
+    color: var(--error);
+    border: 4px solid var(--error);
+  }
+  
+  .error-message {
+    display: none;
+  }
+  
+  .text-field input:user-invalid ~ .error-message {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.8rem;
+    color: var(--error);
+  }
+  
+  .text-field input:focus {
+    border: 1px solid var(--text);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 1px 4px 0px;
+  }
+  
+  .info-side {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 35px;
+    background: url("https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBhaXNhamV8ZW58MHx8MHx8fDA%3D")
+      no-repeat;
+    background-size: cover;
+    background-position: cover;
+    height: 100%;
+  }
+  
+  @media (max-width: 1024px) {
+    .login-form-wrapper {
+      grid-template-columns: 1fr;
+    }
+  
+    .login-component__container,
+    .login-component {
+      margin: 0;
+      padding: 0;
+    }
+  
+    .login-form-side {
+      padding: 1rem;
+      font-size: clamp(.8rem, 2.5vw, 1.2rem);
+    }
+  
+    .info-side {
+      display: none;
+    }
+  }
