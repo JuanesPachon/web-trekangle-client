@@ -1,20 +1,4 @@
-:host {
-    --primary: #000000;
-    --primary-light: #22211f;
-    --primary-disabled: #363435;
-    --primary-lighter: #454344;
-    --secondary: #1d1d1d;
-    --text: #11181c;
-    --text-gray: #687076;
-    --text-placeholder: #8890a7;
-    --border: #dfe3e6;
-    --btn-bg: #ededed;
-    --input-bg: #f1f2f3;
-    --background: #f8f8ff;
-    --error: #e5484d;
-  }
-
-  .login-component {
+.login-component {
     font-family: "Poppins", sans-serif;
     padding: 1rem;
     display: flex;
