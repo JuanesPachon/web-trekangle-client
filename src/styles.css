@@ -1,1 +1,59 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --main-green: #5d9046;
+  --white-bg: #feeceb;
+  --mochiy-title-font: "Mochiy Pop P One", sans-serif;
+  --aclonica-title-font: "Aclonica", sans-serif;
+  --arvo-subtitle-font: "Arvo", serif;
+  --source3-text-font: "Source Sans 3", sans-serif;
+}
+
+/* Globals */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+ul,
+li,
+table,
+th,
+td,
+form,
+input,
+button {
+  all: unset;
+}
+
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: var(--source3-text-font);
+  scroll-behavior: smooth;
+}
+
+*::selection {
+  background-color: black;
+  color: white;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: var(--white-bg);
+  background-image: url(assets/img/main_bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
