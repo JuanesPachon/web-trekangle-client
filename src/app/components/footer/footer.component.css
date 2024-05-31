@@ -2,6 +2,10 @@
   background-color: #333;
 }
 
+.footer__divisor {
+  margin-bottom: -.2rem;
+}
+
 .footer__container {
   margin: 0 auto;
   color: #fff;

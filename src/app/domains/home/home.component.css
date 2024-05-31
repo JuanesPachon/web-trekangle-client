@@ -1,0 +1,369 @@
+/* General Components styles ========================================================================================*/
+
+.top-experiences {
+  display: none;
+}
+
+/* Progress-bar =====================================================================================================*/
+
+.progress__wrapper {
+  position: fixed;
+  top: 4rem;
+  z-index: 100;
+  width: 100%;
+  height: 0.65rem;
+  background-color: rgb(85, 83, 83);
+  border-top: solid 3px black;
+  border-bottom: solid 3px black;
+}
+
+.progress__bar {
+  display: block;
+  width: 0;
+  height: inherit;
+  background: linear-gradient(
+    90deg,
+    #ffc001 0%,
+    #d7e200 16.15%,
+    #80d34a 33.85%,
+    #00d688 50.52%,
+    #01d0c0 66.15%,
+    #0076c8 81.25%,
+    #003f9e 100%
+  );
+}
+
+/* Search-Bar Section  ===========================================================================================================*/
+
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem auto;
+  border-radius: 20px;
+  border: solid 3px black;
+  max-width: 80%;
+  padding: 0.4rem;
+  background-color: white;
+}
+
+.search-bar-container__input {
+  width: 90%;
+  padding: 0 0.8rem;
+}
+
+.search-bar-container__search {
+  width: 10%;
+  cursor: pointer;
+}
+
+/* Main Section ============================================================================================================== */
+
+.main {
+  max-width: 1700px;
+  margin: 0 auto;
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-area {
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-area__text {
+  font-family: var(--aclonica-title-font);
+  font-weight: 700;
+  padding: 2rem 0.5rem;
+  text-align: center;
+}
+
+.main-area__title {
+  font-size: 1.5rem;
+}
+
+.main-area__highlight {
+  font-size: 2rem;
+  line-height: 1.5;
+  filter: drop-shadow(8px 8px 10px rgba(0, 0, 0, 0.5));
+  transition: all ease 0.3s;
+}
+
+.main-area__highlight:hover {
+  -webkit-text-stroke: 1px black;
+  color: rgb(167, 149, 10);
+}
+
+.main-area__quote {
+  font-size: 1rem;
+  font-family: var(--source3-text-font);
+  font-weight: 400;
+}
+
+.main-area__buttons {
+  margin-top: 2rem;
+}
+
+.button {
+  padding: 0.5rem 1.2rem;
+  border: 3px solid #000;
+  border-radius: 1.25rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  margin-bottom: 0.6rem;
+  width: 80%;
+  text-align: center;
+}
+
+.button--primary {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.button--outline {
+  background-color: #fff;
+  color: #000;
+}
+
+.main__top-products-title,
+.main__products-title {
+  font-family: var(--arvo-subtitle-font);
+  text-transform: capitalize;
+  text-align: center;
+  margin: 1rem auto;
+  margin-top: 3rem;
+  width: 100%;
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
+  font-weight: 700;
+}
+
+/* Experiences =============================================================================== */
+
+.mobile-experiences__list {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  row-gap: 1rem;
+}
+
+.experiences__list {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  row-gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  /* Main-area ======================================== */
+
+  .main-area__text {
+    width: 80%;
+  }
+
+  .main-area__image--mobile {
+    display: none;
+  }
+
+  /* Experience List ==================================*/
+
+  .mobile-experiences__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+  }
+
+  .experiences__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+    margin: 1rem;
+    row-gap: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-experiences__list {
+    display: none;
+  }
+
+  /* Responsive Search bar ========================== */
+
+  .search-bar-container {
+    max-height: 1.5rem;
+    width: 50%;
+  }
+
+  .main-area {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .main-area__text {
+    width: initial;
+  }
+
+  .main-area__title {
+    font-size: 2.5rem;
+    padding: 0 2rem;
+  }
+
+  .main-area__highlight {
+    font-size: 3rem;
+  }
+
+  .main-area__quote {
+    font-size: 1.4rem;
+  }
+
+  .main-area__buttons {
+    display: flex;
+    column-gap: 1.5rem;
+  }
+
+  .button {
+    padding: 0.7rem;
+    font-size: 1rem;
+  }
+
+  .main-area__image {
+    position: relative;
+    display: inline-block;
+    aspect-ratio: 4 / 3;
+  }
+
+  .main-area__image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), #feeceb);
+    mask-image: linear-gradient(to right, black, #feeceb);
+  }
+
+  .main-area__image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), #feeceb);
+    mask-image: linear-gradient(to left, black, #feeceb);
+  }
+
+  .main-area__image--mobile {
+    display: block;
+  }
+
+  /* Carousel top experiences ========================== */
+
+  .top-experiences {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1px 1px;
+    font-family: "DM Sans", sans-serif;
+    transition: background 0.4s ease-in;
+    margin-top: 2rem;
+  }
+
+  .top-experiences__card {
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: transform 0.4s ease;
+    cursor: pointer;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+
+  .top-experiences__container {
+    width: 68%;
+    max-width: 1200px;
+    height: 25rem;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .top-experiences__cards {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 20px;
+  }
+
+  .top-experiences__card__image {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  #item-1:checked ~ .top-experiences__cards #song-1,
+  #item-2:checked ~ .top-experiences__cards #song-2,
+  #item-3:checked ~ .top-experiences__cards #song-3 {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    z-index: 1;
+    img {
+      box-shadow: 0px 0px 5px 0px rgba(81, 81, 81, 0.47);
+    }
+  }
+
+  #item-1:checked ~ .top-experiences__cards #song-2,
+  #item-2:checked ~ .top-experiences__cards #song-3,
+  #item-3:checked ~ .top-experiences__cards #song-1 {
+    transform: translateX(50%) scale(0.8);
+    opacity: 0.4;
+    z-index: 0;
+  }
+
+  #item-1:checked ~ .top-experiences__cards #song-3,
+  #item-2:checked ~ .top-experiences__cards #song-1,
+  #item-3:checked ~ .top-experiences__cards #song-2 {
+    transform: translateX(-50%) scale(0.8);
+    opacity: 0.4;
+    z-index: 0;
+  }
+
+  .image-info {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    color: white;
+    padding: 1rem 10px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    width: 100%;
+    text-align: center;
+  }
+
+  .top-experiences__card:hover .image-info {
+    opacity: 1;
+  }
+
+  /* Experiences Section ================================= */
+
+  .experiences__list {
+    margin: 5rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    justify-content: center;
+  }
+  
+}

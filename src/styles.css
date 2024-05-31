@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../node_modules/normalize.css/normalize.css';
+@import url("https://fonts.googleapis.com/css2?family=Aclonica&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Mochiy+Pop+P+One&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
 
 :root {
   --main-green: #5d9046;
