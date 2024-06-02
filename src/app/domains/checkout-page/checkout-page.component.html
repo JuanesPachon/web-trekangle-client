@@ -1,0 +1,64 @@
+<app-header />
+
+<main class="main2">
+
+    <div class="main__experience-info">
+        <section class="main__experience-cart">
+            <h2 class="experience-cart__main-title">Your Experiences:</h2>
+
+            <app-cart-experience />
+            <app-cart-experience />
+
+        </section>
+        <section class="main__booking-date">
+            <div class="booking-date__container">
+                <p class="booking-date__date">Booking Date:</p>
+                <input type="date">
+            </div>
+            <div class="booking-date__container">
+                <p class="booking-date__time">Booking Time:</p>
+                <input type="time">
+            </div>
+        </section>
+    </div>
+
+    <section class="main__payment-info">
+
+        <div class="credit-card__container">
+            <img src="../../../assets/img/credit_card.svg" alt="credit card" class="credit-card__image">
+            <img src="../../../assets/img/Logo_completo_BIT_project__horizontal.svg" alt="Logo"class="credit-card__logo">
+            <p class="credit-card__number">{{ paymentForm.get('cardNumber')?.value }}</p>
+            <p class="credit-card__name">{{ paymentForm.get('cardHolderName')?.value?.toUpperCase() }}</p>
+            <p class="credit-card__date">{{ paymentForm.get('expiryDate')?.value }}</p>
+        </div>
+        <form class="payment-form" method="post" ngSubmit="onSubmit()" [formGroup]="paymentForm">
+            <div class="payment-form__field">
+                <label for="card-number" class="payment-form__label">Card Number:</label>
+                <input type="number" id="card-number" name="card-number" class="payment-form__input" required
+                    formControlName="cardNumber">
+            </div>
+
+            <div class="payment-form__field">
+                <label for="card-holder-name" class="payment-form__label">Cardholder Name:</label>
+                <input type="text" id="card-holder-name" name="card-holder-name" class="payment-form__input" required
+                    formControlName="cardHolderName">
+            </div>
+
+            <div class="payment-form__field">
+                <label for="expiry-date" class="payment-form__label">Expiry Date:</label>
+                <input type="month" id="expiry-date" name="expiry-date" class="payment-form__input" placeholder="MM / YY"
+                    required formControlName="expiryDate">
+            </div>
+
+            <div class="payment-form__field">
+                <label for="cvv" class="payment-form__label">CVV:</label>
+                <input type="text" id="cvv" name="cvv" class="payment-form__input" placeholder="* * *" required
+                    formControlName="cvv">
+            </div>
+
+            <button type="submit" class="payment-form__button">CHECKOUT</button>
+        </form>
+    </section>
+</main>
+
+<app-footer />

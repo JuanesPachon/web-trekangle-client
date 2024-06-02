@@ -1,0 +1,237 @@
+.main2 {
+  max-width: 1500px;
+  margin: 2rem auto;
+  margin-top: 7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1rem;
+  row-gap: 2rem;
+}
+
+.main__experience-info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+}
+
+/* ===================================================================================================
+  Left Side
+=================================================================================================== */
+
+.main__experience-cart,
+.main__booking-date {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  background-color: #ddd7d7e1;
+  border: 5px solid #000;
+  padding: 1rem;
+  border-radius: 20px;
+}
+
+.experience-cart__main-title {
+  font-size: clamp(1.4rem, 6vw, 1.5rem);
+  font-family: var(--arvo-subtitle-font);
+  font-weight: 600;
+  margin: 0.8rem 0;
+}
+
+/* ===================================================================================================
+  Booking Date
+=================================================================================================== */
+
+.main__booking-date {
+  padding: 1rem;
+}
+
+.booking-date__container {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--arvo-subtitle-font);
+  font-weight: 600;
+}
+
+/* ===================================================================================================
+    Payment Info
+=================================================================================================== */
+
+.main__payment-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ddd7d7e1;
+  border: 5px solid #000;
+  border-radius: 20px;
+  padding: 0.5rem;
+}
+
+.payment-container {
+  margin-top: 1.5rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.credit-card__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 2rem;
+}
+
+.credit-card__image {
+  max-width: 100%;
+}
+
+.credit-card__name,
+.credit-card__number,
+.credit-card__date {
+  font-family: "Courier New", monospace;
+  position: absolute;
+  color: white;
+  font-size: clamp(0.6rem, 1.8vw, 1.1rem);
+}
+
+.credit-card__number {
+  bottom: 35%;
+  left: 10%;
+  font-family: arial, sans-serif
+}
+
+.credit-card__name {
+  bottom: 15%;
+  left: 10%;
+}
+
+.credit-card__date {
+  bottom: 15%;
+  left: 50%;
+}
+
+.credit-card__logo {
+  position: absolute;
+  top: 1rem;
+  right: 0.2rem;
+  width: 45%;
+}
+
+/* ===================================================================================================
+    payment form
+=================================================================================================== */
+
+.payment-form {
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.payment-form__label {
+  font-family: var(--arvo-subtitle-font);
+  font-weight: 600;
+}
+
+.payment-form__input {
+  background-color: #fff;
+  border: 1px solid #000;
+  margin: 0.8rem 0;
+  padding: 0.5rem;
+  border-radius: 8px;
+  font-family: var(--source3-text-font);
+  width: 95%;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.payment-form__button {
+  padding: 0.8rem;
+  background-color: var(--main-green);
+  width: 90%;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 1rem;
+  color: white;
+}
+
+@media (min-width: 768px) {
+    
+  /* Booking Date ========================== */
+
+  .booking-date__container {
+    margin: 0 auto;
+    width: 70%;
+  }
+
+  /* Credit card image ========================== */
+
+  .credit-card__name,
+  .credit-card__number,
+  .credit-card__date {
+    font-size: clamp(0.6rem, 4vw, 1.1rem);
+  }
+
+  .credit-card__number {
+    font-size: clamp(0.6rem, 8vw, 1.5rem);
+  }
+
+  /* Payment Form =============================== */
+
+  .payment-form__input {
+    max-width: 97%;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .main2 {
+    display: grid;
+    align-items: start;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+  }
+
+  .main__experience-cart,
+  .main__booking-date {
+    max-height: 100%;
+  }
+
+  .credit-card__container {
+    width: 80%;
+    margin: 0;
+  }
+
+  /* Booking Date ========================== */
+
+  .booking-date__container {
+    margin: 0;
+    width: 100%;
+  }
+
+  /* Payment form =================== */
+
+  .main__payment-info {
+    padding-top: 1.2rem;
+  }
+
+  .payment-form {
+    width: 94%;
+  }
+
+  .payment-form__input {
+    width: 100%;
+  }
+
+  .payment-form__button {
+    width: 95.5%;
+  }
+}

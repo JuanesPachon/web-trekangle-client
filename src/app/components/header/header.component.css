@@ -1,5 +1,5 @@
 .header {
-  background-color: var(--main-green);
+  background-image: url(../../../assets/img/navbar_png.png);
   background-size: cover;
   position: fixed;
   top: 0;
@@ -23,7 +23,7 @@
 
 .navbar__logo {
   margin-left: -1.5rem;
-  margin-top: .3rem;
+  margin-top: .2rem;
 }
 
 .navbar-buttons__logo {
@@ -55,6 +55,7 @@
     padding: 0.3rem 0;
     font-family: var(--arvo-subtitle-font);
     font-weight: 600;
+    margin-top: .1rem;
   }
 
   .left__links {
@@ -69,7 +70,7 @@
   }
 
   .right__cart img {
-    margin-top: .3rem;
+    margin-top: .2rem;
     margin-left: 1rem;
     width: 55%;
     cursor: pointer;

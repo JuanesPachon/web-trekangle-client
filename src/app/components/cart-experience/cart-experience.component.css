@@ -1,0 +1,78 @@
+.experience-cart__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  padding: 1rem;
+  border: 2px solid #000;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.experience-cart__title,
+.experience-cart__price {
+  font-size: clamp(1rem, 4vw, 1.3rem);
+  font-family: var(--source3-text-font);
+  font-weight: 600;
+}
+
+.experience-cart__left-container,
+.experience-cart__right-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.experience-cart__right-container {
+  row-gap: 0.5rem;
+}
+
+.experience-cart__title {
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.experience-cart__icon {
+  border-radius: 10px;
+  width: 100%;
+}
+
+.experience-cart__delete {
+  position: absolute;
+  width: clamp(1.6rem, 8vw, 2.2rem);
+  cursor: pointer;
+  bottom: 4%;
+  right: 3%;
+}
+
+@media (min-width: 768px) {
+
+  .experience-cart__card {
+    flex-direction: row;
+  }
+
+  .experience-cart__icon {
+    width: 5.5rem;
+  }
+
+  .experience-cart__left-container,
+  .experience-cart__right-container {
+    flex-direction: row;
+  }
+
+  .experience-cart__right-container {
+    padding: 1rem;
+    min-width: 100%;
+    flex-direction: column;
+  }
+
+  .experience-cart__title {
+    white-space: nowrap;
+  }
+
+  .experience-cart__delete {
+    width: clamp(0.4rem, 8vw, 2rem);
+    bottom: 8%;
+    right: 2%;
+  }
+}
