@@ -3,22 +3,12 @@
 <main class="main2">
 
     <div class="main__experience-info">
+        <h2 class="experience-cart__main-title">Your Experiences:</h2>
         <section class="main__experience-cart">
-            <h2 class="experience-cart__main-title">Your Experiences:</h2>
-
+            
             <app-cart-experience />
             <app-cart-experience />
 
-        </section>
-        <section class="main__booking-date">
-            <div class="booking-date__container">
-                <p class="booking-date__date">Booking Date:</p>
-                <input type="date">
-            </div>
-            <div class="booking-date__container">
-                <p class="booking-date__time">Booking Time:</p>
-                <input type="time">
-            </div>
         </section>
     </div>
 
@@ -27,7 +17,20 @@
         <div class="credit-card__container">
             <img src="../../../assets/img/credit_card.svg" alt="credit card" class="credit-card__image">
             <img src="../../../assets/img/Logo_completo_BIT_project__horizontal.svg" alt="Logo"class="credit-card__logo">
-            <p class="credit-card__number">{{ paymentForm.get('cardNumber')?.value }}</p>
+            <p class="credit-card__number">
+                <span>
+                    {{ paymentForm.get('cardNumber')?.value?.toString()?.substring(0, 4) }}
+                </span>
+                <span>
+                    {{ paymentForm.get('cardNumber')?.value?.toString()?.substring(4, 8) }}
+                </span>
+                <span>
+                    {{ paymentForm.get('cardNumber')?.value?.toString()?.substring(8, 12) }}
+                </span>
+                <span>
+                    {{ paymentForm.get('cardNumber')?.value?.toString()?.substring(12, 16) }}
+                </span>
+            </p>
             <p class="credit-card__name">{{ paymentForm.get('cardHolderName')?.value?.toUpperCase() }}</p>
             <p class="credit-card__date">{{ paymentForm.get('expiryDate')?.value }}</p>
         </div>
@@ -52,7 +55,7 @@
 
             <div class="payment-form__field">
                 <label for="cvv" class="payment-form__label">CVV:</label>
-                <input type="text" id="cvv" name="cvv" class="payment-form__input" placeholder="* * *" required
+                <input type="password" id="cvv" name="cvv" class="payment-form__input" placeholder="* * *" required
                     formControlName="cvv">
             </div>
 
