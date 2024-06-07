@@ -20,5 +20,22 @@ export class CheckoutPageComponent {
     cvv: new FormControl('', [Validators.required]),
   });
 
+  ngOnInit() {
+
+    this.paymentForm.get('cardNumber')?.valueChanges.subscribe(value => {
+      if (value && value.toString().length > 16) {
+        this.paymentForm.get('cardNumber')?.setValue(value.toString().slice(0, 16), { emitEvent: false });
+      }
+    });
+
+    this.paymentForm.get('cvv')?.valueChanges.subscribe(value => {
+      if (value && value.toString().length > 3) {
+        this.paymentForm.get('cvv')?.setValue(value.toString().slice(0, 3), { emitEvent: false });
+      }
+    });
+
+  }
+    
+
 }
 
