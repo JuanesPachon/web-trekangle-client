@@ -1,17 +1,4 @@
 
-nav,
-footer{
-  display: flex;
-  background-color: #5D9046;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-}
-
-nav h3{
-  color: white;
-}
-
 main{
   max-width: 1600px;
   display: flex;
