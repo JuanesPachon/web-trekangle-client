@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterLink, RouterLinkWithHref } from '@angular/router';
 
 @Component({
   selector: 'app-experience-page',
   standalone: true,
-  imports: [],
+  imports: [RouterLinkWithHref],
   templateUrl: './experience-page.component.html',
   styleUrl: './experience-page.component.css'
 })

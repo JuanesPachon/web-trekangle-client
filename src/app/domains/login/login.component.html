@@ -39,7 +39,13 @@
           <div class="login-form__actions">
             <div class="login-form__row">
               <span>Don't have an account?</span>
-              <a href="#" title="Reset Password"> Sign Up Now </a>
+              <a
+                [routerLink]="'./domains/signup/signup.component'"
+                href="#"
+                title="Reset Password"
+              >
+                Sign Up Now
+              </a>
             </div>
           </div>
         </form>

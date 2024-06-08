@@ -3,23 +3,11 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-image: url('/main_bg.png'); /* Cambia esto por la ruta correcta si es necesario */
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-.header, .footer {
-    background-color: #5a9656;
-    background-image: url('/image.png');
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 4px;
-}
-.header img, .footer img {
-    height: 40px;
-}
+
 .menu {
     display: flex;
     align-items: center;
@@ -31,6 +19,7 @@ body {
 }
 .container {
     padding: 20px;
+    margin-top: 4rem;
 }
 .image-row {
     display: flex;
