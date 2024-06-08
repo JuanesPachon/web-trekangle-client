@@ -64,8 +64,6 @@ export class UserSettingsComponent {
   }
 
   ngOnInit() {
-    window.addEventListener('resize', this.onResize.bind(this));
-
     this.onResize({ target: window });
   }
   
