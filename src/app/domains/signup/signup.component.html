@@ -48,9 +48,7 @@
                     <div class="login-form__actions">
                         <div class="login-form__row">
                             <span>Already have an account?</span>
-                            <a href="#" title="Reset Password">
-                                Log In
-                            </a>
+                            <a [routerLink]="'/login'" title="Reset Password">Log In</a>
                         </div>
                     </div>
                 </form>
@@ -60,3 +58,5 @@
         </div>
     </div>
 </div>
+
+<app-footer/>
