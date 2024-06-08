@@ -1,13 +1,14 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ExperienceComponent } from '../../components/experience/experience.component';
 import { MobileTopExperienceComponent } from '../../components/mobile-top-experience/mobile-top-experience.component';
+import { RouterLinkWithHref } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, ExperienceComponent, MobileTopExperienceComponent],
+  imports: [HeaderComponent, FooterComponent, ExperienceComponent, MobileTopExperienceComponent,RouterLinkWithHref],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
