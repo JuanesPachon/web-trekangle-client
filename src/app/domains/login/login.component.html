@@ -1,4 +1,6 @@
-<div class="login-component">
+<app-header />
+
+<main class="login-component">
   <div class="login-component__container">
     <div class="login-form-wrapper">
       <main class="login-form-side">
@@ -39,11 +41,7 @@
           <div class="login-form__actions">
             <div class="login-form__row">
               <span>Don't have an account?</span>
-              <a
-                [routerLink]="'./domains/signup/signup.component'"
-                href="#"
-                title="Reset Password"
-              >
+              <a [routerLink]="'/sign-up'" title="Reset Password">
                 Sign Up Now
               </a>
             </div>
@@ -53,4 +51,6 @@
       <aside class="info-side"></aside>
     </div>
   </div>
-</div>
+</main>
+
+<app-footer />
