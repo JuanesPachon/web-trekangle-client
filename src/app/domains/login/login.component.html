@@ -4,7 +4,7 @@
   <div class="login-component__container">
     <div class="login-form-wrapper">
       <main class="login-form-side">
-        <form class="login-form">
+        <form class="login-form" (ngSubmit)="onSubmit($event)" [formGroup]="userForm">
           <div class="login-form-welcome-row">
             <h1>Welcome back! &#128079;</h1>
             <h2>Login with your account!</h2>
@@ -18,7 +18,7 @@
               name="email"
               autocomplete="off"
               placeholder="you@example.com"
-              required
+              required formControlName="email"
             />
             <div class="error-message">Email in incorrect format</div>
           </div>
@@ -31,7 +31,7 @@
               placeholder="Your password"
               title="Minimum 6 characters at least 1 Alphabet and 1 Number"
               pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$"
-              required
+              required formControlName="password"
             />
             <div class="error-message">
               Minimum 6 characters at least 1 Alphabet and 1 Number
