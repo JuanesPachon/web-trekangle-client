@@ -5,6 +5,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { FormsModule, ReactiveFormsModule, Validators, FormGroup, FormControl } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,7 @@ export class LoginComponent {
 
   private userService = inject(UserService);
   private authService = inject(AuthService);
+  private Router = inject(Router);
 
   userForm = new FormGroup({
 
@@ -33,6 +35,7 @@ export class LoginComponent {
 
         next: (response: any) => {
           this.authService.setToken(response.token);
+          this.Router.navigate([ "" ])
         },
         error: (error) => {
           console.log(error);

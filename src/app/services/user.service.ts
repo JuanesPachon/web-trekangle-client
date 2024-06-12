@@ -22,4 +22,14 @@ export class UserService {
       password: formValues.password,
     });
   }
+
+  
+
+  isLoggedIn() {
+    if(localStorage.getItem("user_token")) {
+      return true
+    } else {
+      return false
+    }
+  }
 }

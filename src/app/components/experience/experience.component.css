@@ -49,6 +49,10 @@
   align-items: center;
 }
 
+.experience__card__feature:first-child {
+  margin-right: .5rem;
+}
+
 .experience__card__icon {
   font-size: 1.25rem;
   margin-right: 0.5rem;

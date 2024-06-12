@@ -302,9 +302,9 @@
     object-fit: cover;
   }
 
-  #item-1:checked ~ .top-experiences__cards #song-1,
-  #item-2:checked ~ .top-experiences__cards #song-2,
-  #item-3:checked ~ .top-experiences__cards #song-3 {
+  #item-1:checked ~ .top-experiences__cards #experience-1,
+  #item-2:checked ~ .top-experiences__cards #experience-2,
+  #item-3:checked ~ .top-experiences__cards #experience-3 {
     transform: translateX(0) scale(1);
     opacity: 1;
     z-index: 1;
@@ -313,17 +313,17 @@
     }
   }
 
-  #item-1:checked ~ .top-experiences__cards #song-2,
-  #item-2:checked ~ .top-experiences__cards #song-3,
-  #item-3:checked ~ .top-experiences__cards #song-1 {
+  #item-1:checked ~ .top-experiences__cards #experience-2,
+  #item-2:checked ~ .top-experiences__cards #experience-3,
+  #item-3:checked ~ .top-experiences__cards #experience-1 {
     transform: translateX(50%) scale(0.8);
     opacity: 0.4;
     z-index: 0;
   }
 
-  #item-1:checked ~ .top-experiences__cards #song-3,
-  #item-2:checked ~ .top-experiences__cards #song-1,
-  #item-3:checked ~ .top-experiences__cards #song-2 {
+  #item-1:checked ~ .top-experiences__cards #experience-3,
+  #item-2:checked ~ .top-experiences__cards #experience-1,
+  #item-3:checked ~ .top-experiences__cards #experience-2 {
     transform: translateX(-50%) scale(0.8);
     opacity: 0.4;
     z-index: 0;
@@ -348,6 +348,11 @@
   .top-experiences__card:hover .image-info {
     opacity: 1;
   }
+
+  .top-experiences__card a.link-disabled {
+    pointer-events: none;
+    cursor: default;
+}
 
   /* Experiences Section ================================= */
 

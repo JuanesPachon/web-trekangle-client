@@ -1,10 +1,10 @@
 <article class="experience__card">
     <div class="experience__card__image">
-        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994" alt="Property Image">
+        <img [src]=" 'http://localhost:3000/uploads/' + image" alt="Main Experience Image">
     </div>
     <div class="experience__card__details">
-        <h3 class="experience__card__title">DETACHED HOUSE &#8226; 5Y OLD</h3>
-        <h2 class="experience__card__price">$750,000</h2>
+        <h2 class="experience__card__title">{{title}}</h2>
+        <h3 class="experience__card__price">${{price}}</h3>
     </div>
     <div class="experience__card__features">
         <div class="experience__card__feature">
@@ -13,7 +13,7 @@
         </div>
         <div class="experience__card__feature">
             <span class="experience__card__icon">🚩</span>
-            <span class="experience__card__text">Santa Martha</span>
+            <span class="experience__card__text">{{place}}</span>
         </div>
     </div>
 </article>

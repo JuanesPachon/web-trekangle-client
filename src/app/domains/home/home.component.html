@@ -1,91 +1,100 @@
-<app-header/>
+<app-header />
 
-    <div class="progress__wrapper">
-        <div class="progress__bar" id="progress__bar"></div>
+<div class="progress__wrapper">
+    <div class="progress__bar" id="progress__bar"></div>
+</div>
+
+<main class="main">
+
+    <div class="search-bar-container">
+        <input type="text" class="search-bar-container__input" placeholder="Search...">
+        <img class="search-bar-container__search" src="assets/img/Search.svg" alt="Search icon">
     </div>
 
-    <main class="main">
-
-        <div class="search-bar-container">
-            <input type="text" class="search-bar-container__input" placeholder="Search...">
-            <img class="search-bar-container__search" src="assets/img/Search.svg" alt="Search icon">
+    <section class="main-area">
+        <div class="main-area__text">
+            <h1 class="main-area__title">Explore new journeys,<br>make memories,<br><span
+                    class="main-area__highlight">TREKANGLE!</span></h1><br class="apart__desktop">
+            <p class="main-area__quote">"ad lorem impsum"</p>
+            <div class="main-area__buttons">
+                <button [routerLink]="'/'" class="button button--outline">Book experiences</button>
+                <button [routerLink]="'/sign-up'" class="button button--primary">Join Us</button>
+            </div>
         </div>
+        <div class="main-area__image">
+            <picture>
+                <!-- Imagen para pantallas de 1024px en adelante -->
+                <source
+                    srcset="https://images.unsplash.com/photo-1491494328967-495416eb06ec?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fGF2ZW50dXJhfGVufDB8MXwwfHx8MA%3D%3D"
+                    media="(min-width: 1024px)">
 
-        <section class="main-area">
-            <div class="main-area__text">
-                <h1 class="main-area__title">Explore new journeys,<br>make memories,<br><span
-                        class="main-area__highlight">TREKANGLE!</span></h1><br class="apart__desktop">
-                <p class="main-area__quote">"ad lorem impsum"</p>
-                <div class="main-area__buttons">
-                    <button [routerLink]="'/'" class="button button--outline">Book experiences</button>
-                    <button [routerLink]="'/sign-up'" class="button button--primary">Join Us</button>
-                </div>
+                <!-- Imagen para pantallas de 0px a 767px -->
+                <img class="main-area__image--mobile"
+                    src="https://images.unsplash.com/photo-1491494328967-495416eb06ec?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fGF2ZW50dXJhfGVufDB8MXwwfHx8MA%3D%3D"
+                    alt="Road Image">
+            </picture>
+        </div>
+    </section>
+
+    <h2 class="main__top-products-title">Top experiences of the week!</h2>
+
+    <!-- Mobile Carousel -->
+
+    <section class="mobile-experiences__list">
+
+        <app-mobile-top-experience />
+
+    </section>
+
+    <!-- Desktop Carousel -->
+
+    <section class="top-experiences">
+        <div class="top-experiences__container">
+            <input type="radio" name="slider" id="item-1" checked>
+            <input type="radio" name="slider" id="item-2">
+            <input type="radio" name="slider" id="item-3">
+            <div class="top-experiences__cards">
+                <label class="top-experiences__card" for="item-1" id="experience-1">
+                    <img class="top-experiences__card__image"
+                        src="https://images.unsplash.com/photo-1530651788726-1dbf58eeef1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80"
+                        alt="experience">
+                    <div class="image-info">Experience info</div>
+                </label>
+                <label class="top-experiences__card" for="item-2" id="experience-2">
+                    <img class="top-experiences__card__image"
+                        src="https://images.unsplash.com/photo-1559386484-97dfc0e15539?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80"
+                        alt="experience">
+                    <div class="image-info">Experience info</div>
+                </label>
+                <label class="top-experiences__card" for="item-3" id="experience-3">
+                    <img class="top-experiences__card__image"
+                        src="https://images.unsplash.com/photo-1533461502717-83546f485d24?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
+                        alt="song">
+                    <div class="image-info">Experience info</div>
+                </label>
             </div>
-            <div class="main-area__image">
-                <picture>
-                    <!-- Imagen para pantallas de 1024px en adelante -->
-                    <source
-                        srcset="https://images.unsplash.com/photo-1491494328967-495416eb06ec?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fGF2ZW50dXJhfGVufDB8MXwwfHx8MA%3D%3D"
-                        media="(min-width: 1024px)">
+        </div>
+    </section>
 
-                    <!-- Imagen para pantallas de 0px a 767px -->
-                    <img class="main-area__image--mobile"
-                        src="https://images.unsplash.com/photo-1491494328967-495416eb06ec?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fGF2ZW50dXJhfGVufDB8MXwwfHx8MA%3D%3D"
-                        alt="Road Image">
-                </picture>
-            </div>
-        </section>
+    <!-- Experiences Section  -->
 
-        <h2 class="main__top-products-title">Top experiences of the week!</h2>
+    <h2 class="main__products-title">Check out all our Experiences </h2>
 
-        <!-- Mobile Carousel -->
+    <section class="experiences__list">
 
-        <section class="mobile-experiences__list">
+        @for(experience of experiences(); track experience._id){
 
-            <app-mobile-top-experience/>
+        <a href="">
+            <app-experience [title]="experience.name" [price]="experience.price" 
+                [description]="experience.description"[image]="experience.images[0]" 
+                [place]="experience.place">
+            </app-experience>
+        </a>
 
-        </section>
+        }
 
-        <!-- Desktop Carousel -->
+    </section>
 
-        <section class="top-experiences">
-            <div class="top-experiences__container">
-                <input type="radio" name="slider" id="item-1" checked>
-                <input type="radio" name="slider" id="item-2">
-                <input type="radio" name="slider" id="item-3">
-                <div class="top-experiences__cards">
-                    <label class="top-experiences__card" for="item-1" id="song-1">
-                        <img class="top-experiences__card__image"
-                            src="https://images.unsplash.com/photo-1530651788726-1dbf58eeef1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80"
-                            alt="song">
-                        <div class="image-info">Experience info</div>
-                    </label>
-                    <label class="top-experiences__card" for="item-2" id="song-2">
-                        <img class="top-experiences__card__image"
-                            src="https://images.unsplash.com/photo-1559386484-97dfc0e15539?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80"
-                            alt="song">
-                        <div class="image-info">Experience info</div>
-                    </label>
-                    <label class="top-experiences__card" for="item-3" id="song-3">
-                        <img class="top-experiences__card__image"
-                            src="https://images.unsplash.com/photo-1533461502717-83546f485d24?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
-                            alt="song">
-                        <div class="image-info">Experience info</div>
-                    </label>
-                </div>
-            </div>
-        </section>
+</main>
 
-        <!-- Experiences Section  -->
-
-        <h2 class="main__products-title">Check out all our Experiences </h2>
-
-        <section class="experiences__list">
-
-            <app-experience/>
-
-        </section>
-
-    </main>
-
-    <app-footer/>
+<app-footer />
