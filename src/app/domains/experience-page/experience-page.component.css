@@ -1,25 +1,6 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
-.menu {
-    display: flex;
-    align-items: center;
-}
-.menu a {
-    color: white;
-    margin-left: 20px;
-    text-decoration: none;
-}
 .container {
-    padding: 20px;
-    margin-top: 4rem;
+    padding: 30px;
+    margin-top: 6.5rem;
 }
 .image-row {
     display: flex;
@@ -28,34 +9,41 @@ body {
     margin-bottom: 20px;
 }
 .main-image {
-    width: 23%;
+    width: 30%;
+    height: 30%;
     height: auto;
     background-color: #ccc;
+    border-radius: 30px;
 }
 .thumbnail {
-    width: 23%;
-    height: auto;
+    width: 20%;
+    height: 30%;
+    /*height: auto;*/
     background-color: #ccc;
+    border-radius: 30px;
 }
-.title-bar {
-    padding: 10px;
+.title-bar { 
+    font-size: 20px;
+    padding: 20px;
     text-align: center;
     margin-bottom: 20px;
-    border: 2px solid black;
-    background-color: #f0f0f0;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    /*background-color: #f0f0f0;*/
     border-radius: 10px;
 }
 .description {
-    margin-bottom: 20px;
-    clear: both;
+    font-size: 25px;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    border: 2px solid rgba(0, 0, 0, 0.13);
+    padding:30px;
     text-align: center;
-    border: 2px solid black;
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 10px;
+    border-radius: 30px;
     width: 50%;
     margin: 0 auto;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
 }
 .button-container {
     display: flex;
