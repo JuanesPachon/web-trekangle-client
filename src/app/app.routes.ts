@@ -11,7 +11,7 @@ export const routes: Routes = [
     { path:"", component: HomeComponent},
     { path:"sign-up", component: SignupComponent},
     { path:"login", component: LoginComponent},
-    { path:"experience:id", component: ExperiencePageComponent},
+    { path:"experience/:id", component: ExperiencePageComponent},
     { path:"checkout", component: CheckoutPageComponent, canActivate: [loginGuard]},
     { path:"user-settings", component: UserSettingsComponent, canActivate: [loginGuard]},
 ];

@@ -1,34 +1,18 @@
 <app-header />
 
 <main class="container">
-  <div class="title-bar">TITLE EXPERIENCE PAGE HERE</div>
+  <div class="title-bar">{{ experience()?.name }}</div>
   <div class="image-row">
-    <img
-      src="https://uploads.candelaestereo.com/1/2023/02/frases-de-viajes-en-pareja.jpg"
-      alt="Main Image"
-      class="main-image"
-    />
-    <img
-      src="https://as01.epimg.net/deporteyvida/imagenes/2020/07/19/portada/1595141405_165151_1595141540_noticia_normal_recorte1.jpg"
-      alt="Thumbnail 1"
-      class="thumbnail"
-    />
-    <img
-      src="https://as01.epimg.net/deporteyvida/imagenes/2020/07/19/portada/1595141405_165151_1595141540_noticia_normal_recorte1.jpg"
-      alt="Thumbnail 2"
-      class="thumbnail"
-    />
-    <img
-      src="https://as01.epimg.net/deporteyvida/imagenes/2020/07/19/portada/1595141405_165151_1595141540_noticia_normal_recorte1.jpg"
-      alt="Thumbnail 3"
-      class="thumbnail"
-    />
+    <img [src]="'http://localhost:3000/uploads/' + experience()?.images[0]" alt="Main Image" class="main-image" />
+    <img [src]="'http://localhost:3000/uploads/' + experience()?.images[1]" alt="Thumbnail 1" class="thumbnail" />
+    <img [src]="'http://localhost:3000/uploads/' + experience()?.images[2]" alt="Thumbnail 2" class="thumbnail" />
+    <img [src]="'http://localhost:3000/uploads/' + experience()?.images[3]" alt="Thumbnail 3" class="thumbnail" />
   </div>
   <div class="description">
-    <p>EXPERIENCE PAGE</p>
-    <p>PRICE: $$$$$</p>
-    <p>lugar: PLACE</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p>{{ experience()?.name }}</p>
+    <p>PRICE: ${{ experience()?.price }}</p>
+    <p>lugar: {{ experience()?.place }}</p>
+    <p>{{ experience()?.description }}</p>
   </div>
   <div class="button-container">
     <button class="buy-now">Buy Now</button>
