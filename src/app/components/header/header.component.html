@@ -9,14 +9,16 @@
         </div>
 
         <div class="navbar-buttons__desktop">
-            <div class="navbar-buttons__left">
+            <div class="navbar-buttons__left" [ngClass]="isloggedIn() ? 'add-lines' : ''">
                 <a class="left__links" href="#">Locations</a>
                 <a class="left__links" href="#">About Us</a>
             </div>
 
             <div class="navbar-buttons__right">
-                <a class="right__cart" href=""><img src="assets\img\Shopping Cart.svg" alt="Cart logo"></a>
-                <div class="right__button">
+                @if(isloggedIn()){
+                    <a class="right__cart" href=""><img src="assets\img\Shopping Cart.svg" alt="Cart logo"></a>
+                }
+                <div class="right__button" (click)="openDropdown()">
                     <div class="right__button__menu">
                         <img src="assets\img\Menu_black.svg" alt="Menu logo">
                     </div>
@@ -27,6 +29,22 @@
             </div>
         </div>
 
+        <div *ngIf="dropdown()" class="user-dropdown">
+            <div *ngIf="!isloggedIn()" class="user-dropdown__item" [ngClass]="!isloggedIn() ? 'user-dropdown__item--first' : ''">
+                <a [routerLink]="'/login'">Log In</a>
+            </div>
+            <div *ngIf="!isloggedIn()" class="user-dropdown__item" [ngClass]="!isloggedIn() ? 'user-dropdown__item--last' : ''">
+                <a [routerLink]="'/sign-up'">Sign Up</a>
+            </div>
+            <div *ngIf="isloggedIn()" class="user-dropdown__item" [ngClass]="isloggedIn() ? 'user-dropdown__item--first' : ''">
+                <a [routerLink]="'/user-settings'">Account</a>
+            </div>
+            <div (click)="logOut()" *ngIf="isloggedIn()" class="user-dropdown__item" [ngClass]="isloggedIn() ? 'user-dropdown__item--last' : ''">
+                <a>Sign Out</a>
+            </div>
+        </div>
 
     </nav>
+
+    
 </header>
