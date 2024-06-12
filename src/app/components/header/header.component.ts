@@ -27,6 +27,8 @@ export class HeaderComponent {
     return this.authService.removeToken();
   }
 
+  // Dropdown logic
+
   dropdown = signal(false);
 
   openDropdown() {
@@ -42,5 +44,16 @@ export class HeaderComponent {
       }
     }
 
+  }
+
+  //Notification logic
+
+  showNotification = signal(false);
+
+  toggleNotification() {
+    this.showNotification.set(true);
+    setTimeout(() => {
+      this.showNotification.set(false);
+    }, 3000);
   }
 }

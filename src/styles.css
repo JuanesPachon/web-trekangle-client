@@ -72,3 +72,33 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
+
+/* ===================================================================================================
+  Routes Transitions
+=================================================================================================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+::view-transition-old(root) {
+  animation: fadeOut .5s ease 0s 1 normal forwards;
+}
+
+::view-transition-new(root) {
+  animation: fadeIn .5s ease 0s 1 normal forwards;
+}

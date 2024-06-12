@@ -131,7 +131,7 @@
   .user-dropdown::before {
     content: "";
     position: absolute;
-    top: -.6rem; /* Ajusta la posición vertical de la flecha */
+    top: -0.6rem; /* Ajusta la posición vertical de la flecha */
     left: 64.5%;
     transform: translateX(-50%);
     border: 8px solid transparent;
@@ -139,7 +139,7 @@
   }
 
   .user-dropdown__item {
-    padding: .8rem 2rem;
+    padding: 0.8rem 2rem;
     transition: all 0.3s ease;
     cursor: pointer;
     width: 5rem;
@@ -154,8 +154,81 @@
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
   }
-  
+
   .user-dropdown__item:hover {
     background-color: rgb(218, 218, 218);
+  }
+}
+
+/* ===================================================================================================
+  Notification
+=================================================================================================== */
+
+.notification {
+  position: fixed;
+  width: max-content;
+  left: 0;
+  right: 0;
+  bottom: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  background-image: url("../../../assets/img/navbar_png.png");
+  color: var(--white-bg);
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(1.875rem);
+  opacity: 0;
+  visibility: hidden;
+  animation: fade-in 3s linear;
+  z-index: 10;
+}
+
+.notification__icon {
+  height: 1.625rem;
+  width: 1.625rem;
+  margin-right: 0.25rem;
+}
+
+.notification__body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem 0.5rem;
+}
+
+.notification__body p {
+  padding-right: 1rem;
+  padding-left: .5rem;
+  font-weight: bold;
+}
+
+.notification__progress {
+  position: absolute;
+  left: 0.25rem;
+  bottom: 0.25rem;
+  width: calc(100% - 0.5rem);
+  height: 0.2rem;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: rgba(52, 52, 52, 0.944);
+  border-radius: 15px;
+  animation: progress 2.5s 0.3s linear;
+}
+
+@keyframes fade-in {
+  5% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  95% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes progress {
+  to {
+    transform: scaleX(1);
   }
 }
