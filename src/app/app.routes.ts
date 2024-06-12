@@ -5,12 +5,13 @@ import { UserSettingsComponent } from './domains/user-settings/user-settings.com
 import { LoginComponent } from './domains/login/login.component';
 import { ExperiencePageComponent } from './domains/experience-page/experience-page.component';
 import { SignupComponent } from './domains/signup/signup.component';
+import { loginGuard } from './guards/loginGuard';
 
 export const routes: Routes = [
     { path:"", component: HomeComponent},
     { path:"sign-up", component: SignupComponent},
     { path:"login", component: LoginComponent},
     { path:"experience:id", component: ExperiencePageComponent},
-    { path:"checkout", component: CheckoutPageComponent},
-    { path:"user-settings", component: UserSettingsComponent},
+    { path:"checkout", component: CheckoutPageComponent, canActivate: [loginGuard]},
+    { path:"user-settings", component: UserSettingsComponent, canActivate: [loginGuard]},
 ];
