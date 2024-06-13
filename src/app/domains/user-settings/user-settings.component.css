@@ -57,71 +57,12 @@
   border-left: 1px solid black;
 }
 
-/* ===================================================================================================
-    User Bookings
-  =================================================================================================== */
-
-.booking__card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  row-gap: 1rem;
-  padding: 1rem;
-  border: 3px solid #000;
-  background-color: rgba(170, 169, 169, 0.486);
-  border-radius: 10px;
-  margin: 0 1rem;
-}
-
-.booking__main-title {
+.bookings__main-title {
   font-size: clamp(1.4rem, 6vw, 1.5rem);
   font-family: var(--arvo-subtitle-font);
   font-weight: 600;
-  margin: 0.8rem 0;
+  margin-left: 1rem;
 }
-
-.booking__title,
-.booking__price,
-.booking__date,
-.booking__place {
-  font-size: clamp(1rem, 3vw, 1.3rem);
-  font-family: var(--source3-text-font);
-  font-weight: 600;
-  overflow: hidden;
-}
-
-.booking__date span {
-  font-weight: bolder;
-}
-
-.booking-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.booking-container {
-  row-gap: 0.5rem;
-}
-
-.booking__title {
-  width: 100%;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
-.booking__icon {
-  border-radius: 10px;
-  width: 100%;
-}
-
-.booking__delete {
-  position: absolute;
-  width: clamp(1.7rem, 8vw, 2.2rem);
-  cursor: pointer;
-  bottom: 10%;
-  right: 5%;
-}
-
 /* ===================================================================================================
     User Settings
 =================================================================================================== */
@@ -260,7 +201,8 @@
 
 @media (min-width: 768px) {
 
-  .user-options {
+  .user-options,
+  .bookings__main-title {
     display: none;
   }
 

@@ -34,18 +34,9 @@
         
         @if(userBookings()) {
             <section class="user-bookings">
-                <article class="booking__card">
-    
-                    <div class="booking-container">
-                        <p class="booking__title">EXPERIENCE 1 </p>
-                        <p class="booking__price">$750,000</p>
-                        <p class="booking__place">Melgar, Cololombia</p>
-                        <p class="booking__date"> <span>Date: </span> 10 / 20</p>
-                    </div>
-    
-                    <img src="assets/img/delete.svg" alt="delete" class="booking__delete">
-    
-                </article>
+                <h2 class="bookings__main-title">Your Bookings</h2>
+                <app-cart-experience/>
+                <app-cart-experience/>
             </section>
         }
 
