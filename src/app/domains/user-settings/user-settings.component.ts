@@ -2,12 +2,13 @@ import { Component, signal } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { CommonModule } from '@angular/common';
+import { BookingCardComponent } from '../../components/booking-card/booking-card.component';
 import { CartExperienceComponent } from '../../components/cart-experience/cart-experience.component';
 
 @Component({
   selector: 'app-user-settings',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, CartExperienceComponent, CommonModule],
+  imports: [HeaderComponent, FooterComponent, BookingCardComponent, CommonModule, CartExperienceComponent],
   templateUrl: './user-settings.component.html',
   styleUrl: './user-settings.component.css',
 })
