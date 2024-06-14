@@ -1,4 +1,4 @@
-.booking__card {
+.cart__card {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -6,72 +6,108 @@
   row-gap: 1rem;
   padding: 1rem;
   border: 3px solid #000;
-  background-color: rgba(170, 169, 169, 0.486);
+  background-color: var(--white-bg);
   border-radius: 10px;
-  margin: .5rem 1rem;
+  margin: 0.5rem 1rem;
 }
 
-.booking__main-title {
-  font-size: clamp(1.4rem, 6vw, 1.5rem);
-  font-family: var(--arvo-subtitle-font);
-  font-weight: 600;
-  margin: 0.8rem 0;
-  overflow: hidden;
-}
-
-.booking__icon {
+.cart__icon {
+  min-width: 10%;
   max-width: 4rem;
+  object-fit: cover;
 }
 
-.booking__title,
-.booking__price,
-.booking__date,
-.booking__place {
-  font-size: clamp(1rem, 3vw, 1.3rem);
+.cart__title,
+.cart__price,
+.cart__date,
+.cart__place {
+  font-size: clamp(.8rem, 2vw, 1.3rem);
   font-family: var(--source3-text-font);
   font-weight: 600;
   overflow: hidden;
 }
 
-.booking__date span {
+.cart__date span {
   font-weight: bolder;
 }
 
-.booking-container {
+.cart-container {
   display: flex;
   flex-direction: column;
 }
 
-.booking-container {
+.cart-container {
   row-gap: 0.2rem;
 }
 
-.booking__title {
+.cart__title {
   width: 100%;
   text-overflow: ellipsis;
   overflow: hidden;
 }
 
-.booking__icon {
+.cart__icon {
   border-radius: 10px;
   width: 100%;
+  object-fit: cover;
+  border: 2px solid #000;
 }
 
-.booking__delete {
+.cart__delete {
   position: absolute;
-  width: clamp(1.7rem, 8vw, 2.2rem);
+  width: clamp(1.5rem, 8vw, 2.2rem);
   cursor: pointer;
   bottom: 10%;
   right: 5%;
 }
 
+.cart__action-container {
+  display: flex;
+  max-width: 40%;
+}
+
+.cart__action {
+  background-color: #000;
+  color: white;
+  padding: 0.4rem;
+  cursor: pointer;
+}
+
+.cart__action:first-child {
+  border-start-start-radius: 8px;
+  border-end-start-radius: 8px;
+}
+
+.cart__action--add {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.cart__quantity-input {
+  width: 100%;
+  min-width: 1rem;
+  background-color: var(--white-bg);
+  text-align: center;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
 @media (min-width: 768px) {
-  .booking__icon {
+  .cart__icon {
     max-width: 9rem;
   }
 
-  .booking-container {
+  .cart-container {
     row-gap: 0.5rem;
   }
-  
 }

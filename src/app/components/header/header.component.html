@@ -17,7 +17,7 @@
 
             <div class="navbar-buttons__right">
                 @if(isloggedIn()){
-                <a class="right__cart" href=""><img src="assets\img\Shopping Cart.svg" alt="Cart logo"></a>
+                <a (click)="toggleCart()" class="right__cart"><img src="assets\img\Shopping Cart.svg" alt="Cart logo"></a>
                 }
                 <div class="right__button" (click)="openDropdown()">
                     <div class="right__button__menu">
@@ -31,19 +31,19 @@
         </div>
 
         <div *ngIf="dropdown()" class="user-dropdown">
-            <div *ngIf="!isloggedIn()" class="user-dropdown__item"
+            <div [routerLink]="'/login'" *ngIf="!isloggedIn()" class="user-dropdown__item"
                 [ngClass]="!isloggedIn() ? 'user-dropdown__item--first' : ''">
-                <a [routerLink]="'/login'">Log In</a>
+                <a>Log In</a>
             </div>
-            <div *ngIf="!isloggedIn()" class="user-dropdown__item"
+            <div [routerLink]="'/sign-up'" *ngIf="!isloggedIn()" class="user-dropdown__item"
                 [ngClass]="!isloggedIn() ? 'user-dropdown__item--last' : ''">
-                <a [routerLink]="'/sign-up'">Sign Up</a>
+                <a>Sign Up</a>
             </div>
-            <div *ngIf="isloggedIn()" class="user-dropdown__item"
+            <div [routerLink]="'/user-settings'" *ngIf="isloggedIn()" class="user-dropdown__item"
                 [ngClass]="isloggedIn() ? 'user-dropdown__item--first' : ''">
-                <a [routerLink]="'/user-settings'">Account</a>
+                <a>Account</a>
             </div>
-            <div (click)="logOut()" (click)="toggleNotification()" *ngIf="isloggedIn()" class="user-dropdown__item"
+            <div [routerLink]="'/'" (click)="logOut()" (click)="toggleNotification()" *ngIf="isloggedIn()" class="user-dropdown__item"
                 [ngClass]="isloggedIn() ? 'user-dropdown__item--last' : ''">
                 <a>Sign Out</a>
             </div>
@@ -60,3 +60,19 @@
     </div>
     <div class="notification__progress"></div>
 </div>
+
+<aside class="cart" [ngClass]="showCart() ? 'cart show' : 'cart' ">
+    <div class="cart-header">
+        <h2 class="cart-header-title">Your Cart</h2>
+    </div>
+    <img src="assets/img/close.svg" class="cart__close" (click)="toggleCart()" alt="Close Icon"/>
+    <section class="cart__experiences">
+        @for(cartExperience of cartExperiences().values(); track cartExperience._id) {
+            <app-cart-experience [experience]="cartExperience" />
+        }
+    </section>
+    <div class="cart__details">
+        <h3 class="cart__total">Total: <span>{{ cartTotal() | currency }}</span></h3>
+        <a routerLink="/checkout" class="cart__checkout-button">Checkout</a>
+    </div>
+</aside>

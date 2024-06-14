@@ -1,12 +1,19 @@
-<article class="booking__card">
+<article class="cart__card">
 
-    <img class="booking__icon" src="assets/img/bg-card.jpg" alt="experience icon">
+    <img class="cart__icon" [src]=" 'http://localhost:3000/uploads/' + experience.images[0]" alt="experience icon">
 
-    <div class="booking-container">
-        <p class="booking__title">EXPERIENCE 1</p>
-        <p class="booking__price">$750,000</p>
-        <p class="booking__place">Melgar, Cololombia</p>
-        <p class="booking__date"> <span>Date: </span> 10 / 20</p>
+    <div class="cart-container">
+        <p class="cart__title">{{ experience.name }}</p>
+        <p class="cart__price">{{ experience.price | currency }}</p>
+        <p class="cart__place">{{ experience.place }}</p>
+        <form action="" class="cart__action-container">
+                <button (click)="decrement(experience._id)" type="button" class="cart__action">-</button>
+                <input type="number" id="quantity" value="" name="quantity" class="cart__quantity-input"
+                [formControl]="guestsQuantity">
+                <button (click)="increment(experience._id)" type="button" class="cart__action cart__action--add">+</button>
+
+                <img  (click)="deleteExperience(experience._id)" src="assets/img/delete.svg" alt="delete icon" class="cart__delete">
+        </form>
     </div>
 
 </article>
