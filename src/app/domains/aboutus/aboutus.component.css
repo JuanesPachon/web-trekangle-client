@@ -5,57 +5,59 @@ main{
   justify-content: center;
   align-items: center;
   margin: 3.2rem auto;
+  margin-top: 4rem;
 }
 
-#boxes{
+.boxes{
   width: 50%;
   height: 600px;
   margin: 1.2em;
   display: flex;
   column-gap: 1rem;
-
 }
 
-#box1{
-  background-image: url(./Img/image.png);
+.imagencarro{
+  width: 100%;
+  aspect-ratio: 16/9;
+  display: none;
+}
+
+.box1{
   width: 25%;
   height: 100%;
   background-size: cover;
 }
 
-#box2{
-  background-image: url(./Img/image.png);
+.box2{
   width: 25%;
   height: 80%;
   background-size: cover;
 }
 
-#box3{
-  background-image: url(./Img/image.png);
+.box3{
   width: 25%;
   height: 60%;
   background-size: cover;
 }
 
-#box4{
-  background-image: url(./Img/image.png);
+.box4{
   width: 25%;
   height: 40%;
   background-size: cover;
 }
 
-#InformacionGeneral{
+.InformacionGeneral{
   display: grid;
   align-items: center;
   justify-content: center;
 }
 
-#InformacionGeneral h1{
+.InformacionGeneral h1{
   padding: 0.5em;
   place-self: center;
 }
 
-#InformacionGeneral p{
+.InformacionGeneral p{
   padding: 0.5em;
   max-width: 40em;
   text-align: center;
@@ -77,9 +79,10 @@ main{
 
 }
 
-.acordeon .material-symbols-outlined{
-  color: #1c1c1c;
-  font-size: 2.5rem;
+.acordeon .triangulo{
+  height: 1rem;
+  width: 1rem;
+  margin: 1rem;
 }
 
 .acordeon h3{
@@ -130,7 +133,21 @@ main{
 @media screen and (max-width:768px){
   #boxes{
     display: none;
-  } 
+  }
+  .imagencarro{
+    display: block;
+  }
+  main{
+    flex-direction: column;
+    margin: inherit 1rem;
+  }
+  .section{
+    order: 2;
+  }
+  .section2{
+    order: 1;
+  }
 } 
+
 
 

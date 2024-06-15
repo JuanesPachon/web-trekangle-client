@@ -4,12 +4,12 @@ import { FooterComponent } from '../../components/footer/footer.component';
 
 
 @Component({
-  selector: 'app-aboutus',
+  selector: 'app-aboutUs',
   standalone: true,
   imports: [HeaderComponent, FooterComponent],
-  templateUrl: './aboutus.component.html',
-  styleUrl: './aboutus.component.css'
+  templateUrl: './aboutUs.component.html',
+  styleUrl: './aboutUs.component.css'
 })
-export class AboutusComponent {
+export class AboutUsComponent {
 
 }
