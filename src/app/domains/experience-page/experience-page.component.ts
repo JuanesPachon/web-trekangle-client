@@ -40,4 +40,15 @@ export class ExperiencePageComponent {
     console.log(experience)
     console.log(this.cartService.experiences());
   }
+
+  //notification logic
+
+  showNotification = signal(false);
+
+  toggleNotification() {
+    this.showNotification.set(true);
+    setTimeout(() => {
+      this.showNotification.set(false);
+    }, 3000);
+  }
 }

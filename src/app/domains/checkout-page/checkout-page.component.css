@@ -224,6 +224,7 @@ input[type="number"]::-webkit-outer-spin-button {
   text-align: center;
   margin-top: 1rem;
   color: white;
+  cursor: pointer;
 }
 
 @media (min-width: 768px) {

@@ -1,17 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
-import { CartExperienceComponent } from '../../components/cart-experience/cart-experience.component';
 import { ReactiveFormsModule, FormControl, Validators, FormGroup } from '@angular/forms';
+import { BookingCardComponent } from '../../components/booking-card/booking-card.component';
+import { CartService } from '../../services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout-page',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, CartExperienceComponent, ReactiveFormsModule],
+  imports: [HeaderComponent, FooterComponent, BookingCardComponent, ReactiveFormsModule],
   templateUrl: './checkout-page.component.html',
   styleUrl: './checkout-page.component.css',
 })
 export class CheckoutPageComponent {
+
+  private cartService = inject(CartService);
+  private Router = inject(Router);
 
   paymentForm = new FormGroup({
     cardNumber: new FormControl('', [Validators.required]),
@@ -34,6 +39,23 @@ export class CheckoutPageComponent {
       }
     });
 
+  }
+
+  cartExperiences = this.cartService.experiences;
+
+  onSubmit(event: Event){
+    if(this.paymentForm.valid && this.cartExperiences().size > 0){
+
+      this.cartService.checkout(this.paymentForm.value).subscribe({
+        next: (response) => {
+          this.Router.navigate([ "/user-settings" ]);
+          
+        },
+        error: (error) => {
+          console.error(error)
+        }
+      })
+    }
   }
     
 

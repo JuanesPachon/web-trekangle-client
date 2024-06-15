@@ -6,18 +6,9 @@
         <h2 class="experience-cart__main-title">Your Experiences:</h2>
         <section class="main__experience-cart">
             
-            <article class="booking__card">
-
-                <img class="booking__icon" src="assets/img/bg-card.jpg" alt="experience icon">
-            
-                <div class="booking-container">
-                    <p class="booking__title">EXPERIENCE 1</p>
-                    <p class="booking__price">$750,000</p>
-                    <p class="booking__place">Melgar, Cololombia</p>
-                    <p class="booking__date"> <span>Date: </span> 10 / 20</p>
-                </div>
-            
-            </article>
+            @for(cartExperience of cartExperiences().values(); track cartExperience._id) {
+                <app-booking-card [booking]="cartExperience" />
+            }
 
         </section>
     </div>
@@ -44,7 +35,7 @@
             <p class="credit-card__name">{{ paymentForm.get('cardHolderName')?.value?.toUpperCase() }}</p>
             <p class="credit-card__date">{{ paymentForm.get('expiryDate')?.value }}</p>
         </div>
-        <form class="payment-form" method="post" ngSubmit="onSubmit()" [formGroup]="paymentForm">
+        <form class="payment-form" method="post" (submit)="onSubmit($event)" [formGroup]="paymentForm">
             <div class="payment-form__field">
                 <label for="card-number" class="payment-form__label">Card Number:</label>
                 <input type="number" id="card-number" name="card-number" class="payment-form__input" required

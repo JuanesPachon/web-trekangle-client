@@ -109,7 +109,7 @@ export class CartService {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + localStorage.getItem('user_token')
     });
-
+    
     const mapToArray = Array.from(this.experiences().values());
 
     const experiencesArray = mapToArray.map((experience: any) => {

@@ -15,7 +15,7 @@
     <p>{{ experience()?.description }}</p>
   </div>
   <div class="button-container">
-    <button class="buy-now">Buy Now</button>
+    <button class="buy-now" (click)="addToCart(experience())">Buy Now</button>
   </div>
   <div class="comments-section">
     <p>COMMENTS</p>
