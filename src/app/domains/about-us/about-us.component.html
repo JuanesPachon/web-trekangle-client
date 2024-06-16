@@ -31,44 +31,44 @@
         </div>
         <div class="info__acordeon-container">
             <div class="info__acordeon">
-                <div class="acordeon__title">
+                <div class="acordeon__title" (click)="toggleAcordeon(0)">
                     <img src="assets/img/arrow-icon.svg" alt="arrow icon" class="arrow-icon">
                     <h3>El grupo</h3>
                 </div>
-                <div class="acordeon__content">
+                <div class="acordeon__content" [ngClass]="acordeonIndex === 0 ? ' show-content ' : ' '  " >
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore temporibus fuga ad illum
                         repudiandae placeat mollitia, optio iste! Consectetur, fugiat! lore</p>
                 </div>
             </div>
 
             <div class="info__acordeon">
-                <div class="acordeon__title">
+                <div class="acordeon__title" (click)="toggleAcordeon(1)">
                     <img src="assets/img/arrow-icon.svg" alt="arrow icon" class="arrow-icon">
                     <h3>Nuestros valores</h3>
                 </div>
-                <div class="acordeon__content">
+                <div class="acordeon__content" [ngClass]="acordeonIndex === 1 ? ' show-content ' : ' '  ">
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore temporibus fuga ad illum
                         repudiandae placeat mollitia, optio iste! Consectetur, fugiat!</p>
                 </div>
             </div>
 
             <div class="info__acordeon">
-                <div class="acordeon__title">
+                <div class="acordeon__title" (click)="toggleAcordeon(2)">
                     <img src="assets/img/arrow-icon.svg" alt="arrow icon" class="arrow-icon">
                     <h3>Misión</h3>
                 </div>
-                <div class="acordeon__content">
+                <div class="acordeon__content" [ngClass]="acordeonIndex === 2 ? ' show-content ' : ' '  ">
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore temporibus fuga ad illum
                         repudiandae placeat mollitia, optio iste! Consectetur, fugiat!</p>
                 </div>
             </div>
 
             <div class="info__acordeon">
-                <div class="acordeon__title">
+                <div class="acordeon__title" (click)="toggleAcordeon(3)">
                     <img src="assets/img/arrow-icon.svg" alt="arrow icon" class="arrow-icon">
                     <h3>Visión</h3>
                 </div>
-                <div class="acordeon__content">
+            <div class="acordeon__content" [ngClass]="acordeonIndex === 3 ? ' show-content ' : ' '  " >
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore temporibus fuga ad illum
                         repudiandae placeat mollitia, optio iste! Consectetur, fugiat!</p>
                 </div>

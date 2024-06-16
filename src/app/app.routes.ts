@@ -7,7 +7,7 @@ import { ExperiencePageComponent } from './domains/experience-page/experience-pa
 import { SignupComponent } from './domains/signup/signup.component';
 import { loginGuard } from './guards/loginGuard';
 import { alreadyLoggedGuard } from './guards/alreadyLoggedGuard';
-import { AboutUsComponent } from './domains/aboutUs/aboutUs.component';
+import { AboutUsComponent } from './domains/about-us/about-us.component';
 
 export const routes: Routes = [
     { path:"", component: HomeComponent},
