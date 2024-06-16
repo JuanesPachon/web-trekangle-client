@@ -3,10 +3,26 @@
 <main class="container">
   <div class="title-bar">{{ experience()?.name }}</div>
   <div class="image-row">
-    <img [src]="'http://localhost:3000/uploads/' + experience()?.images[0]" alt="Main Image" class="main-image" />
-    <img [src]="'http://localhost:3000/uploads/' + experience()?.images[1]" alt="Thumbnail 1" class="thumbnail" />
-    <img [src]="'http://localhost:3000/uploads/' + experience()?.images[2]" alt="Thumbnail 2" class="thumbnail" />
-    <img [src]="'http://localhost:3000/uploads/' + experience()?.images[3]" alt="Thumbnail 3" class="thumbnail" />
+    <img
+      [src]="'http://localhost:3000/uploads/' + experience()?.images[0]"
+      alt="Main Image"
+      class="main-image"
+    />
+    <img
+      [src]="'http://localhost:3000/uploads/' + experience()?.images[1]"
+      alt="Thumbnail 1"
+      class="thumbnail"
+    />
+    <img
+      [src]="'http://localhost:3000/uploads/' + experience()?.images[2]"
+      alt="Thumbnail 2"
+      class="thumbnail"
+    />
+    <img
+      [src]="'http://localhost:3000/uploads/' + experience()?.images[3]"
+      alt="Thumbnail 3"
+      class="thumbnail"
+    />
   </div>
   <div class="description">
     <p>{{ experience()?.name }}</p>
@@ -16,6 +32,9 @@
   </div>
   <div class="button-container">
     <button class="buy-now" (click)="addToCart(experience())">Buy Now</button>
+    <button class="buy-now" (click)="addToCart(experience())">
+      Add to Cart
+    </button>
   </div>
   <div class="comments-section">
     <p>COMMENTS</p>
