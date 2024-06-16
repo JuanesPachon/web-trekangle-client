@@ -7,10 +7,11 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    position: relative;
 }
 .main-image {
-    width: 30%;
-    height: 30%;
+    width: 40%;
+    height: 40%;
     height: auto;
     background-color: #ccc;
     border-radius: 30px;
@@ -21,29 +22,32 @@
     /*height: auto;*/
     background-color: #ccc;
     border-radius: 30px;
+    border: 2px solid rgba(0, 0, 0, 0.13);
 }
 .title-bar { 
-    font-size: 20px;
+    font-size: 30px;
     padding: 20px;
     text-align: center;
     margin-bottom: 20px;
     border: 2px solid rgba(0, 0, 0, 0.1);
     /*background-color: #f0f0f0;*/
     border-radius: 10px;
+    position: absolute;
 }
 .description {
-    font-size: 25px;
+    font-size: 22px;
     margin-top: 50px;
     margin-bottom: 40px;
     border: 2px solid rgba(0, 0, 0, 0.13);
     padding:30px;
-    text-align: center;
     border-radius: 30px;
-    width: 50%;
     margin: 0 auto;
     margin-bottom: 40px;
     display: flex;
     flex-direction: column;
+    row-gap: 1rem;
+    font-family: var(--source3-text-font);
+    font-weight: 600;
 }
 .button-container {
     display: flex;
