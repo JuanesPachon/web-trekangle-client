@@ -64,4 +64,12 @@ export class HeaderComponent {
     this.showCart.update(prevState => !prevState)
   }
 
+  //Mobile menu logic
+
+  showNavbar = signal(false)
+
+  toggleNavbar() {
+    this.showNavbar.update(prevState => !prevState)
+  }
+
 }

@@ -6,7 +6,7 @@
                 alt="Main Logo">
         </div>
         <div class="navbar-buttons__mobile">
-            <img class="navbar-buttons__logo" src="assets\img\Menu.svg" alt="Menu logo">
+            <img class="navbar-buttons__logo" src="assets\img\Menu.svg" alt="Menu logo" (click)="toggleNavbar()">
         </div>
 
         <div class="navbar-buttons__desktop">
@@ -49,6 +49,35 @@
             </div>
         </div>
 
+    </nav>
+
+    <nav class="mobile-navbar" [ngClass]="showNavbar() ? 'mobile-navbar show' : 'mobile-navbar'">
+        <div class="mobile-navbar__header">
+            <img class="mobile-navbar__header-logo" src="assets/img/Logo_completo_BIT_project__horizontal.svg" alt="Main Logo"/>
+        </div>
+        <img src="assets/img/close.svg" class="mobile-navbar__close" (click)="toggleNavbar()" alt="Close Icon"/>
+        <section class="mobile-navbar__links">
+            <div [routerLink]="'/'" class="mobile-navbar__item">
+                <a>Locations</a>
+            </div>
+            <div [routerLink]="'/about-us'" class="mobile-navbar__item">
+                <a>About Us</a>
+            </div>
+            <div [routerLink]="'/login'" *ngIf="!isloggedIn()" class="mobile-navbar__item">
+                <a>Log In</a>
+            </div>
+            <div [routerLink]="'/sign-up'" *ngIf="!isloggedIn()" class="mobile-navbar__item"
+                [ngClass]="!isloggedIn() ? 'mobile-navbar__item--last' : ''">
+                <a>Sign Up</a>
+            </div>
+            <div [routerLink]="'/user-settings'" *ngIf="isloggedIn()" class="mobile-navbar__item">
+                <a>Account</a>
+            </div>
+            <div [routerLink]="'/'" (click)="toggleNavbar()" (click)="logOut()" (click)="toggleNotification()" *ngIf="isloggedIn()" class="mobile-navbar__item"
+                [ngClass]="isloggedIn() ? 'mobile-navbar__item--last' : ''">
+                <a>Sign Out</a>
+            </div>
+        </section>
     </nav>
 
 </header>
