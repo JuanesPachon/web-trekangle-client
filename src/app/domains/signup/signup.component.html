@@ -1,11 +1,11 @@
 <app-header/>
 
-<div class="login-component">
-    <div class="login-component__container">
-        <div class="login-form-wrapper">
-            <main class="login-form-side">
-                <form class="login-form" (ngSubmit)="onSubmit($event)" [formGroup]="registerForm"> 
-                    <div class="login-form-welcome-row">
+<div class="signup-component">
+    <div class="signup-component__container">
+        <div class="signup-form-wrapper">
+            <main class="signup-form-side">
+                <form class="signup-form" (ngSubmit)="onSubmit($event)" [formGroup]="registerForm"> 
+                    <div class="signup-form-welcome-row">
                         <h1>Sign up</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
                     </div>
@@ -34,29 +34,20 @@
                         <label for="password">Password</label>
                         <input id="password" type="password" name="password" placeholder="Your password"
                             title="Minimum 6 characters at least 1 Alphabet and 1 Number"
-                            pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$" required formControlName="password">
-                        <div class="error-message">Minimum 6 characters at least 1 Alphabet and 1 Number</div>
+                            pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{6,16}$" required formControlName="password">
+                        <div class="error-message">Minimum 6 characters, at least 1 lowercase, 1 uppercase, 1 number and 1 special character</div>
                     </div>
 
-                    <!--<div class="text-field">
-                        <label for="confirm-password">Confirm password</label>
-                        <input id="confirm-password" type="confirm-password" name="confirm-password" placeholder="Confirm your password"
-                            title="Password doesn´t match"
-                           required>
-                        <div class="error-message">Minimum 6 characters at least 1 Alphabet and 1 Number</div>
-                    </div>-->
-
-                    <div class="login-form__conditions">
-                        <input type="checkbox" required>
-                        <p>Accept terms y conditions</p>
+                    <div *ngIf="errorMessage" class="error__message">
+                        {{ errorMessage }}
                     </div>
 
-                    <button class="login-form__button" type="submit">
+                    <button class="signup-form__button" type="submit">
                         Sign Up
                     </button>
 
-                    <div class="login-form__actions">
-                        <div class="login-form__row">
+                    <div class="signup-form__actions">
+                        <div class="signup-form__row">
                             <span>Already have an account?</span>
                             <a [routerLink]="'/login'" title="Reset Password">Log In</a>
                         </div>

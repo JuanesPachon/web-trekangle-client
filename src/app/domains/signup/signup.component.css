@@ -1,4 +1,4 @@
-.login-component {
+.signup-component {
     font-family: "Poppins", sans-serif;
     padding: 1rem;
     display: flex;
@@ -11,7 +11,7 @@
     margin-top: 4rem;
   }
   
-  .login-component__container {
+  .signup-component__container {
     width: 100%;
     max-width: 1700px;
     padding: 1rem;
@@ -19,12 +19,12 @@
     place-items: center;
   }
   
-  .login-component *::selection {
+  .signup-component *::selection {
     background: var(--primary-light);
     color: white;
   }
   
-  .login-form-wrapper {
+  .signup-form-wrapper {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     gap: 1rem;
@@ -41,7 +41,7 @@
     border: 6px solid black;
   }
   
-  .login-form-side {
+  .signup-form-side {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,12 +49,16 @@
     border-radius: 40px;
     min-height: 78vh;
   }
-  .login-form-side h1,
-  .login-form-side p{
+  .signup-form-side h1,
+  .signup-form-side p{
     margin: 1rem 0;
     text-align: center;
   }
-  .login-form {
+
+  .signup-form-side h1 {
+    font-size: clamp(1.5rem, 2.5vw, 3rem);
+  }
+  .signup-form {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
@@ -62,12 +66,12 @@
     max-width: 26rem;
   }
   
-  .login-form-welcome-row {
+  .signup-form-welcome-row {
     display: flex;
     flex-direction: column;
   }
   
-  .login-form__button {
+  .signup-form__button {
     background: var(--primary);
     border: 1px solid var(--primary-light);
     color: white;
@@ -83,16 +87,21 @@
     border-radius: 0.5rem;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
+    cursor: pointer;
   }
 
-  .login-form__conditions{
+  .signup-form__button:hover {
+    background: rgba(0, 0, 0, 0.842);
+  }
+
+  .signup-form__conditions{
     display: flex;
     column-gap: 0.5rem;
     margin-bottom: -1.5rem;
   }
 
   
-  .login-form__actions {
+  .signup-form__actions {
     display: flex;
     flex-direction: column;
     color: var(--secondary);
@@ -100,19 +109,24 @@
     margin-top: 0.5rem;
   }
   
-  .login-form__actions a {
+  .signup-form__actions a {
     color: var(--text);
   }
   
-  .login-form__actions a:hover {
+  .signup-form__actions a:hover {
     color: var(--text-gray);
     text-decoration: underline;
   }
   
-  .login-form__row {
+  .signup-form__row {
     display: flex;
     justify-content: center;
     gap: 1rem;
+  }
+
+  .signup-form__row a {
+    text-decoration: underline;
+    cursor: pointer;
   }
   
   .text-field {
@@ -132,6 +146,8 @@
     transition: 0.25s;
     border-radius: 0.5rem;
     text-indent: 1.25rem;
+    border: 1px solid black;
+    line-height: 1.5;
   }
   
   .text-field label {
@@ -154,9 +170,19 @@
     font-size: 0.8rem;
     color: var(--error);
   }
+
+  .error__message {
+    margin-top: 0.25rem;
+    font-size: .8rem;
+    color: white;
+    padding: .7rem;
+    text-align: center;
+    background-color: var(--error);
+    border-radius: 10px;
+  }
   
   .text-field input:focus {
-    border: 1px solid var(--text);
+    border: 2px solid var(--text);
     box-shadow: rgba(99, 99, 99, 0.2) 0px 1px 4px 0px;
   }
   
@@ -175,22 +201,36 @@
   }
   
   @media (max-width: 1024px) {
-    .login-form-wrapper {
+
+    .signup-component__container {
+      margin-top: 5rem;
+    }
+
+    .signup-form-wrapper {
       grid-template-columns: 1fr;
     }
   
-    .login-component__container,
-    .login-component {
+    .signup-component__container,
+    .signup-component {
       margin: 0;
       padding: 0;
     }
+
+    .signup-component {
+      margin-top: 6rem;
+
+    }
   
-    .login-form-side {
+    .signup-form-side {
       padding: 1rem;
       font-size: clamp(.8rem, 2.5vw, 1.2rem);
     }
   
     .info-side {
       display: none;
+    }
+
+    .password-icons {
+      top: 58%;
     }
   }

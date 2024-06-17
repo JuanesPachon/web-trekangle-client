@@ -4,12 +4,13 @@ import { RouterLink, RouterLinkWithHref, Router } from '@angular/router';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { UserService } from '../../services/user.service';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [HeaderComponent,FooterComponent,RouterLinkWithHref, FormsModule, ReactiveFormsModule],
+  imports: [HeaderComponent,FooterComponent,RouterLinkWithHref, FormsModule, ReactiveFormsModule, CommonModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })
@@ -34,6 +35,8 @@ export class SignupComponent {
     
   })
 
+  errorMessage: string = '';
+
   onSubmit(event: Event){
     if(this.registerForm.valid){
 
@@ -42,7 +45,14 @@ export class SignupComponent {
           this.Router.navigate([ "/login" ])
         },
         error: (error) => {
-          console.error(error)
+          if (error.status === 409) {
+            this.errorMessage = 'Email is already in use';
+          } else if (error.status === 400) {
+            this.errorMessage = error.error.errors[0];
+          } else {
+            this.errorMessage = 'An unexpected error occurred. Please try again later.';
+          }
+          console.log(error);
         }
       })
     }

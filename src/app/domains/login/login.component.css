@@ -109,6 +109,11 @@
     justify-content: center;
     gap: 1rem;
   }
+
+  .login-form__row a {
+    text-decoration: underline;
+    cursor: pointer;
+  }
   
   .text-field {
     display: flex;
@@ -124,9 +129,11 @@
     letter-spacing: 0.03rem;
     outline: none;
     background: var(--input-bg);
-    transition: 0.25s;
+    transition: 0.25s ease;
     border-radius: 0.5rem;
     text-indent: 1.25rem;
+    line-height: 1.5;
+    border: 1px solid black;
   }
   
   .text-field label {
@@ -142,6 +149,16 @@
   .error-message {
     display: none;
   }
+
+  .error__message {
+    margin-top: 0.25rem;
+    font-size: .8rem;
+    color: white;
+    padding: .7rem;
+    text-align: center;
+    background-color: var(--error);
+    border-radius: 10px;
+  }
   
   .text-field input:user-invalid ~ .error-message {
     display: block;
@@ -151,7 +168,7 @@
   }
   
   .text-field input:focus {
-    border: 1px solid var(--text);
+    border: 2px solid var(--text);
     box-shadow: rgba(99, 99, 99, 0.2) 0px 1px 4px 0px;
   }
   

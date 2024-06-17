@@ -6,11 +6,12 @@ import { FormsModule, ReactiveFormsModule, Validators, FormGroup, FormControl } 
 import { UserService } from '../../services/user.service';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [HeaderComponent,FooterComponent,RouterLinkWithHref, ReactiveFormsModule, FormsModule],
+  imports: [HeaderComponent,FooterComponent,RouterLinkWithHref, ReactiveFormsModule, FormsModule, CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -27,6 +28,8 @@ export class LoginComponent {
 
   })
 
+  errorMessage: string = '';
+
   onSubmit(event: Event) {
 
     if(this.userForm.valid) {
@@ -38,7 +41,11 @@ export class LoginComponent {
           this.Router.navigate([ "" ])
         },
         error: (error) => {
-          console.log(error);
+          if (error.status === 403) {
+            this.errorMessage = 'Invalid email or password';
+          } else {
+            this.errorMessage = 'An Server error occurred. Please try again later.';
+          }
         }
 
       })
