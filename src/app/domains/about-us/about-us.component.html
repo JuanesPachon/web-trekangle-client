@@ -25,30 +25,36 @@
     <section class="main__info">
         <div class="info-container">
             <h1 class="info-container__title">About Us</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse fugiat voluptas sed, sunt consequuntur
-                facilis iure in labore nesciunt minus doloremque molestiae dignissimos reprehenderit, accusantium
-                deserunt minima tempora. Corrupti, eaque. </p>
+            <p>
+                Immerse yourself in a world of emotions and adventures with our company,
+                 where each experience becomes an unforgettable memory. From romantic getaways 
+                 in exotic locations to thrilling outdoor adventures, we're here to make your
+                  dreams come true and fill your life with unforgettable moments. Join us and 
+                  experience the adventure of a lifetime!</p>
         </div>
         <div class="info__acordeon-container">
             <div class="info__acordeon">
                 <div class="acordeon__title" (click)="toggleAcordeon(0)">
                     <img src="assets/img/arrow-icon.svg" alt="arrow icon" class="arrow-icon">
-                    <h3>El grupo</h3>
+                    <h3>The team</h3>
                 </div>
                 <div class="acordeon__content" [ngClass]="acordeonIndex === 0 ? ' show-content ' : ' '  " >
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore temporibus fuga ad illum
-                        repudiandae placeat mollitia, optio iste! Consectetur, fugiat! lore</p>
+                    <p>Trekangle offers special activities, ranging from outdoor adventures to wine tastings.
+                         They make it easy to book and gift memorable experiences through their online platform, 
+                         collaborating with local providers to ensure quality and authenticity.</p>
                 </div>
             </div>
 
             <div class="info__acordeon">
                 <div class="acordeon__title" (click)="toggleAcordeon(1)">
                     <img src="assets/img/arrow-icon.svg" alt="arrow icon" class="arrow-icon">
-                    <h3>Nuestros valores</h3>
+                    <h3>Our values</h3>
                 </div>
                 <div class="acordeon__content" [ngClass]="acordeonIndex === 1 ? ' show-content ' : ' '  ">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore temporibus fuga ad illum
-                        repudiandae placeat mollitia, optio iste! Consectetur, fugiat!</p>
+                    <p>Rekangle values creating memorable, high-quality, and authentic experiences. They focus on personalization 
+                        and collaborate with local providers to support community and sustainability. 
+                        Transparency, customer satisfaction, and innovation are central to their mission of bringing joy and connection
+                        through exceptional activities.</p>
                 </div>
             </div>
 
@@ -58,8 +64,10 @@
                     <h3>Misión</h3>
                 </div>
                 <div class="acordeon__content" [ngClass]="acordeonIndex === 2 ? ' show-content ' : ' '  ">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore temporibus fuga ad illum
-                        repudiandae placeat mollitia, optio iste! Consectetur, fugiat!</p>
+                    <p>At Trekangle, we create unique and meaningful experiences that enrich our customers' lives. 
+                        We are committed to offering authentic, high-quality activities, collaborating with local suppliers
+                         to promote sustainability and support our communities. Our goal is to inspire memorable moments and
+                          deep connections, guided by transparency, customer satisfaction, and continuous innovation.</p>
                 </div>
             </div>
 
@@ -69,8 +77,11 @@
                     <h3>Visión</h3>
                 </div>
             <div class="acordeon__content" [ngClass]="acordeonIndex === 3 ? ' show-content ' : ' '  " >
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore temporibus fuga ad illum
-                        repudiandae placeat mollitia, optio iste! Consectetur, fugiat!</p>
+                    <p>Our vision at Trekangle is to become a leading provider of transformative experiences globally.
+                        We aspire to continuously innovate and expand our offerings, ensuring every customer encounter
+                        leaves a lasting positive impact. By fostering a culture of creativity, excellence, and community
+                        engagement, we aim to be recognized for our commitment to delivering unparalleled adventures that inspire
+                         and connect people worldwide.</p>
                 </div>
             </div>
         </div>
