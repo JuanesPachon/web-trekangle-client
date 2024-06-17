@@ -1,9 +1,10 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { BookingCardComponent } from '../../components/booking-card/booking-card.component';
 import { CartExperienceComponent } from '../../components/cart-experience/cart-experience.component';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-user-settings',
@@ -13,6 +14,8 @@ import { CartExperienceComponent } from '../../components/cart-experience/cart-e
   styleUrl: './user-settings.component.css',
 })
 export class UserSettingsComponent {
+
+  private notificationService = inject(NotificationService);
 
 
   // Edit Section
@@ -68,5 +71,9 @@ export class UserSettingsComponent {
   ngOnInit() {
     this.onResize({ target: window });
   }
+
+  //notification logic
+
+  activeNotification = this.notificationService.showBookingNotification;
   
 }

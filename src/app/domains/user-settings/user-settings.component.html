@@ -182,7 +182,7 @@
                     <article class="user-settings__card user-settings__card--edit">
                         <div class="card__info card__info--edit">
                             <p class="info__title info__title--edit">Password:</p>
-                            <input type="text" class="info__value info__value--edit">
+                            <input type="password" class="info__value info__value--edit">
                         </div>
                         <div class="card__right-container card__right-container--edit">
                             <button class="right-container__button right-container__button--edit" (click)="toggleEditPassword()">cancel</button>
@@ -196,6 +196,16 @@
 
     </div>
 
+
+    <!-- Notification -->
+
+    <div class="notification" *ngIf="activeNotification()">
+        <div class="notification__body">
+            <img src="assets/img/check-circle.svg" alt="Success" class="notification__icon">
+            <p>Your booking has been successfully created!</p>
+        </div>
+        <div class="notification__progress"></div>
+    </div>
 
 </main>
 

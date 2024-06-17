@@ -7,10 +7,14 @@
         <section class="main__experience-cart">
             
             @for(cartExperience of cartExperiences().values(); track cartExperience._id) {
-                <app-booking-card [booking]="cartExperience" />
+                <app-cart-experience [experience]="cartExperience"></app-cart-experience>
             }
 
         </section>
+        <div class="total-info">
+            <p>Total:</p>
+            <p>{{ cartTotal() | currency }}</p>
+        </div>
     </div>
 
     <section class="main__payment-info">
