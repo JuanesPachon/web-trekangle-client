@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { RouterLinkWithHref } from '@angular/router';
 import { FooterComponent } from '../../components/footer/footer.component';
@@ -52,6 +52,14 @@ export class LoginComponent {
 
     }
 
+  }
+
+  //show password
+
+  viewPassword = signal(false);
+
+  togglePassword() {
+    this.viewPassword.update(value => !value);
   }
 
 }

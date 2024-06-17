@@ -157,7 +157,7 @@
   .text-field input:user-invalid {
     background: var(--input-bg);
     color: var(--error);
-    border: 4px solid var(--error);
+    border: 3px solid var(--error);
   }
   
   .error-message {
@@ -198,6 +198,22 @@
     background-size: cover;
     background-position: cover;
     height: 100%;
+  }
+
+  .password-field {
+    position: relative;
+  }
+
+  .password__icons {
+    position: absolute;
+    top: 50px;
+    right: 3%;
+    width: 1.55rem;
+  }
+ 
+  .show-password {
+    width: 1.6rem;
+    top: 49px;
   }
   
   @media (max-width: 1024px) {

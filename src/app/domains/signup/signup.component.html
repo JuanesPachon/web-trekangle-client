@@ -30,11 +30,13 @@
                         <div class="error-message">Email in incorrect format</div>
                     </div>
 
-                    <div class="text-field">
+                    <div class="text-field password-field">
                         <label for="password">Password</label>
-                        <input id="password" type="password" name="password" placeholder="Your password"
+                        <input id="password" [type]="viewPassword() ? 'text' : 'password'" name="password" placeholder="Your password"
                             title="Minimum 6 characters at least 1 Alphabet and 1 Number"
                             pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{6,16}$" required formControlName="password">
+                        <img class="password__icons show-password" (click)="togglePassword()" *ngIf="viewPassword()" src="assets/img/show-password.svg" alt="show password icon">
+                        <img class="password__icons" (click)="togglePassword()" *ngIf="!viewPassword()" src="assets/img/hide-password.svg" alt="hide password icon">
                         <div class="error-message">Minimum 6 characters, at least 1 lowercase, 1 uppercase, 1 number and 1 special character</div>
                     </div>
 

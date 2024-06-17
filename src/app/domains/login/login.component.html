@@ -17,10 +17,12 @@
             <div class="error-message">Email in incorrect format</div>
           </div>
 
-          <div class="text-field">
+          <div class="text-field password-field">
             <label for="password">Password</label>
-            <input id="password" type="password" name="password" placeholder="Your password"
+            <input id="password" [type]="viewPassword() ? 'text' : 'password'" name="password" placeholder="Your password"
               required formControlName="password" />
+            <img class="password__icons show-password" (click)="togglePassword()" *ngIf="viewPassword()" src="assets/img/show-password.svg" alt="show password icon">
+            <img class="password__icons" (click)="togglePassword()" *ngIf="!viewPassword()" src="assets/img/hide-password.svg" alt="hide password icon">
           </div>
 
           <div *ngIf="errorMessage" class="error__message">

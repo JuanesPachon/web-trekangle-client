@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
-import { RouterLink, RouterLinkWithHref, Router } from '@angular/router';
+import { RouterLinkWithHref, Router } from '@angular/router';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { UserService } from '../../services/user.service';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -56,5 +56,13 @@ export class SignupComponent {
         }
       })
     }
+  }
+
+  //show password
+
+  viewPassword = signal(false);
+
+  togglePassword() {
+    this.viewPassword.update(value => !value);
   }
 }

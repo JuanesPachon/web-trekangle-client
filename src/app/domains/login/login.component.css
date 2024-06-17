@@ -185,6 +185,21 @@
     background-position: cover;
     height: 100%;
   }
+
+  .password-field {
+    position: relative;
+  }
+
+  .password__icons {
+    position: absolute;
+    top: 52%;
+    right: 3%;
+    width: 1.55rem;
+  }
+ 
+  .show-password {
+    width: 1.6rem;
+  }
   
   @media (max-width: 1024px) {
     .login-form-wrapper {
