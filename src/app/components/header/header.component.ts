@@ -5,6 +5,7 @@ import { AuthService } from '../../services/auth.service';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { CartService } from '../../services/cart.service';
 import { CartExperienceComponent } from '../cart-experience/cart-experience.component';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-header',
@@ -19,6 +20,7 @@ export class HeaderComponent {
   private authService = inject(AuthService);
   private elementRef = inject(ElementRef);
   private cartService = inject(CartService);
+  private notificationService = inject(NotificationService);
 
   isloggedIn() {
     return this.userService.isLoggedIn();
@@ -47,13 +49,8 @@ export class HeaderComponent {
 
   //Notification logic
 
-  showNotification = signal(false);
-
   toggleNotification() {
-    this.showNotification.set(true);
-    setTimeout(() => {
-      this.showNotification.set(false);
-    }, 3000);
+    this.notificationService.toggleLogOutNotification();
   }
 
   //Cart logic

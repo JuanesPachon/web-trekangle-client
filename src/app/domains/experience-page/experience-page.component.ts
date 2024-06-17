@@ -37,8 +37,6 @@ export class ExperiencePageComponent {
 
   addToCart(experience: any) {
     this.cartService.addToCart(experience);
-    console.log(experience)
-    console.log(this.cartService.experiences());
   }
 
   //notification logic

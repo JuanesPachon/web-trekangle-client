@@ -6,11 +6,13 @@ import { MobileTopExperienceComponent } from '../../components/mobile-top-experi
 import { RouterLinkWithHref } from '@angular/router';
 import { ExperienceService } from '../../services/experience.service';
 import { FormsModule } from '@angular/forms';
+import { NotificationService } from '../../services/notification.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, ExperienceComponent, MobileTopExperienceComponent,RouterLinkWithHref, FormsModule],
+  imports: [HeaderComponent, FooterComponent, ExperienceComponent, MobileTopExperienceComponent,RouterLinkWithHref, FormsModule, CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -18,6 +20,7 @@ export class HomeComponent {
 
   //Get the data from the API
 
+  private notificationService = inject(NotificationService);
   private experienceService = inject(ExperienceService);
 
   experiences = signal<any>([]);
@@ -53,5 +56,9 @@ export class HomeComponent {
       progressBar.style.width = progress + '%';
     }
   }
+
+ //Notification logic
+
+ activeNotification = this.notificationService.showLogOutNotification;
 
 }
