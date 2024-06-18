@@ -37,12 +37,13 @@
 
 .footer__link {
   color: #fff;
-  text-decoration: none;
+  text-decoration: underline;
   cursor: pointer;
 }
 
 .footer__link--github {
   width: 20%;
+  min-width: 1.7rem;
 }
 
 .footer__link--github:hover {

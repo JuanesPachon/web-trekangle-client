@@ -38,42 +38,91 @@
 
     <h2 class="main__top-products-title">Top experiences of the week!</h2>
 
+    <section class="main__top-experiences">
+        <div class="top-experiences__container">
+            <div class="top-experiences__card" [routerLink]="'/experience' + experiences()[4]._id">
+                <img class="top-experiences__background"
+                    [src]=" 'http://localhost:3000/uploads/' + experiences()[4].images[1]">
+                <div class="top-experiences__card-content">
+                    <div class="top-experiences__profile-image">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="white"
+                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-info">
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12" y2="8"></line>
+                        </svg>
+                    </div>
+
+                    <h3 class="top-experiences__title">{{ experiences()[4].name }}</h3>
+                </div>
+                <div class="top-experiences__backdrop"></div>
+            </div>
+            <div class="top-experiences__card" [routerLink]="['/experience', experiences()[0]._id]">
+                <img class="top-experiences__background"
+                    [src]=" 'http://localhost:3000/uploads/' + experiences()[0].images[3]">
+                <div class="top-experiences__card-content">
+                    <div class="top-experiences__profile-image">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="white"
+                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-info">
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12" y2="8"></line>
+                        </svg>
+                    </div>
+
+                    <h3 class="top-experiences__title">{{ experiences()[0].name }}</h3>
+                </div>
+                <div class="top-experiences__backdrop"></div>
+            </div>
+            <div class="top-experiences__card" [routerLink]="['/experience', experiences()[2]._id]">
+                <img class="top-experiences__background"
+                    [src]=" 'http://localhost:3000/uploads/' + experiences()[2].images[1]">
+                <div class="top-experiences__card-content">
+                    <div class="top-experiences__profile-image">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="white"
+                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-info">
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12" y2="8"></line>
+                        </svg>
+                    </div>
+
+                    <h3 class="top-experiences__title">{{ experiences()[2].name }}</h3>
+                </div>
+                <div class="top-experiences__backdrop"></div>
+            </div>
+            <div class="top-experiences__card" [routerLink]="['/experience', experiences()[1]._id]">
+                <img class="top-experiences__background"
+                    [src]=" 'http://localhost:3000/uploads/' + experiences()[1].images[0]">
+                <div class="top-experiences__card-content">
+                    <div class="top-experiences__profile-image">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="white"
+                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-info">
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12" y2="8"></line>
+                        </svg>
+                    </div>
+
+                    <h3 class="top-experiences__title">{{ experiences()[1].name }}</h3>
+                </div>
+                <div class="top-experiences__backdrop"></div>
+            </div>
+        </div>
+    </section>
+
     <!-- Mobile Carousel -->
 
     <section class="mobile-experiences__list">
 
-        <app-mobile-top-experience />
+        <app-mobile-top-experience [routerLink]="['/experience', experiences()[0]._id]" [title]="experiences()[0].name"
+            [price]="experiences()[0].price" [description]="experiences()[0].description"
+            [image]="experiences()[0].images[0]" [place]="experiences()[0].place" />
+        <app-mobile-top-experience [routerLink]="['/experience', experiences()[4]._id]" [title]="experiences()[4].name"
+            [price]="experiences()[4].price" [description]="experiences()[4].description"
+            [image]="experiences()[4].images[0]" [place]="experiences()[4].place" />
 
-    </section>
 
-    <!-- Desktop Carousel -->
-
-    <section class="top-experiences">
-        <div class="top-experiences__container">
-            <input type="radio" name="slider" id="item-1" checked>
-            <input type="radio" name="slider" id="item-2">
-            <input type="radio" name="slider" id="item-3">
-            <div class="top-experiences__cards">
-                <label class="top-experiences__card" for="item-1" id="experience-1">
-                    <img class="top-experiences__card__image"
-                        src="https://images.unsplash.com/photo-1530651788726-1dbf58eeef1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80"
-                        alt="experience">
-                    <div class="image-info">Experience info</div>
-                </label>
-                <label class="top-experiences__card" for="item-2" id="experience-2">
-                    <img class="top-experiences__card__image"
-                        src="https://images.unsplash.com/photo-1559386484-97dfc0e15539?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80"
-                        alt="experience">
-                    <div class="image-info">Experience info</div>
-                </label>
-                <label class="top-experiences__card" for="item-3" id="experience-3">
-                    <img class="top-experiences__card__image"
-                        src="https://images.unsplash.com/photo-1533461502717-83546f485d24?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
-                        alt="experience">
-                    <div class="image-info">Experience info</div>
-                </label>
-            </div>
-        </div>
     </section>
 
     <!-- Experiences Section  -->
@@ -85,14 +134,42 @@
         @for(experience of experiences(); track experience._id){
 
         <a [routerLink]="['/experience', experience._id]">
-            <app-experience [title]="experience.name" [price]="experience.price" 
-                [description]="experience.description"[image]="experience.images[0]" 
-                [place]="experience.place">
+            <app-experience [title]="experience.name" [price]="experience.price" [description]="experience.description"
+                [image]="experience.images[0]" [place]="experience.place">
             </app-experience>
         </a>
 
         }
 
+    </section>
+
+    <button [routerLink]="'/'" class="experiences__button">Check out all Experiences</button>
+
+    <h2 class="main__top-products-title gallery-title">Check our gallery!</h2>
+
+    <section class="main__gallery">
+        <div class="main__gallery__container">
+            <input type="radio" name="slider" id="item-1" checked>
+            <input type="radio" name="slider" id="item-2">
+            <input type="radio" name="slider" id="item-3">
+            <div class="main__gallery__cards">
+                <label class="main__gallery__card" for="item-1" id="experience-1">
+                    <img class="main__gallery__card__image"
+                        [src]=" 'http://localhost:3000/uploads/' + experiences()[0].images[2]" alt="experience">
+                    <div class="image-info">{{ experiences()[0].name }}</div>
+                </label>
+                <label class="main__gallery__card" for="item-2" id="experience-2">
+                    <img class="main__gallery__card__image"
+                        [src]=" 'http://localhost:3000/uploads/' + experiences()[1].images[3]" alt="experience">
+                    <div class="image-info">{{ experiences()[1].name }}</div>
+                </label>
+                <label class="main__gallery__card" for="item-3" id="experience-3">
+                    <img class="main__gallery__card__image"
+                        [src]=" 'http://localhost:3000/uploads/' + experiences()[2].images[2]" alt="experience">
+                    <div class="image-info">{{ experiences()[2].name }}</div>
+                </label>
+            </div>
+        </div>
     </section>
 
     <div class="notification" *ngIf="activeNotification()">

@@ -3,7 +3,7 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  border: solid 1px black;
+  border: solid 2px black;
   cursor: pointer;
   font-family: var(--mochiy-title-font);
 }
@@ -38,6 +38,7 @@
 .experience__card__title {
   font-size: 1rem;
   color: #000000;
+
 }
 
 .experience__card__price {

@@ -12,12 +12,19 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, ExperienceComponent, MobileTopExperienceComponent,RouterLinkWithHref, FormsModule, CommonModule],
+  imports: [
+    HeaderComponent,
+    FooterComponent,
+    ExperienceComponent,
+    MobileTopExperienceComponent,
+    RouterLinkWithHref,
+    FormsModule,
+    CommonModule,
+  ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
 export class HomeComponent {
-
   //Get the data from the API
 
   private notificationService = inject(NotificationService);
@@ -32,10 +39,9 @@ export class HomeComponent {
       },
       error: (error) => {
         console.log(error);
-      }
-    })
+      },
+    });
   }
-
 
   //Js Logic of the Html
 
@@ -51,14 +57,25 @@ export class HomeComponent {
     let progressBar = document.getElementById('progress__bar');
     if (progressBar) {
       let scrollTop = window.scrollY || document.documentElement.scrollTop;
-      let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      let scrollHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
       let progress = (scrollTop / scrollHeight) * 100;
       progressBar.style.width = progress + '%';
     }
+  };
+
+  //Notification logic
+
+  activeNotification = this.notificationService.showLogOutNotification;
+
+  isHovered: boolean = false;
+
+  onMouseEnter() {
+    this.isHovered = true;
   }
 
- //Notification logic
-
- activeNotification = this.notificationService.showLogOutNotification;
-
+  onMouseLeave() {
+    this.isHovered = false;
+  }
 }
