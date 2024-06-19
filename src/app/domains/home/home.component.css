@@ -28,35 +28,12 @@
   border-bottom: solid 3px black;
 }
 
-/* Search-Bar Section  ===========================================================================================================*/
-
-.search-bar-container {
-  display: flex;
-  justify-content: center;
-  margin: 1.5rem auto;
-  border-radius: 20px;
-  border: solid 3px black;
-  max-width: 80%;
-  padding: 0.4rem;
-  background-color: white;
-}
-
-.search-bar-container__input {
-  width: 90%;
-  padding: 0 0.8rem;
-}
-
-.search-bar-container__search {
-  width: 10%;
-  cursor: pointer;
-}
-
 /* Main Section ============================================================================================================== */
 
 .main {
   max-width: 1700px;
   margin: 0 auto;
-  margin-top: 5rem;
+  margin-top: 6rem;
   display: flex;
   flex-direction: column;
 }
@@ -270,13 +247,14 @@
     top: 0;
     left: 0;
     bottom: 0;
-    width: 50px;
+    width: 100px;
     background: linear-gradient(to left, rgba(255, 255, 255, 0), #feeceb);
     mask-image: linear-gradient(to left, black, #feeceb);
   }
 
   .main-area__image--mobile {
     display: block;
+    max-height: 30rem;
   }
 
   /* Carousel top experiences ========================== */
@@ -408,7 +386,7 @@
 
   .top-experiences__container {
     width: 100%;
-    width: 1500px;
+    width: 1300px;
     height: 20rem;
     display: flex;
     gap: 10px;
@@ -433,7 +411,7 @@
   }
 
   .top-experiences__card:hover {
-    flex-grow: 2.65;
+    flex-grow: 2.7;
   }
 
   .top-experiences__card > .top-experiences__background {

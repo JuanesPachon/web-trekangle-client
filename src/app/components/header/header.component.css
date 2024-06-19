@@ -70,6 +70,23 @@
   .left__links {
     margin-right: 1.5rem;
     cursor: pointer;
+    position: relative;
+  }
+
+  .left__links::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 3px; 
+    background-color: var(--white-bg);
+    transition: width 0.3s ease; 
+    border-radius: 10px;
+  }
+  
+  .left__links:hover::after {
+    width: 100%;
   }
 
   .navbar-buttons__right {

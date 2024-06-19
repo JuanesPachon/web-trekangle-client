@@ -6,11 +6,6 @@
 
 <main class="main">
 
-    <div class="search-bar-container">
-        <input type="text" class="search-bar-container__input" placeholder="Search...">
-        <img class="search-bar-container__search" src="assets/img/Search.svg" alt="Search icon">
-    </div>
-
     <section class="main-area">
         <div class="main-area__text">
             <h1 class="main-area__title">Explore new journeys,<br>make memories,<br><span
@@ -25,12 +20,12 @@
             <picture>
                 <!-- Imagen para pantallas de 1024px en adelante -->
                 <source
-                    srcset="https://images.unsplash.com/photo-1491494328967-495416eb06ec?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fGF2ZW50dXJhfGVufDB8MXwwfHx8MA%3D%3D"
+                    srcset="https://images.pexels.com/photos/1360255/pexels-photo-1360255.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                     media="(min-width: 1024px)">
 
                 <!-- Imagen para pantallas de 0px a 767px -->
                 <img class="main-area__image--mobile"
-                    src="https://images.unsplash.com/photo-1491494328967-495416eb06ec?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fGF2ZW50dXJhfGVufDB8MXwwfHx8MA%3D%3D"
+                    src="https://images.pexels.com/photos/1360255/pexels-photo-1360255.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                     alt="Road Image">
             </picture>
         </div>
@@ -40,23 +35,6 @@
 
     <section class="main__top-experiences">
         <div class="top-experiences__container">
-            <div class="top-experiences__card" [routerLink]="'/experience' + experiences()[4]._id">
-                <img class="top-experiences__background"
-                    [src]=" 'http://localhost:3000/uploads/' + experiences()[4].images[1]">
-                <div class="top-experiences__card-content">
-                    <div class="top-experiences__profile-image">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="white"
-                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="feather feather-info">
-                            <line x1="12" y1="16" x2="12" y2="12"></line>
-                            <line x1="12" y1="8" x2="12" y2="8"></line>
-                        </svg>
-                    </div>
-
-                    <h3 class="top-experiences__title">{{ experiences()[4].name }}</h3>
-                </div>
-                <div class="top-experiences__backdrop"></div>
-            </div>
             <div class="top-experiences__card" [routerLink]="['/experience', experiences()[0]._id]">
                 <img class="top-experiences__background"
                     [src]=" 'http://localhost:3000/uploads/' + experiences()[0].images[3]">

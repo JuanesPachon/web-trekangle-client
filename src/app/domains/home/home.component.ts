@@ -5,7 +5,7 @@ import { ExperienceComponent } from '../../components/experience/experience.comp
 import { MobileTopExperienceComponent } from '../../components/mobile-top-experience/mobile-top-experience.component';
 import { RouterLinkWithHref } from '@angular/router';
 import { ExperienceService } from '../../services/experience.service';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NotificationService } from '../../services/notification.service';
 import { CommonModule } from '@angular/common';
 
@@ -18,13 +18,14 @@ import { CommonModule } from '@angular/common';
     ExperienceComponent,
     MobileTopExperienceComponent,
     RouterLinkWithHref,
-    FormsModule,
     CommonModule,
+    ReactiveFormsModule,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
+  
   //Get the data from the API
 
   private notificationService = inject(NotificationService);
@@ -33,7 +34,7 @@ export class HomeComponent {
   experiences = signal<any>([]);
 
   ngOnInit() {
-    this.experienceService.listExperiences(1).subscribe({
+    this.experienceService.listExperiences(1, 6).subscribe({
       next: (experiencesData) => {
         this.experiences.set(experiencesData.experiences);
       },
@@ -78,4 +79,5 @@ export class HomeComponent {
   onMouseLeave() {
     this.isHovered = false;
   }
+
 }

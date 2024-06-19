@@ -1,0 +1,45 @@
+<app-header />
+
+<main class="main">
+
+    <form class="search-bar-container">
+        <input type="text" name="searchQuery" class="search-bar-container__input" placeholder="Search...">
+        <button class="search-bar-container__search__button" type="submit">
+            <img class="search-bar-container__search" src="assets/img/Search.svg" alt="Search icon">
+        </button>
+    </form>
+
+    <section class="main-area">
+        <div class="locations__container">
+            <section class="locations-list">
+
+                @for (experience of experiences(); track experiences()._id) {
+                    <a [routerLink]="['/experience', experience._id]">
+                        <article class="booking__card">
+
+                            <img class="booking__icon" [src]=" 'http://localhost:3000/uploads/' + experience.images[0]" alt="experience icon">
+                        
+                            <div class="booking-container">
+                                <p class="booking__title">{{ experience.name }}</p>
+                                <p class="booking__price">${{ experience.price }}</p>
+                                <p class="booking__place">{{ experience.place }}</p>
+                                <p class="booking__date"> <span>Rate: </span> 5.0</p>
+                            </div>
+                        
+                        </article>
+                    </a>
+                }
+                
+            </section>
+        </div>
+
+        <section class="map-container">
+            <iframe class="map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4072907.058030722!2d-75.30399081416327!3d4.512929696921517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e15a43aae1594a3%3A0x9a0d9a04eff2a340!2sColombia!5e0!3m2!1ses-419!2sco!4v1718754580431!5m2!1ses-419!2sco"
+                allowfullscreen="" zoom="2" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+    </section>
+
+</main>
+
+<app-footer />

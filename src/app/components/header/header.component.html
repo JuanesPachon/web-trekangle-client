@@ -11,7 +11,7 @@
 
         <div class="navbar-buttons__desktop">
             <div class="navbar-buttons__left" [ngClass]="isloggedIn() ? 'add-lines' : ''">
-                <a class="left__links" >Locations</a>
+                <a class="left__links" [routerLink]="'/locations'">Locations</a>
                 <a class="left__links" [routerLink]="'/about-us'">About Us</a>
             </div>
 
@@ -57,7 +57,7 @@
         </div>
         <img src="assets/img/close.svg" class="mobile-navbar__close" (click)="toggleNavbar()" alt="Close Icon"/>
         <section class="mobile-navbar__links">
-            <div [routerLink]="'/'" class="mobile-navbar__item">
+            <div [routerLink]="'/locations'" class="mobile-navbar__item">
                 <a>Locations</a>
             </div>
             <div [routerLink]="'/about-us'" class="mobile-navbar__item">

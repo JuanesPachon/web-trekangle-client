@@ -8,6 +8,7 @@ import { SignupComponent } from './domains/signup/signup.component';
 import { loginGuard } from './guards/loginGuard';
 import { alreadyLoggedGuard } from './guards/alreadyLoggedGuard';
 import { AboutUsComponent } from './domains/about-us/about-us.component';
+import { LocationsComponent } from './domains/locations/locations.component';
 
 export const routes: Routes = [
     { path:"", component: HomeComponent},
@@ -17,4 +18,5 @@ export const routes: Routes = [
     { path:"checkout", component: CheckoutPageComponent, canActivate: [loginGuard]},
     { path:"user-settings", component: UserSettingsComponent, canActivate: [loginGuard]},
     { path:"about-us", component: AboutUsComponent},
+    { path:"locations", component: LocationsComponent},
 ];
