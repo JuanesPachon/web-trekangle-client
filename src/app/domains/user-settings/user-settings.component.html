@@ -41,17 +41,19 @@
         }
 
         @if(userSettings()) {
-            <section class="user-settings">
+            <form class="user-settings" [formGroup]="userSettingsForm" (ngSubmit)="onSubmit($event)">
 
                 <article class="user-settings__profile-image">
-    
+                    
+                    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
                     <div class="profile-image__container">
                         <div class="profile-image__circle">
                             <span></span>
                         </div>
                     </div>
-                    <p class="info__name">Pepito Perez</p>
-                    <p class="info__email">pepito_pepito.com</p>
+                    <p class="info__name">{{ user().name }}</p>
+                    <p class="info__email">{{ user().email }}</p>
     
     
                 </article>
@@ -87,7 +89,7 @@
     
                         <div class="card__info">
                             <p class="info__title">Name:</p>
-                            <p class="info__value">pepito</p>
+                            <p class="info__value">{{ user().name }}</p>
                         </div>
                         <div class="card__right-container">
                             <a class="right-container__button" (click)="toggleEditName()">Edit</a>
@@ -100,11 +102,11 @@
                     <article class="user-settings__card user-settings__card--edit">
                         <div class="card__info card__info--edit">
                             <p class="info__title info__title--edit">Name:</p>
-                            <input type="text" class="info__value info__value--edit">
-                        </div>
+                            <input formControlName="name" type="text" class="info__value info__value--edit">
+                        </div> 
                         <div class="card__right-container card__right-container--edit">
                             <button class="right-container__button right-container__button--edit" (click)="toggleEditName()">cancel</button>
-                            <button class="right-container__button right-container__button--edit" (click)="toggleEditName()">save</button>
+                            <button type="submit" class="right-container__button right-container__button--edit">save</button>
                         </div>
                     </article>
                 }
@@ -114,7 +116,7 @@
     
                         <div class="card__info">
                             <p class="info__title">Username:</p>
-                            <p class="info__value">pepito12</p>
+                            <p class="info__value">{{ user().userName }}</p>
                         </div>
                         <div class="card__right-container">
                             <p class="right-container__button" (click)="toggleEditUserName()">Edit</p>
@@ -127,11 +129,11 @@
                     <article class="user-settings__card user-settings__card--edit">
                         <div class="card__info card__info--edit">
                             <p class="info__title info__title--edit">Username:</p>
-                            <input type="text" class="info__value info__value--edit">
+                            <input formControlName="userName" type="text" class="info__value info__value--edit">
                         </div>
                         <div class="card__right-container card__right-container--edit">
                             <button class="right-container__button right-container__button--edit" (click)="toggleEditUserName()">cancel</button>
-                            <button class="right-container__button right-container__button--edit" (click)="toggleEditUserName()">save</button>
+                            <button type="submit" class="right-container__button right-container__button--edit">save</button>
                         </div>
                     </article>
                 }
@@ -141,7 +143,7 @@
     
                         <div class="card__info">
                             <p class="card__title">Email:</p>
-                            <p class="info__value">Pepito&#64;pepito.com</p>
+                            <p class="info__value">{{ user().email }}</p>
                         </div>
                         <div class="card__right-container">
                             <p class="right-container__button" (click)="toggleEditEmail()">Edit</p>
@@ -155,11 +157,11 @@
                     <article class="user-settings__card user-settings__card--edit">
                         <div class="card__info card__info--edit">
                             <p class="info__title info__title--edit">Email:</p>
-                            <input type="text" class="info__value info__value--edit">
+                            <input formControlName="email" type="text" class="info__value info__value--edit">
                         </div>
                         <div class="card__right-container card__right-container--edit">
                             <button class="right-container__button right-container__button--edit" (click)="toggleEditEmail()">cancel</button>
-                            <button class="right-container__button right-container__button--edit" (click)="toggleEditEmail()">save</button>
+                            <button type="submit" class="right-container__button right-container__button--edit">save</button>
                         </div>
                     </article>
                 }
@@ -182,22 +184,30 @@
                     <article class="user-settings__card user-settings__card--edit">
                         <div class="card__info card__info--edit">
                             <p class="info__title info__title--edit">Password:</p>
-                            <input type="password" class="info__value info__value--edit">
+                            <input formControlName="password"  type="password" class="info__value info__value--edit">
                         </div>
                         <div class="card__right-container card__right-container--edit">
                             <button class="right-container__button right-container__button--edit" (click)="toggleEditPassword()">cancel</button>
-                            <button class="right-container__button right-container__button--edit" (click)="toggleEditPassword()">save</button>
+                            <button type="submit" class="right-container__button right-container__button--edit">save</button>
                         </div>
                     </article>
                 }
 
-            </section>
+            </form>
         }
 
     </div>
 
 
     <!-- Notification -->
+
+    <div class="notification" *ngIf="activeEdition()">
+        <div class="notification__body">
+            <img src="assets/img/check-circle.svg" alt="Success" class="notification__icon">
+            <p>Your Data has been successfully updated!</p>
+        </div>
+        <div class="notification__progress"></div>
+    </div>
 
     <div class="notification" *ngIf="activeNotification()">
         <div class="notification__body">

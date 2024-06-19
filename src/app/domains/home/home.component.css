@@ -130,9 +130,9 @@
 
 .experiences__button {
   max-width: 1200px;
-  width: 50%;
-  margin: 5rem auto;
-  margin-top: -3rem;
+  width: 80%;
+  margin: 1rem auto;
+  margin-bottom: 3rem;
   font-size: clamp(.8rem, 5vw, 1.3rem);
   color: white;
   background-color: black;
@@ -141,6 +141,7 @@
   text-align: center;
   font-family: var(--arvo-subtitle-font);
   font-weight: 600;
+  cursor: pointer;
 }
 
 .experiences__button:hover {
@@ -370,7 +371,7 @@
   /* Experiences Section ================================= */
 
   .experiences__list {
-    margin: 5rem 3rem;
+    margin: 1rem 3rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
