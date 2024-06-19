@@ -59,6 +59,7 @@ export class CheckoutPageComponent {
           this.showNotification();
         },
         error: (error) => {
+          this.showCustomErrorAlert();
           console.error(error)
         }
       })
@@ -93,6 +94,27 @@ export class CheckoutPageComponent {
       `
     });
   }  
+
+  showCustomErrorAlert() {
+    Swal.fire({
+      title: 'There was an internal server error, Try it later',
+      icon: 'warning',
+      confirmButtonText: 'Okay',
+      confirmButtonColor: '#5d9046',
+      customClass: {
+        popup: 'custom-popup-class',
+        title: 'custom-title-class',
+      },
+      background: "url('assets/img/main_bg.png')",
+      showCloseButton: true,
+      allowOutsideClick: true,
+      backdrop: `
+        rgba(0,0,0,0.4)
+        left top
+        no-repeat
+      `
+    });
+  } 
 
 }
 

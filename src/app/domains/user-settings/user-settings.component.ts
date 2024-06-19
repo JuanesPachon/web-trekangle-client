@@ -7,6 +7,7 @@ import { CartExperienceComponent } from '../../components/cart-experience/cart-e
 import { NotificationService } from '../../services/notification.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../../services/user.service';
+import { BookingsService } from '../../services/bookings.service';
 
 @Component({
   selector: 'app-user-settings',
@@ -25,6 +26,7 @@ import { UserService } from '../../services/user.service';
 export class UserSettingsComponent {
   private notificationService = inject(NotificationService);
   private userService = inject(UserService);
+  private bookingService = inject(BookingsService);
 
   // Edit Section
 
@@ -128,7 +130,30 @@ export class UserSettingsComponent {
       localStorage.removeItem('activeEdition');
     }
 
+    this.listBookings();
   }
+
+  listBookings() {
+    this.bookingService.listBookings().subscribe({
+      next: (response: any) => {
+
+        const allExperienceIds: any[] = [];
+
+        response.forEach((booking: any) => {
+          booking.experiences.forEach((experience: any) => {
+            allExperienceIds.push(experience.experienceId);
+          });
+        });
+
+        this.bookedExperiences = allExperienceIds;
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+  }
+
+  bookedExperiences: any[] = [];
 
   //notification logic
 

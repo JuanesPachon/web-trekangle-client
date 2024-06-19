@@ -32,12 +32,20 @@
 
     <div class="user-content--desktop" (window:resize)="onResize($event)">
         
-        @if(userBookings()) {
-            <section class="user-bookings">
-                <h2 class="bookings__main-title">Your Bookings</h2>
-                <app-booking-card/>
-                <app-booking-card/>
-            </section>
+        @if (bookedExperiences.length > 0) {
+            @if(userBookings()) {
+                <section class="user-bookings">
+                    <h2 class="bookings__main-title">Your Bookings</h2>
+                    @for (booking of bookedExperiences; track booking._id) {
+                        <app-booking-card [booking]="booking"></app-booking-card>
+                    }
+                </section>
+            }
+        } @else {
+            <div class="no-bookings__container">
+                <img src="assets/img/empty-bookings.svg" alt="No bookings" class="no-bookings__image">
+                <p class="no-bookings__text">You have no bookings yet!</p>
+            </div>
         }
 
         @if(userSettings()) {

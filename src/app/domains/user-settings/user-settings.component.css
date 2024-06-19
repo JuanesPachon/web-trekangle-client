@@ -6,6 +6,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   row-gap: 2rem;
+  font-family: var(--arvo-subtitle-font);
 }
 
 /* ===================================================================================================
@@ -63,6 +64,29 @@
   font-weight: 600;
   margin-left: 1rem;
 }
+
+/* ===================================================================================================
+  No Bookings Section
+=================================================================================================== */
+
+.no-bookings__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-bookings__image {
+  max-width: 20%;
+  margin-bottom: 1.5rem;
+}
+
+.no-bookings__text {
+  font-size: clamp(.8rem, 6vw, 1.3rem);
+  font-family: var(--arvo-subtitle-font);
+  margin-bottom: 20rem;
+}
+
 /* ===================================================================================================
     User Settings
 =================================================================================================== */
@@ -109,8 +133,7 @@
 .info__name,
 .info__email {
   font-weight: 400;
-  font-family: var(--source3-text-font);
-  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-size: clamp(1rem, 2vw, 1.3rem);
   text-align: center;
 }
 
@@ -197,9 +220,9 @@
 
 .error__message {
   margin-top: 0.25rem;
-  font-size: .8rem;
+  font-size: 0.8rem;
   color: white;
-  padding: .5rem;
+  padding: 0.5rem;
   text-align: center;
   background-color: var(--error);
   border-radius: 10px;
@@ -327,5 +350,12 @@
 @keyframes progress {
   to {
     transform: scaleX(1);
+  }
+}
+
+@media (min-width: 1024px) {
+  .user-bookings {
+    max-height: 63rem;
+    overflow-y: visible;
   }
 }

@@ -91,7 +91,7 @@
         @for(cartExperience of cartExperiences().values(); track cartExperience._id) {
             <app-cart-experience [experience]="cartExperience" />
         }
-        <div class="cart__add-experience-button">
+        <div [routerLink]="'/locations'" class="cart__add-experience-button">
             <p><span> ➕ </span> Add Experiences</p>
         </div>
     </section>

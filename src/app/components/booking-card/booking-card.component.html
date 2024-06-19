@@ -1,13 +1,12 @@
 <article class="booking__card">
 
-    <img class="booking__icon" src="assets/img/bg-card.jpg" alt="experience icon">
+    <img class="booking__icon" [src]=" 'http://localhost:3000/uploads/' + booking.images[0]" alt="experience icon">
 
     <div class="booking-container">
-        <p class="booking__title">EXPERIENCE 1</p>
-        <p class="booking__price">$750,000</p>
-        <p class="booking__place">Melgar, Cololombia</p>
-        <p class="booking__date"> <span>Date: </span> 10 / 20</p>
-        <p class="booking__people"> <span>Guests: </span> 2 </p>
+        <p class="booking__title">{{ booking.name }}</p>
+        <p class="booking__price">{{ booking.price | currency }}</p>
+        <p class="booking__place">{{ booking.place }}</p>
+        <p class="booking__date"> <span>Date: </span> check your email</p>
     </div>
 
 </article>
