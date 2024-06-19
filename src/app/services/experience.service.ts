@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -16,6 +16,11 @@ export class ExperienceService {
 
   getOneExperience(id: string) {
     return this.http.get(`http://localhost:3000/experiences/` + id);
+  }
+
+  searchExperiences(query: string) {
+    const params = new HttpParams().set('query', query);
+    return this.http.get(`http://localhost:3000/experiences/search`, { params })
   }
 
 }

@@ -38,7 +38,10 @@
 .experience__card__title {
   font-size: 1rem;
   color: #000000;
-
+  line-height: 1.5em;
+  overflow: hidden;
+  text-overflow: clip;
+  height: 1.5em;
 }
 
 .experience__card__price {
@@ -72,4 +75,11 @@
 .experience__card__text {
   font-size: 0.875rem;
   color: #000000;
+}
+
+.experience__card__text:last-child{
+  line-height: 1.5em;
+  overflow: hidden;
+  text-overflow: clip;
+  height: 1.5em;
 }
