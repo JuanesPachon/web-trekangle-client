@@ -9,7 +9,7 @@ import { CurrencyPipe } from '@angular/common';
 @Component({
   selector: 'app-experience-page',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, RouterLinkWithHref, CurrencyPipe],
+  imports: [HeaderComponent, FooterComponent, RouterLinkWithHref, CurrencyPipe, HeaderComponent],
   templateUrl: './experience-page.component.html',
   styleUrl: './experience-page.component.css',
 })
@@ -37,7 +37,10 @@ export class ExperiencePageComponent {
 
   addToCart(experience: any) {
     this.cartService.addToCart(experience);
+    this.cartService.showCart.update(prevState => !prevState);
   }
+
+
 
   //notification logic
 

@@ -1,63 +1,45 @@
 <app-header />
 
-<main class="container">
-  <div class="title-bar">
-    <h1>EXPERIENCE NAME</h1>
-  </div>
+<main class="main">
 
-  <div class="images">
-    <img
-      [src]="'http://localhost:3000/uploads/' + experience()?.images[0]"
-      alt="Main Image"
-      class="main-image"
-    />
-    <div class="second-images">
-      <img
-        [src]="'http://localhost:3000/uploads/' + experience()?.images[1]"
-        alt="Image 1"
-      />
-      <img
-        [src]="'http://localhost:3000/uploads/' + experience()?.images[2]"
-        alt="Image 2"
-      />
-      <img
-        [src]="'http://localhost:3000/uploads/' + experience()?.images[3]"
-        alt="Image 3"
-        class="wide-image"
-      />
-    </div>
-  </div>
+  <h1 class="title-bar">{{ experience()?.name }}</h1>
 
-  <div class="content">
+  <section class="images">
+    <img [src]="'http://localhost:3000/uploads/' + experience()?.images[0]" alt="Main Image" />
+    <img [src]="'http://localhost:3000/uploads/' + experience()?.images[1]" alt="Secundary Image" />
+    <img [src]="'http://localhost:3000/uploads/' + experience()?.images[2]" alt="Secundary Image" />
+    <img [src]="'http://localhost:3000/uploads/' + experience()?.images[3]" alt="Secundary Image" />
+  </section>
+
+  <section class="content">
     <div class="description">
-      <h2>Experience name</h2>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci sint
-        consectetur quod distinctio culpa, aliquid expedita nostrum dolorem
-        illum ratione nam aperiam suscipit consequatur dolor magnam. Quos,
-        placeat unde. Quisquam.
-      </p>
-    </div>
-    <div class="details">
-      <p>{{ experience()?.name }}</p>
-      <p><img src="Us Dollar Circled.svg" alt="Price Icon" /> $50,000</p>
-      <p>lugar: {{ experience()?.place }}</p>
+      <h2 class="title-bar name">{{ experience()?.name }}</h2>
       <p>{{ experience()?.description }}</p>
     </div>
-  </div>
+    <div class="details">
 
-  <div class="button-container">
-    <button
-      class="buy-now"
-      (cliclk)="addToCart(experience())"
-      [routerLink]="'/checkout'"
-    >
-      Buy now
-    </button>
-    <button class="add-to-cart" (click)="addToCart(experience())">
-      Add to Cart
-    </button>
-  </div>
+      <div class="detail__container">
+        <img src="assets/img/location-icon.svg" alt="Location Icon">
+        <p>{{ experience()?.place }}</p>
+      </div>
+
+      <div class="detail__container">
+        <img src="assets/img/dollar-icon.svg" alt="Price Icon">
+        <p>{{ experience()?.price | currency }}</p>
+      </div>
+
+      <div class="detail__container">
+        <img src="assets/img/calendar-icon.svg" alt="Date Icon">
+        <input type="date">
+      </div>
+
+      <div class="button-container">
+        <button class="buy-now" (click)="addToCart(experience())" [routerLink]="'/checkout'">Buy now</button>
+        <button class="add-to-cart" (click)="addToCart(experience())">Add to Cart</button>
+      </div>
+
+    </div>
+  </section>
 </main>
 
 <app-footer />
