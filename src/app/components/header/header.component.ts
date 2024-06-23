@@ -58,10 +58,10 @@ export class HeaderComponent {
   cartExperiences = this.cartService.experiences;
   cartTotal = this.cartService.total;
 
-  showCart = this.cartService.showCart;
+  showCart = signal(false);
 
   toggleCart() {
-    this.cartService.showCart.update(prevState => !prevState)
+    this.showCart.update(prevState => !prevState)
   }
 
   //Mobile menu logic

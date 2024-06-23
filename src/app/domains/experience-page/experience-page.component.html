@@ -42,4 +42,14 @@
   </section>
 </main>
 
+<!-- Notification -->
+
+<div class="notification" *ngIf="activeNotification()">
+  <div class="notification__body">
+      <img src="assets/img/check-circle.svg" alt="Success" class="notification__icon">
+      <p>The experience has been successfully added to your cart!</p>
+  </div>
+  <div class="notification__progress"></div>
+</div>
+
 <app-footer />

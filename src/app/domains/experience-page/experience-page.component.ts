@@ -1,21 +1,22 @@
 import { Component, Input, signal, inject } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
-import { RouterLinkWithHref } from '@angular/router';
+import { Router, RouterLinkWithHref } from '@angular/router';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ExperienceService } from '../../services/experience.service';
 import { CartService } from '../../services/cart.service';
-import { CurrencyPipe } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-experience-page',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, RouterLinkWithHref, CurrencyPipe, HeaderComponent],
+  imports: [HeaderComponent, FooterComponent, RouterLinkWithHref, CurrencyPipe, HeaderComponent, CommonModule],
   templateUrl: './experience-page.component.html',
   styleUrl: './experience-page.component.css',
 })
 export class ExperiencePageComponent {
   private experienceService = inject(ExperienceService);
   private cartService = inject(CartService);
+  private router = inject(Router);
 
   // Get by ID request
 
@@ -35,12 +36,17 @@ export class ExperiencePageComponent {
 
   // Cart Logic
 
+  activeNotification = signal(false);
+
+
   addToCart(experience: any) {
-    this.cartService.addToCart(experience);
-    this.cartService.showCart.update(prevState => !prevState);
+    if(localStorage.getItem('user_token')) {
+      this.cartService.addToCart(experience);
+      this.activeNotification.update((value) => !value);
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
-
-
 
   //notification logic
 

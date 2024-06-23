@@ -126,6 +126,4 @@ export class CartService {
     return this.http.post('http://localhost:3000/bookings', body, { headers: headers });
   }
 
-  showCart = signal(false)
-
 }

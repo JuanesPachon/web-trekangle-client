@@ -1,4 +1,4 @@
-<app-header/>
+<app-header />
 
 <main class="main">
 
@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <!-- Desktop Navbar -->    
+    <!-- Desktop Navbar -->
 
     <div class="user-options__container--desktop">
         <div class="user-options--desktop">
@@ -31,177 +31,190 @@
     </div>
 
     <div class="user-content--desktop" (window:resize)="onResize($event)">
-        
+
         @if (bookedExperiences.length > 0) {
-            @if(userBookings()) {
-                <section class="user-bookings">
-                    <h2 class="bookings__main-title">Your Bookings</h2>
-                    @for (booking of bookedExperiences; track booking._id) {
-                        <app-booking-card [booking]="booking"></app-booking-card>
-                    }
-                </section>
+        @if(userBookings()) {
+        <section class="user-bookings">
+            <h2 class="bookings__main-title">Your Bookings</h2>
+            @for (booking of bookedExperiences; track booking._id) {
+            <app-booking-card [booking]="booking"></app-booking-card>
             }
+        </section>
+        }
         } @else {
-            <div class="no-bookings__container">
-                <img src="assets/img/empty-bookings.svg" alt="No bookings" class="no-bookings__image">
-                <p class="no-bookings__text">You have no bookings yet!</p>
-            </div>
+        <div class="no-bookings__container">
+            <img src="assets/img/empty-bookings.svg" alt="No bookings" class="no-bookings__image">
+            <p class="no-bookings__text">You have no bookings yet!</p>
+        </div>
         }
 
         @if(userSettings()) {
-            <form class="user-settings" [formGroup]="userSettingsForm" (ngSubmit)="onSubmit($event)">
+        <form class="user-settings" [formGroup]="userSettingsForm" (ngSubmit)="onSubmit($event)">
 
-                <article class="user-settings__profile-image">
-                    
-                    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+            <article class="user-settings__profile-image">
 
-                    <div class="profile-image__container">
-                        <div class="profile-image__circle">
-                            <span></span>
-                        </div>
+                <div class="profile-image__container">
+                    <div class="profile-image__circle">
+                        <span></span>
                     </div>
-                    <p class="info__name">{{ user().name }}</p>
-                    <p class="info__email">{{ user().email }}</p>
-    
-    
-                </article>
-                
-                @if (editProfilePicture()) {
-                    <article class="user-settings__card" >
-    
-                        <div class="card__info">
-                            <p class="info__title">Profile picture</p>
-                        </div>
-                        <div class="card__right-container">
-                            <a class="right-container__button" (click)="toggleEditProfilePicture()">Edit</a>
-                        </div>
-        
-                    </article>
-                } @else {
-                    <!-- Edit Name -->
+                </div>
+                <p class="info__name">{{ user().name }}</p>
+                <p class="info__email">{{ user().email }}</p>
 
-                    <article class="user-settings__card user-settings__card--edit">
-                        <div class="card__info card__info--edit">
-                            <p class="info__title info__title--edit">Profile picture:</p>
-                            <input type="file" class="info__value info__value--edit">
-                        </div>
-                        <div class="card__right-container card__right-container--edit">
-                            <button class="right-container__button right-container__button--edit" (click)="toggleEditProfilePicture()">cancel</button>
-                            <button class="right-container__button right-container__button--edit" (click)="toggleEditProfilePicture()">save</button>
-                        </div>
-                    </article>
-                }
 
-                @if (editName()) {
-                    <article class="user-settings__card" >
-    
-                        <div class="card__info">
-                            <p class="info__title">Name:</p>
-                            <p class="info__value">{{ user().name }}</p>
-                        </div>
-                        <div class="card__right-container">
-                            <a class="right-container__button" (click)="toggleEditName()">Edit</a>
-                        </div>
-        
-                    </article>
-                } @else {
-                    <!-- Edit Name -->
+            </article>
 
-                    <article class="user-settings__card user-settings__card--edit">
-                        <div class="card__info card__info--edit">
-                            <p class="info__title info__title--edit">Name:</p>
-                            <input formControlName="name" type="text" class="info__value info__value--edit">
-                        </div> 
-                        <div class="card__right-container card__right-container--edit">
-                            <button class="right-container__button right-container__button--edit" (click)="toggleEditName()">cancel</button>
-                            <button type="submit" class="right-container__button right-container__button--edit">save</button>
-                        </div>
-                    </article>
-                }
+            <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
 
-                @if (editUserName()) {
-                    <article class="user-settings__card">
-    
-                        <div class="card__info">
-                            <p class="info__title">Username:</p>
-                            <p class="info__value">{{ user().userName }}</p>
-                        </div>
-                        <div class="card__right-container">
-                            <p class="right-container__button" (click)="toggleEditUserName()">Edit</p>
-                        </div>
-        
-                    </article>
-                } @else {
-                    <!-- Edit Username -->
+            @if (editProfilePicture()) {
+            <article class="user-settings__card">
 
-                    <article class="user-settings__card user-settings__card--edit">
-                        <div class="card__info card__info--edit">
-                            <p class="info__title info__title--edit">Username:</p>
-                            <input formControlName="userName" type="text" class="info__value info__value--edit">
-                        </div>
-                        <div class="card__right-container card__right-container--edit">
-                            <button class="right-container__button right-container__button--edit" (click)="toggleEditUserName()">cancel</button>
-                            <button type="submit" class="right-container__button right-container__button--edit">save</button>
-                        </div>
-                    </article>
-                }
-    
-                @if (editEmail()) {
-                    <article class="user-settings__card" *ngIf="editUserName">
-    
-                        <div class="card__info">
-                            <p class="card__title">Email:</p>
-                            <p class="info__value">{{ user().email }}</p>
-                        </div>
-                        <div class="card__right-container">
-                            <p class="right-container__button" (click)="toggleEditEmail()">Edit</p>
-                        </div>
-        
-                    </article>
-                } @else {
-                    
-                    <!-- Edit Email -->
+                <div class="card__info">
+                    <p class="info__title">Profile picture</p>
+                </div>
+                <div class="card__right-container">
+                    <a class="right-container__button" (click)="toggleEditProfilePicture()">Edit</a>
+                </div>
 
-                    <article class="user-settings__card user-settings__card--edit">
-                        <div class="card__info card__info--edit">
-                            <p class="info__title info__title--edit">Email:</p>
-                            <input formControlName="email" type="text" class="info__value info__value--edit">
-                        </div>
-                        <div class="card__right-container card__right-container--edit">
-                            <button class="right-container__button right-container__button--edit" (click)="toggleEditEmail()">cancel</button>
-                            <button type="submit" class="right-container__button right-container__button--edit">save</button>
-                        </div>
-                    </article>
-                }
+            </article>
+            } @else {
+            <!-- Edit Name -->
 
-                @if (editPassword()) {
-                    <article class="user-settings__card">
-    
-                        <div class="card__info">
-                            <p class="info__title">Password:</p>
-                            <p class="info__value">********</p>
-                        </div>
-                        <div class="card__right-container">
-                            <button class="right-container__button" (click)="toggleEditPassword()">Edit</button>
-                        </div>
-        
-                    </article>
-                } @else {
-                    <!-- Edit Password -->
+            <article class="user-settings__card user-settings__card--edit">
+                <div class="card__info card__info--edit">
+                    <p class="info__title info__title--edit">Profile picture:</p>
+                    <input type="file" class="info__value info__value--edit">
+                </div>
+                <div class="card__right-container card__right-container--edit">
+                    <button class="right-container__button right-container__button--edit"
+                        (click)="toggleEditProfilePicture()">cancel</button>
+                    <button class="right-container__button right-container__button--edit"
+                        (click)="toggleEditProfilePicture()">save</button>
+                </div>
+            </article>
+            }
 
-                    <article class="user-settings__card user-settings__card--edit">
-                        <div class="card__info card__info--edit">
-                            <p class="info__title info__title--edit">Password:</p>
-                            <input formControlName="password"  type="password" class="info__value info__value--edit">
-                        </div>
-                        <div class="card__right-container card__right-container--edit">
-                            <button class="right-container__button right-container__button--edit" (click)="toggleEditPassword()">cancel</button>
-                            <button type="submit" class="right-container__button right-container__button--edit">save</button>
-                        </div>
-                    </article>
-                }
+            @if (editName()) {
+            <article class="user-settings__card">
 
-            </form>
+                <div class="card__info">
+                    <p class="info__title">Name:</p>
+                    <p class="info__value">{{ user().name }}</p>
+                </div>
+                <div class="card__right-container">
+                    <a class="right-container__button" (click)="toggleEditName()">Edit</a>
+                </div>
+
+            </article>
+            } @else {
+            <!-- Edit Name -->
+
+            <article class="user-settings__card user-settings__card--edit">
+                <div class="card__info card__info--edit">
+                    <p class="info__title info__title--edit">Name:</p>
+                    <input formControlName="name" type="text" class="info__value info__value--edit"
+                        [placeholder]="user().name">
+                </div>
+                <div class="card__right-container card__right-container--edit">
+                    <button class="right-container__button right-container__button--edit"
+                        (click)="toggleEditName()">cancel</button>
+                    <button type="submit" class="right-container__button right-container__button--edit">save</button>
+                </div>
+            </article>
+            }
+
+            @if (editUserName()) {
+            <article class="user-settings__card">
+
+                <div class="card__info">
+                    <p class="info__title">Username:</p>
+                    <p class="info__value">{{ user().userName }}</p>
+                </div>
+                <div class="card__right-container">
+                    <p class="right-container__button" (click)="toggleEditUserName()">Edit</p>
+                </div>
+
+            </article>
+            } @else {
+            <!-- Edit Username -->
+
+            <article class="user-settings__card user-settings__card--edit">
+                <div class="card__info card__info--edit">
+                    <p class="info__title info__title--edit">Username:</p>
+                    <input formControlName="userName" type="text" class="info__value info__value--edit"
+                        [placeholder]="user().userName">
+                </div>
+                <div class="card__right-container card__right-container--edit">
+                    <button class="right-container__button right-container__button--edit"
+                        (click)="toggleEditUserName()">cancel</button>
+                    <button type="submit" class="right-container__button right-container__button--edit">save</button>
+                </div>
+            </article>
+            }
+
+            @if (editEmail()) {
+            <article class="user-settings__card" *ngIf="editUserName">
+
+                <div class="card__info">
+                    <p class="card__title">Email:</p>
+                    <p class="info__value">{{ user().email }}</p>
+                </div>
+                <div class="card__right-container">
+                    <p class="right-container__button" (click)="toggleEditEmail()">Edit</p>
+                </div>
+
+            </article>
+            } @else {
+
+            <!-- Edit Email -->
+
+            <article class="user-settings__card user-settings__card--edit">
+                <div class="card__info card__info--edit">
+                    <p class="info__title info__title--edit">Email:</p>
+                    <input formControlName="email" type="text" class="info__value info__value--edit"
+                        [placeholder]="user().email">
+                </div>
+                <div class="card__right-container card__right-container--edit">
+                    <button class="right-container__button right-container__button--edit"
+                        (click)="toggleEditEmail()">cancel</button>
+                    <button type="submit" class="right-container__button right-container__button--edit">save</button>
+                </div>
+            </article>
+            }
+
+            @if (editPassword()) {
+            <article class="user-settings__card">
+
+                <div class="card__info">
+                    <p class="info__title">Password:</p>
+                    <p class="info__value">********</p>
+                </div>
+                <div class="card__right-container">
+                    <button class="right-container__button" (click)="toggleEditPassword()">Edit</button>
+                </div>
+
+            </article>
+            } @else {
+            <!-- Edit Password -->
+
+            <article class="user-settings__card user-settings__card--edit">
+                <div class="card__info card__info--edit password__input">
+                    <p class="info__title info__title--edit">Password:</p>
+                    <input formControlName="password" [type]="viewPassword() ? 'text' : 'password'" class="info__value info__value--edit">
+                    <img class="password__icons show-password" (click)="togglePassword()" *ngIf="viewPassword()"
+                        src="assets/img/show-password.svg" alt="show password icon">
+                    <img class="password__icons" (click)="togglePassword()" *ngIf="!viewPassword()"
+                        src="assets/img/hide-password.svg" alt="hide password icon">
+                </div>
+                <div class="card__right-container card__right-container--edit">
+                    <button class="right-container__button right-container__button--edit"
+                        (click)="toggleEditPassword()">cancel</button>
+                    <button type="submit" class="right-container__button right-container__button--edit">save</button>
+                </div>
+            </article>
+            }
+
+        </form>
         }
 
     </div>

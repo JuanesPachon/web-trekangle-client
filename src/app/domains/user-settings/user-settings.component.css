@@ -65,6 +65,12 @@
   margin-left: 1rem;
 }
 
+.user-bookings {
+  max-height: 63rem;
+  overflow: auto;
+  scrollbar-color: black transparent;
+}
+
 /* ===================================================================================================
   No Bookings Section
 =================================================================================================== */
@@ -218,7 +224,7 @@
   box-shadow: 0 0 10px #000;
 }
 
-.error__message {
+.error-message {
   margin-top: 0.25rem;
   font-size: 0.8rem;
   color: white;
@@ -227,6 +233,17 @@
   background-color: var(--error);
   border-radius: 10px;
   font-family: var(--source3-text-font);
+}
+
+.password__input {
+  position: relative;
+}
+
+.password__icons {
+  position: absolute;
+  top: 54%;
+  right: 3%;
+  width: 1.55rem;
 }
 
 /* ===================================================================================================
@@ -350,12 +367,5 @@
 @keyframes progress {
   to {
     transform: scaleX(1);
-  }
-}
-
-@media (min-width: 1024px) {
-  .user-bookings {
-    max-height: 63rem;
-    overflow-y: visible;
   }
 }

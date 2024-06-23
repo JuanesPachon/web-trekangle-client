@@ -158,4 +158,12 @@ export class UserSettingsComponent {
   //notification logic
 
   activeNotification = this.notificationService.showBookingNotification;
+
+  //view password
+  
+  viewPassword = signal(false);
+
+  togglePassword() {
+    this.viewPassword.update(value => !value);
+  }
 }

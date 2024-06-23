@@ -23,10 +23,6 @@
   background-color: white;
 }
 
-.search-bar-container__search__button {
-  width: 30px;
-}
-
 .search-bar-container__input {
   width: 100%;
   padding: 0 0.8rem;
@@ -75,6 +71,7 @@
   border-right: none;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   cursor: pointer;
   transition: all .3s ease;
 }
