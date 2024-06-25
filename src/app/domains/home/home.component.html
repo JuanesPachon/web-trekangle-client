@@ -10,7 +10,7 @@
         <div class="main-area__text">
             <h1 class="main-area__title">Explore new journeys,<br>make memories,<br><span
                     class="main-area__highlight">TREKANGLE!</span></h1><br class="apart__desktop">
-            <p class="main-area__quote">"ad lorem impsum"</p>
+            <p class="main-area__quote">"Explore and book unique stays and extraordinary experiences around the world, tailored just for you."</p>
             <div class="main-area__buttons">
                 <button [routerLink]="'/locations'" class="button button--outline">Book experiences</button>
                 <button [routerLink]="'/sign-up'" class="button button--primary">Join Us</button>
@@ -34,7 +34,8 @@
     <h2 class="main__top-products-title">Top experiences of the week!</h2>
 
     <section class="main__top-experiences">
-        <div class="top-experiences__container">
+        <div class="empty-content" *ngIf="experiences().length === 0"></div>
+        <div class="top-experiences__container" *ngIf="experiences().length > 0">
             <div class="top-experiences__card" [routerLink]="['/experience', experiences()[0]?._id]">
                 <img class="top-experiences__background"
                     [src]=" 'http://localhost:3000/uploads/' + experiences()[0]?.images[3]">

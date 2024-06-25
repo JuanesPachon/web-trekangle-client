@@ -88,6 +88,7 @@
   margin-bottom: 0.6rem;
   width: 80%;
   text-align: center;
+  transition: all ease 0.3s;
 }
 
 .button--primary {
@@ -95,9 +96,19 @@
   color: #fff;
 }
 
+.button--primary:hover {
+  background-color: #3e8e41;
+  box-shadow: 0 2px 2px rgb(0, 0, 0);
+}
+
 .button--outline {
   background-color: #fff;
   color: #000;
+}
+
+.button--outline:hover {
+  background-color: #dad9d9;
+  box-shadow: 0 2px 2px rgb(0, 0, 0);
 }
 
 .main__top-products-title,
@@ -379,6 +390,10 @@
   }
 
   /* Top Experiences ================================= */
+
+  .empty-content {
+    height: 5rem;
+  }
 
   .main__top-experiences {
     display: flex;

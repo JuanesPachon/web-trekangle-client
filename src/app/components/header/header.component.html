@@ -24,7 +24,8 @@
                         <img src="assets\img\Menu_black.svg" alt="Menu logo">
                     </div>
                     <div class="right__button__user">
-                        <img src="assets\img\MaleUser.svg" alt="User logo">
+                        <img *ngIf="!isloggedIn()" src="assets\img\MaleUser.svg" alt="User logo">
+                        <img class="active-image" *ngIf="isloggedIn()" [src]="'http://localhost:3000/uploads/' + user()?.profileImage" alt="User Logo">
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {jwtDecode} from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root',
@@ -24,41 +24,51 @@ export class UserService {
     });
   }
 
-  editUser(formValues: any) {
-
+  editUser(formData: FormData) {
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + localStorage.getItem('user_token')
+      Authorization: 'Bearer ' + localStorage.getItem('user_token'),
     });
 
     const token: any = localStorage.getItem('user_token');
     const decodedToken: any = jwtDecode(token);
 
-    const body: any = {};
-    for (const key in formValues) {
-      if (formValues.hasOwnProperty(key) && formValues[key] !== undefined && formValues[key] !== null && formValues[key] !== '') {
-        body[key] = formValues[key];
-      }
-    }
+    const filteredFormData = this.filterFormData(formData);
 
-    return this.http.patch('http://localhost:3000/users/' + decodedToken.sub, body, { headers: headers });
+    return this.http.patch(
+      'http://localhost:3000/users/' + decodedToken.sub,
+      filteredFormData,
+      { headers: headers }
+    );
   }
 
-  
+  filterFormData(formData: FormData): FormData {
+    const filteredFormData = new FormData();
+
+    formData.forEach((value, key) => {
+      if (value !== '' && value !== null && value !== undefined) {
+        filteredFormData.append(key, value);
+      }
+    });
+
+    return filteredFormData;
+  }
 
   getUser() {
-    const token: any = localStorage.getItem('user_token');
+    const token: string | null = localStorage.getItem('user_token');
+
+    if (!token) {
+      return null;
+    }
+
     const decodedToken: any = jwtDecode(token);
     return this.http.get(`http://localhost:3000/users/` + decodedToken.sub);
   }
 
-  
-
   isLoggedIn() {
-    if(localStorage.getItem("user_token")) {
-      return true
+    if (localStorage.getItem('user_token')) {
+      return true;
     } else {
-      return false
+      return false;
     }
   }
 }

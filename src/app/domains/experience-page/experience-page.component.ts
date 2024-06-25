@@ -58,4 +58,19 @@ export class ExperiencePageComponent {
       this.showNotification.set(false);
     }, 3000);
   }
+
+  // Current Date on input
+
+  minDate: string; // Variable para almacenar la fecha mínima
+
+  constructor() {
+    // Obtener la fecha de hoy
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0'); // Los meses empiezan en 0
+    const dd = String(today.getDate()).padStart(2, '0');
+
+    // Establecer la fecha mínima en formato YYYY-MM-DD
+    this.minDate = `${yyyy}-${mm}-${dd}`;
+  }
 }

@@ -5,6 +5,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { UserService } from '../../services/user.service';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { NotificationService } from '../../services/notification.service';
 
 
 @Component({
@@ -16,8 +17,9 @@ import { CommonModule } from '@angular/common';
 })
 export class SignupComponent {
 
-  private UserService = inject (UserService)
-  private Router = inject (Router)
+  private UserService = inject (UserService);
+  private notificationService = inject(NotificationService);
+  private Router = inject (Router);
 
   registerForm = new FormGroup({
     name: new FormControl("",{
@@ -43,6 +45,7 @@ export class SignupComponent {
       this.UserService.registerUser(this.registerForm.value).subscribe({
         next: (user) => {
           this.Router.navigate([ "/login" ])
+          this.showNotification();
         },
         error: (error) => {
           if (error.status === 409) {
@@ -56,6 +59,10 @@ export class SignupComponent {
         }
       })
     }
+  }
+
+  showNotification() {
+    this.notificationService.toggleRegisterUserNotification();
   }
 
   //show password

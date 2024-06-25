@@ -23,4 +23,13 @@ export class NotificationService {
     }, 7000);
   }
 
+  registerUserNotification = signal(false);
+
+  toggleRegisterUserNotification() {
+    this.registerUserNotification.set(true);
+    setTimeout(() => {
+      this.registerUserNotification.set(false);
+    }, 5000);
+  }
+
 }

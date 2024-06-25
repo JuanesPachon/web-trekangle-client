@@ -120,13 +120,15 @@
   align-items: center;
 }
 
-.profile-image__circle {
-  background-image: url("https://as2.ftcdn.net/v2/jpg/03/49/49/79/1000_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.jpg");
+.profile-image__container img {
   background-size: cover;
   border: 3px solid #000;
   border-radius: 50%;
+  object-fit: cover;
   width: 20vw;
   height: 20vw;
+  max-width: 8rem;
+  max-height: 8rem;
   display: flex;
   justify-content: center;
   align-items: center;

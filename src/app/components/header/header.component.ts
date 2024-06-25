@@ -72,4 +72,19 @@ export class HeaderComponent {
     this.showNavbar.update(prevState => !prevState)
   }
 
+  // User Profile Image logic
+
+  user = signal<any>({});
+
+  ngOnInit() {
+    this.userService.getUser()?.subscribe({
+      next: (user) => {
+        this.user.set(user);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+  }
+
 }

@@ -49,14 +49,12 @@
         }
 
         @if(userSettings()) {
-        <form class="user-settings" [formGroup]="userSettingsForm" (ngSubmit)="onSubmit($event)">
+        <form class="user-settings" [formGroup]="userSettingsForm" (ngSubmit)="onSubmit($event)" enctype="multipart/form-data">
 
             <article class="user-settings__profile-image">
 
                 <div class="profile-image__container">
-                    <div class="profile-image__circle">
-                        <span></span>
-                    </div>
+                    <img [src]="user()?.profileImage ? 'http://localhost:3000/uploads/' + user()?.profileImage : 'https://as2.ftcdn.net/v2/jpg/03/49/49/79/1000_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.jpg'" alt="profile image">
                 </div>
                 <p class="info__name">{{ user().name }}</p>
                 <p class="info__email">{{ user().email }}</p>
@@ -83,13 +81,12 @@
             <article class="user-settings__card user-settings__card--edit">
                 <div class="card__info card__info--edit">
                     <p class="info__title info__title--edit">Profile picture:</p>
-                    <input type="file" class="info__value info__value--edit">
+                    <input type="file" (change)="onFileChange($event)" class="info__value info__value--edit">
                 </div>
                 <div class="card__right-container card__right-container--edit">
                     <button class="right-container__button right-container__button--edit"
                         (click)="toggleEditProfilePicture()">cancel</button>
-                    <button class="right-container__button right-container__button--edit"
-                        (click)="toggleEditProfilePicture()">save</button>
+                    <button type="submit" class="right-container__button right-container__button--edit">save</button>
                 </div>
             </article>
             }

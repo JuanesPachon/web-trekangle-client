@@ -61,32 +61,67 @@ export class UserSettingsComponent {
     userName: new FormControl(''),
     email: new FormControl(''),
     password: new FormControl(''),
+    profileImage: new FormControl(null),
   });
 
   errorMessage: string = '';
   successMessage = signal(false);
   activeEdition = signal(false);
 
+  profileImage: File | null = null;
+
+  onFileChange(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      this.profileImage = file;
+    }
+  }
+
+  toFormData(formValue: any) {
+    const formData = new FormData();
+    for (const key in formValue) {
+      if (
+        formValue.hasOwnProperty(key) &&
+        formValue[key] !== null &&
+        formValue[key] !== undefined
+      ) {
+        formData.append(key, formValue[key]);
+      }
+    }
+    if (this.profileImage) {
+      formData.append(
+        'profileImage',
+        this.profileImage,
+        this.profileImage.name
+      );
+    }
+    return formData;
+  }
+
   onSubmit(event: Event) {
     event.preventDefault();
-    this.userService.editUser(this.userSettingsForm.value).subscribe({
-      next: (response) => {
-        console.log(response);
-        localStorage.setItem('activeEdition', 'true');
-        window.location.reload();
-      },
-      error: (error) => {
-        if (error.status === 409) {
-          this.errorMessage = 'Email is already in use';
-        } else if (error.status === 400) {
-          this.errorMessage = error.error.errors[0];
-        } else {
-          this.errorMessage =
-            'An unexpected error occurred. Please try again later.';
-        }
-        console.log(error);
-      },
-    });
+    if (this.profileImage || this.userSettingsForm.valid) {
+      const formData = this.toFormData(this.userSettingsForm.value);
+      this.userService.editUser(formData).subscribe({
+        next: (response) => {
+          localStorage.setItem('activeEdition', 'true');
+          window.location.reload();
+        },
+        error: (error) => {
+          if (error.status === 409) {
+            this.errorMessage = 'Email is already in use';
+          } else if (error.status === 400) {
+            this.errorMessage = error.error.errors[0];
+          } else {
+            this.errorMessage =
+              'An unexpected error occurred. Please try again later.';
+          }
+          console.log(error);
+        },
+      });
+    } else {
+      this.errorMessage = 'Please fill in all fields';
+    }
   }
 
   //Toggle Section
@@ -116,7 +151,7 @@ export class UserSettingsComponent {
   ngOnInit() {
     this.onResize({ target: window });
 
-    this.userService.getUser().subscribe({
+    this.userService.getUser()?.subscribe({
       next: (user) => {
         this.user.set(user);
       },
@@ -136,7 +171,6 @@ export class UserSettingsComponent {
   listBookings() {
     this.bookingService.listBookings().subscribe({
       next: (response: any) => {
-
         const allExperienceIds: any[] = [];
 
         response.forEach((booking: any) => {
@@ -160,10 +194,10 @@ export class UserSettingsComponent {
   activeNotification = this.notificationService.showBookingNotification;
 
   //view password
-  
+
   viewPassword = signal(false);
 
   togglePassword() {
-    this.viewPassword.update(value => !value);
+    this.viewPassword.update((value) => !value);
   }
 }

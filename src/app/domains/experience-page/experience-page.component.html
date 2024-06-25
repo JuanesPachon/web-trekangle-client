@@ -2,54 +2,54 @@
 
 <main class="main">
 
-  <h1 class="title-bar">{{ experience()?.name }}</h1>
+    <h1 class="title-bar">{{ experience()?.name }}</h1>
 
-  <section class="images">
-    <img [src]="'http://localhost:3000/uploads/' + experience()?.images[0]" alt="Main Image" />
-    <img [src]="'http://localhost:3000/uploads/' + experience()?.images[1]" alt="Secundary Image" />
-    <img [src]="'http://localhost:3000/uploads/' + experience()?.images[2]" alt="Secundary Image" />
-    <img [src]="'http://localhost:3000/uploads/' + experience()?.images[3]" alt="Secundary Image" />
-  </section>
+    <section class="images">
+        <img [src]="'http://localhost:3000/uploads/' + experience()?.images[0]" alt="Main Image" />
+        <img [src]="'http://localhost:3000/uploads/' + experience()?.images[1]" alt="Secundary Image" />
+        <img [src]="'http://localhost:3000/uploads/' + experience()?.images[2]" alt="Secundary Image" />
+        <img [src]="'http://localhost:3000/uploads/' + experience()?.images[3]" alt="Secundary Image" />
+    </section>
 
-  <section class="content">
-    <div class="description">
-      <h2 class="title-bar name">{{ experience()?.name }}</h2>
-      <p>{{ experience()?.description }}</p>
-    </div>
-    <div class="details">
+    <section class="content">
+        <div class="description">
+            <h2 class="title-bar name">{{ experience()?.name }}</h2>
+            <p>{{ experience()?.description }}</p>
+        </div>
+        <div class="details">
 
-      <div class="detail__container">
-        <img src="assets/img/location-icon.svg" alt="Location Icon">
-        <p>{{ experience()?.place }}</p>
-      </div>
+            <div class="detail__container">
+                <img src="assets/img/location-icon.svg" alt="Location Icon">
+                <p>{{ experience()?.place }}</p>
+            </div>
 
-      <div class="detail__container">
-        <img src="assets/img/dollar-icon.svg" alt="Price Icon">
-        <p>{{ experience()?.price | currency }}</p>
-      </div>
+            <div class="detail__container">
+                <img src="assets/img/dollar-icon.svg" alt="Price Icon">
+                <p>{{ experience()?.price | currency }}</p>
+            </div>
 
-      <div class="detail__container">
-        <img src="assets/img/calendar-icon.svg" alt="Date Icon">
-        <input type="date">
-      </div>
+            <div class="detail__container">
+                <img src="assets/img/calendar-icon.svg" alt="Date Icon">
+                <input type="date" [min]="minDate">
+            </div>
 
-      <div class="button-container">
-        <button class="buy-now" (click)="addToCart(experience())" [routerLink]="'/checkout'">Buy now</button>
-        <button class="add-to-cart" (click)="addToCart(experience())">Add to Cart</button>
-      </div>
+            <div class="button-container">
+                <button class="buy-now" (click)="addToCart(experience())" [routerLink]="'/checkout'">Buy now</button>
+                <button class="add-to-cart" (click)="addToCart(experience())">Add to Cart</button>
+            </div>
 
-    </div>
-  </section>
+        </div>
+    </section>
 </main>
 
 <!-- Notification -->
 
 <div class="notification" *ngIf="activeNotification()">
-  <div class="notification__body">
-      <img src="assets/img/check-circle.svg" alt="Success" class="notification__icon">
-      <p>The experience has been successfully added to your cart!</p>
-  </div>
-  <div class="notification__progress"></div>
+    <div class="notification__body">
+        <img src="assets/img/check-circle.svg" alt="Success" class="notification__icon">
+        <p>The experience has been successfully added to your cart!</p>
+    </div>
+    <div class="notification__progress"></div>
 </div>
 
 <app-footer />

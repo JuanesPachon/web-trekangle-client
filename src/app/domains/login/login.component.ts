@@ -7,6 +7,7 @@ import { UserService } from '../../services/user.service';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,7 @@ export class LoginComponent {
 
   private userService = inject(UserService);
   private authService = inject(AuthService);
+  private notificationService = inject(NotificationService);
   private Router = inject(Router);
 
   userForm = new FormGroup({
@@ -61,5 +63,9 @@ export class LoginComponent {
   togglePassword() {
     this.viewPassword.update(value => !value);
   }
+
+  //notification logic
+
+  activeNotification = this.notificationService.registerUserNotification;
 
 }
