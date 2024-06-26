@@ -1,1 +1,19 @@
+::ng-deep .gm-style-iw > div {
+  overflow: hidden !important;
+  max-height: 10px;
+}
 
+:ng-deep .gm-style-iw-ch > div {
+  height: 2px !important;
+}
+
+::ng-deep .gm-style-iw > div > div {
+  padding: 0.5rem;
+  padding-left: 0;
+  padding-top: 0;
+  font-family: var(--mochiy-title-font);
+}
+
+.custom-google-maps-error {
+  display: none;
+}

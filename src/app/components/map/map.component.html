@@ -1,11 +1,9 @@
-@if (this.experiences().length > 0 && this.experienceLocations().length > 0) {
-    <google-map class="map" height="100%" width="100%" [options]="options">
-        @for (location of experienceLocations(); track location) {
-            <map-advanced-marker #markerElem="mapAdvancedMarker"
-            [position]="{ lat: location.lat, lng: location.lng }"
-            [content]="location.content"
-            (mapClick)="onMarkerClick(markerElem)" />
-        }
-        <map-info-window #infoWindow></map-info-window>
-    </google-map>
-}
+<google-map class="map" height="100%" width="100%" [options]="options">
+    @for (location of experienceLocations(); track location) {
+    <map-advanced-marker #markerElem="mapAdvancedMarker" [position]="{ lat: location.lat, lng: location.lng }"
+        [content]="location.content" [title]="location.title" 
+        (mapClick)="onMarkerClick(markerElem)" />
+    }
+    <map-info-window #infoWindowElem="mapInfoWindow"></map-info-window>
+
+</google-map>
