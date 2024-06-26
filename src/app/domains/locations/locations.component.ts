@@ -7,6 +7,7 @@ import { ExperienceService } from '../../services/experience.service';
 import { RouterLinkWithHref } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { MapComponent } from '../../components/map/map.component';
 
 @Component({
   selector: 'app-locations',
@@ -18,6 +19,7 @@ import { CommonModule } from '@angular/common';
     CartExperienceComponent,
     RouterLinkWithHref,
     CommonModule,
+    MapComponent,
   ],
   templateUrl: './locations.component.html',
   styleUrl: './locations.component.css',
