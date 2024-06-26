@@ -1,27 +1,61 @@
-# WebTrekangleClient
+<p align="center">
+  <img src="src/assets/img/Logo_completo_BIT_project__horizontal.svg" alt="Logo E-commerce" style="width:100%; max-width:800px;">
+</p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
+# Trekangle Frontend
+Este Frontend de Trekangle hace parte de el Proyecto Final de el programa de Desarrollo Web en BIT, en donde se desarrolla la vista del cliente de el E-commerce web de Trekangle.
 
-## Development server
+## Características del Frontend
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Vista de la página de inicio del cliente.
+- Vista de todas las experiencias de la aplicación.
+- Vista de la página de registro de para registrarse en el sistema.
+- Vista de la página de login de para ingresar a las características del cliente.
+- Vista de la página de perfil del cliente.
+- Funcion de añadir experiencias al carrito.
+- Funcion de Reservar experiencias.
 
-## Code scaffolding
+## 📸 Screenshots
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<p align="center">
+  <img src="src/assets/img/screenshot-1.png" alt="Página de Inicio" style="width:45%; margin:0 2%;" object-fit="cover">
+  <img src="src/assets/img/screenshot-2.png" alt="Registro de Usuarios" style="width:45%; margin:0 2%;" object-fit="cover">
+</p>
+<p align="center">
+  <img src="src/assets/img/screenshot-3.png" alt="Página de Registro" style="width:45%; margin:0 2%;" object-fit="cover">
+  <img src="src/assets/img/screenshot-4.png" alt="Página de Login" style="width:45%; margin:0 2%;" object-fit="cover">
+</p>
 
-## Build
+## ⚙ Configuración local
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/JuanesPachon/web-trekangle-client.git
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# 2. Acceder a la carpeta principal del proyecto
+cd web-trekangle-client
 
-## Running unit tests
+# 3. Instalar las dependencias utilizadas en el proyecto
+npm install
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# 4. Ejecutar La aplicación
+ng serve --open
 
-## Running end-to-end tests
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+## 🧱 Estructura del Proyecto
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- `/components`: Componentes Individuales de la aplicación.
+- `/domains`: Páginas de la aplicación.
+- `/services`: Servicios de la aplicación para la comunicación con la API.
+- `/guards`: Guards de la aplicación para la autenticación y autorización.
+- `/models`: Modelos de las entidades de la aplicación.
+- `/assets`: Archivos estaticos de la aplicación.
+  
+## 🛠 Tecnologías Utilizadas
+
+- **Angular**: Framework de desarrollo web.
+- **TypeScript**: Lenguaje de programación.
+- **RxJS**: Libreria de programación reactiva.
+- **sweetalert2**: Libreria de alertas.
+- **Google Maps API**: Libreria de mapas.
