@@ -219,21 +219,9 @@
 
     <!-- Notification -->
 
-    <div class="notification" *ngIf="activeEdition()">
-        <div class="notification__body">
-            <img src="assets/img/check-circle.svg" alt="Success" class="notification__icon">
-            <p>Your Data has been successfully updated!</p>
-        </div>
-        <div class="notification__progress"></div>
-    </div>
+    <app-notification [title]="'Your Data has been successfully updated!'" *ngIf="activeEdition()"/>
 
-    <div class="notification" *ngIf="activeNotification()">
-        <div class="notification__body">
-            <img src="assets/img/check-circle.svg" alt="Success" class="notification__icon">
-            <p>Your booking has been successfully created!</p>
-        </div>
-        <div class="notification__progress"></div>
-    </div>
+    <app-notification [title]="'Your booking has been successfully created!'" *ngIf="activeNotification()"/>
 
 </main>
 

@@ -8,6 +8,7 @@ import { ExperienceService } from '../../services/experience.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NotificationService } from '../../services/notification.service';
 import { CommonModule } from '@angular/common';
+import { NotificationComponent } from '../../components/notification/notification.component';
 
 @Component({
   selector: 'app-home',
@@ -20,6 +21,7 @@ import { CommonModule } from '@angular/common';
     RouterLinkWithHref,
     CommonModule,
     ReactiveFormsModule,
+    NotificationComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',

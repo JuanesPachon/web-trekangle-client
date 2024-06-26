@@ -8,11 +8,12 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NotificationService } from '../../services/notification.service';
+import { NotificationComponent } from '../../components/notification/notification.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [HeaderComponent,FooterComponent,RouterLinkWithHref, ReactiveFormsModule, FormsModule, CommonModule],
+  imports: [HeaderComponent,FooterComponent,RouterLinkWithHref, ReactiveFormsModule, FormsModule, CommonModule, NotificationComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

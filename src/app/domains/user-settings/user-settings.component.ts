@@ -8,6 +8,7 @@ import { NotificationService } from '../../services/notification.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { BookingsService } from '../../services/bookings.service';
+import { NotificationComponent } from '../../components/notification/notification.component';
 
 @Component({
   selector: 'app-user-settings',
@@ -19,6 +20,7 @@ import { BookingsService } from '../../services/bookings.service';
     CommonModule,
     CartExperienceComponent,
     ReactiveFormsModule,
+    NotificationComponent
   ],
   templateUrl: './user-settings.component.html',
   styleUrl: './user-settings.component.css',

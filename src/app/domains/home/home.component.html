@@ -151,13 +151,7 @@
         </div>
     </section>
 
-    <div class="notification" *ngIf="activeNotification()">
-        <div class="notification__body">
-            <img src="assets/img/check-circle.svg" alt="Success" class="notification__icon">
-            <p>Logged out. Until next time!</p>
-        </div>
-        <div class="notification__progress"></div>
-    </div>
+    <app-notification [title]="'Logged out. Until next time!'" *ngIf="activeNotification()"/>
 
 </main>
 

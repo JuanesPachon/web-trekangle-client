@@ -5,11 +5,12 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { ExperienceService } from '../../services/experience.service';
 import { CartService } from '../../services/cart.service';
 import { CommonModule, CurrencyPipe } from '@angular/common';
+import { NotificationComponent } from '../../components/notification/notification.component';
 
 @Component({
   selector: 'app-experience-page',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, RouterLinkWithHref, CurrencyPipe, HeaderComponent, CommonModule],
+  imports: [HeaderComponent, FooterComponent, RouterLinkWithHref, CurrencyPipe, HeaderComponent, CommonModule, NotificationComponent],
   templateUrl: './experience-page.component.html',
   styleUrl: './experience-page.component.css',
 })
