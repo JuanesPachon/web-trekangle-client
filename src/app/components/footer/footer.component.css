@@ -45,9 +45,16 @@
   min-width: 1.7rem;
 }
 
-.footer__link--github:hover {
-  scale: 2;
-  cursor: pointer;
+.footer__link--socials {
+  width: 20%;
+  min-width: 1.7rem;
+}
+
+.footer__socials {
+  display: flex;
+  row-gap: 1rem;
+  justify-content: center;
+  align-items: center;  
 }
 
 .footer__link:hover {
@@ -76,6 +83,12 @@
 
   .footer__link--github {
     width: initial;
-    scale: 1.5;
+    scale: 1;
+    cursor: pointer;
+  }
+
+  .footer__link--socials {
+    scale: 1;
+    cursor: pointer;
   }
 }

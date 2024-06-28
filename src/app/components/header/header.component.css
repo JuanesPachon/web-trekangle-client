@@ -125,6 +125,8 @@
   .active-image {
     border-radius: 50%;
     border: 2px solid black;
+    max-width: 30px;
+    max-height: 30px;
   }
 
   .right__button__menu {
@@ -388,7 +390,7 @@
     flex-direction: column;
     justify-content: center;
     flex-grow: 1;
-    margin-top: 3rem;
+    margin-top: 4rem;
     overflow-y: auto;
     scrollbar-color: #678d56 var(--white-bg);
     scrollbar-arrow-color: black;
@@ -400,7 +402,7 @@
     cursor: pointer;
     padding: 1.5rem 1rem;
     text-align: center;
-    font-size: clamp(0.8rem, 10vw, 1.7rem);
+    font-size: clamp(0.8rem, 10vw, 1.4rem);
     font-family: var(--mochiy-title-font);
     margin: 0;
   }

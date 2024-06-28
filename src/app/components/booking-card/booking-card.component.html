@@ -1,6 +1,6 @@
 <article class="booking__card">
 
-    <img class="booking__icon" [src]=" 'http://localhost:3000/uploads/' + booking.images[0]" alt="experience icon">
+    <img class="booking__icon" [src]=" booking.images.length > 0 ? 'https://fzjqlxogwhycbjgrxtlo.supabase.co/storage/v1/object/public/trekangle-files/' + booking.images[0] : 'https://www.svgrepo.com/show/508699/landscape-placeholder.svg' " alt="experience icon">
 
     <div class="booking-container">
         <p class="booking__title">{{ booking.name }}</p>

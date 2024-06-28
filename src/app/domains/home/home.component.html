@@ -38,7 +38,7 @@
         <div class="top-experiences__container" *ngIf="experiences().length > 0">
             <div class="top-experiences__card" [routerLink]="['/experience', experiences()[0]?._id]">
                 <img class="top-experiences__background"
-                    [src]=" 'http://localhost:3000/uploads/' + experiences()[0]?.images[3]">
+                    [src]="experiences()[0]?.images ?  'https://fzjqlxogwhycbjgrxtlo.supabase.co/storage/v1/object/public/trekangle-files/' + experiences()[0]?.images[3] : 'https://www.svgrepo.com/show/508699/landscape-placeholder.svg' ">
                 <div class="top-experiences__card-content">
                     <div class="top-experiences__profile-image">
                         <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="white"
@@ -55,7 +55,7 @@
             </div>
             <div class="top-experiences__card" [routerLink]="['/experience', experiences()[2]?._id]">
                 <img class="top-experiences__background"
-                    [src]=" 'http://localhost:3000/uploads/' + experiences()[2]?.images[1]">
+                    [src]="experiences()[2]?.images ? 'https://fzjqlxogwhycbjgrxtlo.supabase.co/storage/v1/object/public/trekangle-files/' + experiences()[2]?.images[1] : 'https://www.svgrepo.com/show/508699/landscape-placeholder.svg' ">
                 <div class="top-experiences__card-content">
                     <div class="top-experiences__profile-image">
                         <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="white"
@@ -72,7 +72,7 @@
             </div>
             <div class="top-experiences__card" [routerLink]="['/experience', experiences()[1]?._id]">
                 <img class="top-experiences__background"
-                    [src]=" 'http://localhost:3000/uploads/' + experiences()[1]?.images[0]">
+                    [src]=" experiences()[1]?.images ? 'https://fzjqlxogwhycbjgrxtlo.supabase.co/storage/v1/object/public/trekangle-files/' + experiences()[1]?.images[0] : 'https://www.svgrepo.com/show/508699/landscape-placeholder.svg' ">
                 <div class="top-experiences__card-content">
                     <div class="top-experiences__profile-image">
                         <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="white"
@@ -134,17 +134,17 @@
             <div class="main__gallery__cards">
                 <label class="main__gallery__card" for="item-1" id="experience-1">
                     <img class="main__gallery__card__image"
-                        [src]=" 'http://localhost:3000/uploads/' + experiences()[0]?.images[2]" alt="experience">
+                        [src]=" 'https://fzjqlxogwhycbjgrxtlo.supabase.co/storage/v1/object/public/trekangle-files/' + experiences()[0]?.images[2]" alt="experience">
                     <div class="image-info">{{ experiences()[0]?.name }}</div>
                 </label>
                 <label class="main__gallery__card" for="item-2" id="experience-2">
                     <img class="main__gallery__card__image"
-                        [src]=" 'http://localhost:3000/uploads/' + experiences()[1]?.images[3]" alt="experience">
+                        [src]=" 'https://fzjqlxogwhycbjgrxtlo.supabase.co/storage/v1/object/public/trekangle-files/' + experiences()[1]?.images[3]" alt="experience">
                     <div class="image-info">{{ experiences()[1]?.name }}</div>
                 </label>
                 <label class="main__gallery__card" for="item-3" id="experience-3">
                     <img class="main__gallery__card__image"
-                        [src]=" 'http://localhost:3000/uploads/' + experiences()[2]?.images[2]" alt="experience">
+                        [src]=" 'https://fzjqlxogwhycbjgrxtlo.supabase.co/storage/v1/object/public/trekangle-files/' + experiences()[2]?.images[2]" alt="experience">
                     <div class="image-info">{{ experiences()[2]?.name }}</div>
                 </label>
             </div>

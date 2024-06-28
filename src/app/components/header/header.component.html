@@ -25,7 +25,7 @@
                     </div>
                     <div class="right__button__user">
                         <img *ngIf="!isloggedIn() || !user().profileImage" src="assets\img\MaleUser.svg" alt="User logo">
-                        <img class="active-image" *ngIf="isloggedIn() && user().profileImage" [src]="'http://localhost:3000/uploads/' + user()?.profileImage" alt="User Logo">
+                        <img class="active-image" *ngIf="isloggedIn() && user().profileImage" [src]="'https://fzjqlxogwhycbjgrxtlo.supabase.co/storage/v1/object/public/trekangle-files/' + user()?.profileImage" alt="User Logo">
                     </div>
                 </div>
             </div>
@@ -70,6 +70,9 @@
             <div [routerLink]="'/sign-up'" *ngIf="!isloggedIn()" class="mobile-navbar__item"
                 [ngClass]="!isloggedIn() ? 'mobile-navbar__item--last' : ''">
                 <a>Sign Up</a>
+            </div>
+            <div (click)="toggleCart()" *ngIf="isloggedIn()" class="mobile-navbar__item">
+                <a>Your Cart</a>
             </div>
             <div [routerLink]="'/user-settings'" *ngIf="isloggedIn()" class="mobile-navbar__item">
                 <a>Account</a>

@@ -46,9 +46,8 @@
 
 .experience__card__price {
   font-size: 1.3rem;
-  color: gray;
+  color: rgb(0, 0, 0);
   margin-top: .2rem;
-  -webkit-text-stroke: 1.5px black;
 }
 
 .experience__card__features {

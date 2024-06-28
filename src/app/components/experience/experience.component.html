@@ -1,6 +1,6 @@
 <article class="experience__card">
     <div class="experience__card__image">
-        <img [src]=" 'http://localhost:3000/uploads/' + image" alt="Main Experience Image">
+        <img [src]="image ? 'https://fzjqlxogwhycbjgrxtlo.supabase.co/storage/v1/object/public/trekangle-files/' + image : 'https://www.svgrepo.com/show/508699/landscape-placeholder.svg' " alt="Main Experience Image">
     </div>
     <div class="experience__card__details">
         <h2 class="experience__card__title">{{title}}</h2>

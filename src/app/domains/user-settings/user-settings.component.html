@@ -54,7 +54,7 @@
             <article class="user-settings__profile-image">
 
                 <div class="profile-image__container">
-                    <img [src]="user()?.profileImage ? 'http://localhost:3000/uploads/' + user()?.profileImage : 'https://as2.ftcdn.net/v2/jpg/03/49/49/79/1000_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.jpg'" alt="profile image">
+                    <img [src]="user()?.profileImage ? 'https://fzjqlxogwhycbjgrxtlo.supabase.co/storage/v1/object/public/trekangle-files/' + user()?.profileImage : 'https://as2.ftcdn.net/v2/jpg/03/49/49/79/1000_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.jpg'" alt="profile image">
                 </div>
                 <p class="info__name">{{ user().name }}</p>
                 <p class="info__email">{{ user().email }}</p>
