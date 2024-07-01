@@ -88,7 +88,7 @@
 }
 
 .no-bookings__text {
-  font-size: clamp(.8rem, 6vw, 1.3rem);
+  font-size: clamp(0.8rem, 6vw, 1.3rem);
   font-family: var(--arvo-subtitle-font);
   margin-bottom: 20rem;
 }
@@ -253,9 +253,24 @@
 =================================================================================================== */
 
 @media (min-width: 768px) {
-  .user-options,
+  .user-bookings {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .user-options {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  
   .bookings__main-title {
     display: none;
+  }
+
+  .user-bookings {
+    margin: 0;
   }
 
   .user-options__container--desktop {

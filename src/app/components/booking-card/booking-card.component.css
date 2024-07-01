@@ -78,3 +78,10 @@
   }
   
 }
+
+@media (min-width: 1024px) {
+  .booking__card {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  } 
+}

@@ -44,6 +44,9 @@ export class HomeComponent {
         console.log(error);
       },
     });
+
+    const img = new Image();
+    img.src = "../../../assets/img/main-area-bg.png";
   }
 
   //Js Logic of the Html
@@ -80,6 +83,12 @@ export class HomeComponent {
 
   onMouseLeave() {
     this.isHovered = false;
+  }
+
+  imageLoaded: boolean = false;
+
+  onImageLoad() {
+    this.imageLoaded = true;
   }
 
 }

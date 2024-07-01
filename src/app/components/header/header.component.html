@@ -71,7 +71,7 @@
                 [ngClass]="!isloggedIn() ? 'mobile-navbar__item--last' : ''">
                 <a>Sign Up</a>
             </div>
-            <div (click)="toggleCart()" *ngIf="isloggedIn()" class="mobile-navbar__item">
+            <div (click)="toggleCart()" (click)="toggleNavbar()" *ngIf="isloggedIn()" class="mobile-navbar__item">
                 <a>Your Cart</a>
             </div>
             <div [routerLink]="'/user-settings'" *ngIf="isloggedIn()" class="mobile-navbar__item">

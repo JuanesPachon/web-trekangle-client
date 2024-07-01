@@ -42,19 +42,23 @@
         </section>
         }
         } @else {
-        <div class="no-bookings__container">
-            <img src="assets/img/empty-bookings.svg" alt="No bookings" class="no-bookings__image">
-            <p class="no-bookings__text">You have no bookings yet!</p>
-        </div>
+            
+            @if (userBookings()) {
+                <div class="no-bookings__container">
+                    <img src="assets/img/empty-bookings.svg" alt="No bookings" class="no-bookings__image">
+                    <p class="no-bookings__text">You have no bookings yet!</p>
+                </div>
+            }
         }
 
         @if(userSettings()) {
-        <form class="user-settings" [formGroup]="userSettingsForm" (ngSubmit)="onSubmit($event)" enctype="multipart/form-data">
+        <form class="user-settings" [formGroup]="userSettingsForm" (submit)="onSubmit($event)" enctype="multipart/form-data">
 
             <article class="user-settings__profile-image">
 
                 <div class="profile-image__container">
-                    <img [src]="user()?.profileImage ? 'https://fzjqlxogwhycbjgrxtlo.supabase.co/storage/v1/object/public/trekangle-files/' + user()?.profileImage : 'https://as2.ftcdn.net/v2/jpg/03/49/49/79/1000_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.jpg'" alt="profile image">
+                    <img [src]="user()?.profileImage ? 'https://fzjqlxogwhycbjgrxtlo.supabase.co/storage/v1/object/public/trekangle-files/' + user()?.profileImage : 'https://as2.ftcdn.net/v2/jpg/03/49/49/79/1000_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.jpg'"
+                        alt="profile image">
                 </div>
                 <p class="info__name">{{ user().name }}</p>
                 <p class="info__email">{{ user().email }}</p>
@@ -197,7 +201,8 @@
             <article class="user-settings__card user-settings__card--edit">
                 <div class="card__info card__info--edit password__input">
                     <p class="info__title info__title--edit">Password:</p>
-                    <input formControlName="password" [type]="viewPassword() ? 'text' : 'password'" class="info__value info__value--edit">
+                    <input formControlName="password" [type]="viewPassword() ? 'text' : 'password'"
+                        class="info__value info__value--edit">
                     <img class="password__icons show-password" (click)="togglePassword()" *ngIf="viewPassword()"
                         src="assets/img/show-password.svg" alt="show password icon">
                     <img class="password__icons" (click)="togglePassword()" *ngIf="!viewPassword()"
@@ -219,9 +224,9 @@
 
     <!-- Notification -->
 
-    <app-notification [title]="'Your Data has been successfully updated!'" *ngIf="activeEdition()"/>
+    <app-notification [title]="'Your Data has been successfully updated!'" *ngIf="activeEdition()" />
 
-    <app-notification [title]="'Your booking has been successfully created!'" *ngIf="activeNotification()"/>
+    <app-notification [title]="'Your booking has been successfully created!'" *ngIf="activeNotification()" />
 
 </main>
 

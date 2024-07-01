@@ -221,6 +221,18 @@
   z-index: 100;
 }
 
+@media (min-width: 768px) {
+  .cart {
+    width: 65vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cart {
+    width: 30vw;
+  }
+}
+
 .cart.show {
   transform: translateX(0);
 }

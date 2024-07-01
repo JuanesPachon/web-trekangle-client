@@ -8,26 +8,19 @@
 
     <section class="main-area">
         <div class="main-area__text">
-            <h1 class="main-area__title">Explore new journeys,<br>make memories,<br><span
+            <h1 class="main-area__title">Explore new journeys,<br> make memories,<br><span
                     class="main-area__highlight">TREKANGLE!</span></h1><br class="apart__desktop">
-            <p class="main-area__quote">"Explore and book unique stays and extraordinary experiences around the world, tailored just for you."</p>
+            <p class="main-area__quote">"Explore and book unique stays and extraordinary experiences around the world,
+                tailored just for you."</p>
             <div class="main-area__buttons">
                 <button [routerLink]="'/locations'" class="button button--outline">Book experiences</button>
                 <button [routerLink]="'/sign-up'" class="button button--primary">Join Us</button>
             </div>
         </div>
         <div class="main-area__image">
-            <picture>
-                <!-- Imagen para pantallas de 1024px en adelante -->
-                <source
-                    srcset="https://images.pexels.com/photos/1360255/pexels-photo-1360255.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                    media="(min-width: 1024px)">
-
-                <!-- Imagen para pantallas de 0px a 767px -->
-                <img class="main-area__image--mobile"
-                    src="https://images.pexels.com/photos/1360255/pexels-photo-1360255.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                    alt="Road Image">
-            </picture>
+            <img class="main-area__image--mobile"
+                src="https://images.pexels.com/photos/1360255/pexels-photo-1360255.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="Road Image">
         </div>
     </section>
 
@@ -41,8 +34,8 @@
                     [src]="experiences()[0]?.images ?  'https://fzjqlxogwhycbjgrxtlo.supabase.co/storage/v1/object/public/trekangle-files/' + experiences()[0]?.images[3] : 'https://www.svgrepo.com/show/508699/landscape-placeholder.svg' ">
                 <div class="top-experiences__card-content">
                     <div class="top-experiences__profile-image">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="white"
-                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24"
+                            fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-info">
                             <line x1="12" y1="16" x2="12" y2="12"></line>
                             <line x1="12" y1="8" x2="12" y2="8"></line>
@@ -58,8 +51,8 @@
                     [src]="experiences()[2]?.images ? 'https://fzjqlxogwhycbjgrxtlo.supabase.co/storage/v1/object/public/trekangle-files/' + experiences()[2]?.images[1] : 'https://www.svgrepo.com/show/508699/landscape-placeholder.svg' ">
                 <div class="top-experiences__card-content">
                     <div class="top-experiences__profile-image">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="white"
-                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24"
+                            fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-info">
                             <line x1="12" y1="16" x2="12" y2="12"></line>
                             <line x1="12" y1="8" x2="12" y2="8"></line>
@@ -75,8 +68,8 @@
                     [src]=" experiences()[1]?.images ? 'https://fzjqlxogwhycbjgrxtlo.supabase.co/storage/v1/object/public/trekangle-files/' + experiences()[1]?.images[0] : 'https://www.svgrepo.com/show/508699/landscape-placeholder.svg' ">
                 <div class="top-experiences__card-content">
                     <div class="top-experiences__profile-image">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="white"
-                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24"
+                            fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-info">
                             <line x1="12" y1="16" x2="12" y2="12"></line>
                             <line x1="12" y1="8" x2="12" y2="8"></line>
@@ -94,12 +87,14 @@
 
     <section class="mobile-experiences__list">
 
-        <app-mobile-top-experience [routerLink]="['/experience', experiences()[0]?._id]" [title]="experiences()[0]?.name"
-            [price]="experiences()[0]?.price" [description]="experiences()[0]?.description"
-            [image]="experiences()[0]?.images[0]" [place]="experiences()[0]?.place" />
-        <app-mobile-top-experience [routerLink]="['/experience', experiences()[4]?._id]" [title]="experiences()[4]?.name"
-            [price]="experiences()[4]?.price" [description]="experiences()[4]?.description"
-            [image]="experiences()[4]?.images[0]" [place]="experiences()[4]?.place" />
+        <app-mobile-top-experience [routerLink]="['/experience', experiences()[0]?._id]"
+            [title]="experiences()[0]?.name" [price]="experiences()[0]?.price"
+            [description]="experiences()[0]?.description" [image]="experiences()[0]?.images[0]"
+            [place]="experiences()[0]?.place" />
+        <app-mobile-top-experience [routerLink]="['/experience', experiences()[4]?._id]"
+            [title]="experiences()[4]?.name" [price]="experiences()[4]?.price"
+            [description]="experiences()[4]?.description" [image]="experiences()[4]?.images[0]"
+            [place]="experiences()[4]?.place" />
 
 
     </section>
@@ -124,6 +119,76 @@
 
     <button [routerLink]="'/locations'" class="experiences__button">Check out all Experiences</button>
 
+    <!-- Testimonials -->
+
+    <h2 class="main__top-products-title">What our Trekanglers say!</h2>
+
+    <section class="testimonials__section">
+        <article class="testimonial__card">
+            <div class="testimonial__card__container">
+                <img src="assets/img/LogoBit-dark.svg" alt="logo icon" class="testimonial__logo-icon">
+                <p class="testimonial__text">"Trekangle gave us the adventure of a lifetime! Everything was seamless and
+                    the destinations were stunning."
+
+                </p>
+            </div>
+            <div class="testimonial__card__container--info">
+                <img class="testimonial__profile-picture"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Foto_Perfil_.jpg/819px-Foto_Perfil_.jpg"
+                    alt="User Photo">
+                <p class="testimonial__author">Michael Green</p>
+                <p class="testimonial__author--profession">Attourney</p>
+            </div>
+
+        </article>
+        <article class="testimonial__card">
+            <div class="testimonial__card__container">
+                <img src="assets/img/LogoBit-dark.svg" alt="logo icon" class="testimonial__logo-icon">
+                <p class="testimonial__text">"Trekangle provided the most incredible outdoor experiences! Each adventure
+                    was well-planned and filled with breathtaking views."</p>
+            </div>
+            <div class="testimonial__card__container--info">
+                <img class="testimonial__profile-picture"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVKpkkOyD3T5ABULBihOhWv1YuC1lgUYrJDw&s"
+                    alt="User Photo">
+                <p class="testimonial__author">Jane Smith</p>
+                <p class="testimonial__author--profession">Travel Blogger</p>
+            </div>
+
+        </article>
+        <article class="testimonial__card">
+            <div class="testimonial__card__container">
+                <img src="assets/img/LogoBit-dark.svg" alt="logo icon" class="testimonial__logo-icon">
+                <p class="testimonial__text">"Trekangle offered an exceptional service that exceeded my expectations.
+                    The adventures were not only thrilling but also environmentally conscious."</p>
+            </div>
+            <div class="testimonial__card__container--info">
+                <img class="testimonial__profile-picture"
+                    src="https://muhimu.es/wp-content/uploads/2017/04/FRENTE-NITIDA.jpg" alt="User Photo">
+                <p class="testimonial__author">Robert Johnson</p>
+                <p class="testimonial__author--profession">Graphic Designer</p>
+            </div>
+
+        </article>
+        <article class="testimonial__card">
+            <div class="testimonial__card__container">
+                <img src="assets/img/LogoBit-dark.svg" alt="logo icon" class="testimonial__logo-icon">
+                <p class="testimonial__text">"Trekangle made our family trip unforgettable! The adventures were fun and
+                    perfectly suited for all ages."</p>
+            </div>
+            <div class="testimonial__card__container--info">
+                <img class="testimonial__profile-picture"
+                    src="https://tecolotito.elsiglodedurango.com.mx/cdn-cgi/image/format=auto,width=1024/i/2023/04/1166288.jpeg"
+                    alt="User Photo">
+                <p class="testimonial__author">Emily Brown</p>
+                <p class="testimonial__author--profession">School Teacher</p>
+            </div>
+
+        </article>
+    </section>
+
+    <!-- Gallery -->
+
     <h2 class="main__top-products-title gallery-title">Check our gallery!</h2>
 
     <section class="main__gallery">
@@ -134,24 +199,27 @@
             <div class="main__gallery__cards">
                 <label class="main__gallery__card" for="item-1" id="experience-1">
                     <img class="main__gallery__card__image"
-                        [src]=" 'https://fzjqlxogwhycbjgrxtlo.supabase.co/storage/v1/object/public/trekangle-files/' + experiences()[0]?.images[2]" alt="experience">
+                        [src]=" 'https://fzjqlxogwhycbjgrxtlo.supabase.co/storage/v1/object/public/trekangle-files/' + experiences()[0]?.images[2]"
+                        alt="experience">
                     <div class="image-info">{{ experiences()[0]?.name }}</div>
                 </label>
                 <label class="main__gallery__card" for="item-2" id="experience-2">
                     <img class="main__gallery__card__image"
-                        [src]=" 'https://fzjqlxogwhycbjgrxtlo.supabase.co/storage/v1/object/public/trekangle-files/' + experiences()[1]?.images[3]" alt="experience">
+                        [src]=" 'https://fzjqlxogwhycbjgrxtlo.supabase.co/storage/v1/object/public/trekangle-files/' + experiences()[1]?.images[3]"
+                        alt="experience">
                     <div class="image-info">{{ experiences()[1]?.name }}</div>
                 </label>
                 <label class="main__gallery__card" for="item-3" id="experience-3">
                     <img class="main__gallery__card__image"
-                        [src]=" 'https://fzjqlxogwhycbjgrxtlo.supabase.co/storage/v1/object/public/trekangle-files/' + experiences()[2]?.images[2]" alt="experience">
+                        [src]=" 'https://fzjqlxogwhycbjgrxtlo.supabase.co/storage/v1/object/public/trekangle-files/' + experiences()[2]?.images[2]"
+                        alt="experience">
                     <div class="image-info">{{ experiences()[2]?.name }}</div>
                 </label>
             </div>
         </div>
     </section>
 
-    <app-notification [title]="'Logged out. Until next time!'" *ngIf="activeNotification()"/>
+    <app-notification [title]="'Logged out. Until next time!'" *ngIf="activeNotification()" />
 
 </main>
 
