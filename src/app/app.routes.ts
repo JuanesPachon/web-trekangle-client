@@ -9,6 +9,7 @@ import { loginGuard } from './guards/loginGuard';
 import { alreadyLoggedGuard } from './guards/alreadyLoggedGuard';
 import { AboutUsComponent } from './domains/about-us/about-us.component';
 import { LocationsComponent } from './domains/locations/locations.component';
+import { NotFoundPageComponent } from './domains/not-found-page/not-found-page.component';
 
 export const routes: Routes = [
     { path:"", component: HomeComponent},
@@ -19,4 +20,5 @@ export const routes: Routes = [
     { path:"user-settings", component: UserSettingsComponent, canActivate: [loginGuard]},
     { path:"about-us", component: AboutUsComponent},
     { path:"locations", component: LocationsComponent},
+    { path:"**", component: NotFoundPageComponent},
 ];
