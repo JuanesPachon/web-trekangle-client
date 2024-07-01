@@ -123,7 +123,7 @@ export class CartService {
     }
 
 
-    return this.http.post('http://localhost:3000/bookings', body, { headers: headers });
+    return this.http.post('https://web-trekangle-server.onrender.com/bookings', body, { headers: headers });
   }
 
 }

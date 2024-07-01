@@ -11,16 +11,16 @@ export class ExperienceService {
 
   listExperiences(page: number, limit?: number): Observable<any> {
     const queryParams = `?page=${page}${limit ? `&limit=${limit}` : ''}`;
-    return this.http.get(`http://localhost:3000/experiences/${queryParams}`);
+    return this.http.get(`https://web-trekangle-server.onrender.com/experiences/${queryParams}`);
   }
 
   getOneExperience(id: string) {
-    return this.http.get(`http://localhost:3000/experiences/` + id);
+    return this.http.get(`https://web-trekangle-server.onrender.com/experiences/` + id);
   }
 
   searchExperiences(query: string) {
     const params = new HttpParams().set('query', query);
-    return this.http.get(`http://localhost:3000/experiences/search`, { params })
+    return this.http.get(`https://web-trekangle-server.onrender.com/search`, { params })
   }
 
 }
