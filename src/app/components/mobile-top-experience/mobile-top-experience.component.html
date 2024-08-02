@@ -3,17 +3,7 @@
         <img [src]=" image ? 'https://fzjqlxogwhycbjgrxtlo.supabase.co/storage/v1/object/public/trekangle-files/' + image : 'https://www.svgrepo.com/show/508699/landscape-placeholder.svg' " alt="Property Image">
     </div>
     <div class="mobile-experience__card__details">
-        <h3 class="mobile-experience__card__title">{{title}}</h3>
-        <h2 class="mobile-experience__card__price">{{price | currency}}</h2>
-    </div>
-    <div class="mobile-experience__card__features">
-        <div class="mobile-experience__card__feature">
-            <span class="mobile-experience__card__icon">⭐</span>
-            <span class="mobile-experience__card__text">5.0</span>
-        </div>
-        <div class="mobile-experience__card__feature">
-            <span class="mobile-experience__card__icon">🚩</span>
-            <span class="mobile-experience__card__text">{{place}}</span>
-        </div>
+        <h2 class="mobile-experience__card__title">{{title}}</h2>
+        <h3 class="mobile-experience__card__place">{{place}} <span><img src="assets/img/location-icon.svg" alt="Location Icon"></span></h3>
     </div>
 </article>

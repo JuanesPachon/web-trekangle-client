@@ -44,10 +44,15 @@
   height: 1.5em;
 }
 
-.experience__card__price {
-  font-size: 1.3rem;
+.experience__card__place {
+  font-size: 1rem;
   color: rgb(0, 0, 0);
   margin-top: .2rem;
+  font-family: var(--arvo-subtitle-font);
+}
+
+.experience__card__place span img {
+  max-width: .8rem;
 }
 
 .experience__card__features {

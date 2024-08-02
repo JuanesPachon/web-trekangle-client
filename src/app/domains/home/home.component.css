@@ -11,7 +11,7 @@
 .progress__wrapper {
   position: fixed;
   top: 4rem;
-  z-index: 2;
+  z-index: 20;
   width: 100%;
   height: 0.65rem;
   background-color: rgba(255, 255, 255, 0);
@@ -21,7 +21,7 @@
   display: block;
   width: 0;
   height: inherit;
-  background-color: #4d4c4c;
+  background-color: #696969;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   border-top: solid 3px black;
@@ -312,6 +312,7 @@
     height: 40vw;
     position: relative;
     margin-top: -2rem;
+    border-top: none;
   }
 
   .main-area__text {

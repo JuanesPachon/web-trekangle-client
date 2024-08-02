@@ -32,7 +32,7 @@
 
                         <div class="booking-container">
                             <p class="booking__title">{{ experience.name }}</p>
-                            <p class="booking__price">${{ experience.price }}</p>
+                            <p class="booking__price">{{ experience.price | currency }}</p>
                             <p class="booking__place">{{ experience.place }}</p>
                             <p class="booking__date"> <span>Rate: </span> 5.0</p>
                         </div>
