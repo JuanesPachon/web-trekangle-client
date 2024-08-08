@@ -92,15 +92,15 @@
     </div>
     <img src="assets/img/close.svg" class="cart__close" (click)="toggleCart()" alt="Close Icon"/>
     <section class="cart__experiences">
-        @for(cartExperience of cartExperiences().values(); track cartExperience._id) {
-            <app-cart-experience [experience]="cartExperience" />
-        }
+        <ng-container *ngFor="let cartExperience of experiences$ | async; trackBy: trackByFn">
+          <app-cart-experience [experience]="cartExperience"></app-cart-experience>
+        </ng-container>
         <div [routerLink]="'/locations'" class="cart__add-experience-button">
-            <p><span> ➕ </span> Add Experiences</p>
+          <p><span> ➕ </span> Add Experiences</p>
         </div>
-    </section>
+      </section>
     <div class="cart__details">
-        <h3 class="cart__total">Total: <span>{{ cartTotal() | currency }}</span></h3>
+        <h3 class="cart__total">Total: <span>{{ total$ | async | currency }}</span></h3>
         <a routerLink="/checkout" class="cart__checkout-button">Checkout</a>
     </div>
 </aside>

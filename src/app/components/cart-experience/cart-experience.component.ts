@@ -24,7 +24,7 @@ export class CartExperienceComponent {
     }
   }
 
-  increment(experienceId: string) {
+ /*  increment(experienceId: string) {
     this.cartService.incrementQuantity(experienceId)
   }
 
@@ -34,6 +34,18 @@ export class CartExperienceComponent {
 
   deleteExperience(experienceId: string) {
     this.cartService.deleteExperience(experienceId)
+  } */
+
+  increment(experienceId: string) {
+    this.cartService.incrementQuantity(experienceId);
+  }
+
+  decrement(experienceId: string) {
+    this.cartService.decrementQuantity(experienceId);
+  }
+
+  deleteExperience(experienceId: string) {
+    this.cartService.deleteExperience(experienceId);
   }
 
 }

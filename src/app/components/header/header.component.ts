@@ -6,6 +6,12 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
 import { CartService } from '../../services/cart.service';
 import { CartExperienceComponent } from '../cart-experience/cart-experience.component';
 import { NotificationService } from '../../services/notification.service';
+import { Observable } from 'rxjs';
+import { ExperienceCartModel } from '../../cart/experienceCartModel';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../cart';
+import { map } from 'rxjs/operators';
+import { selectTotalPrice } from '../../cart/cartSelectors';
 
 @Component({
   selector: 'app-header',
@@ -15,6 +21,23 @@ import { NotificationService } from '../../services/notification.service';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
+
+  experiences$: Observable<ExperienceCartModel[]>;
+  total$: Observable<number>;
+
+  constructor(private store: Store<AppState>) {
+    this.experiences$ = this.store.select(state => state.cart.experiences)
+      .pipe(
+        map(experiencesMap => Array.from(experiencesMap.values()))
+      );
+
+    this.total$ = this.store.select(selectTotalPrice);
+      
+  }
+
+  trackByFn(index: number, item: ExperienceCartModel) {
+    return item._id;
+  }
 
   private userService = inject(UserService);
   private authService = inject(AuthService);
@@ -85,6 +108,11 @@ export class HeaderComponent {
         console.log(error);
       },
     });
+
+    this.experiences$.subscribe(experiences => {
+      console.log("Estado completo del carrito:", experiences);
+    });
+
   }
 
 }
