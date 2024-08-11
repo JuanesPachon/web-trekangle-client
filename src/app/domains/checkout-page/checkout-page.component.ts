@@ -6,17 +6,46 @@ import { CartService } from '../../services/cart.service';
 import { Router } from '@angular/router';
 import { NotificationService } from '../../services/notification.service';
 import { CartExperienceComponent } from '../../components/cart-experience/cart-experience.component';
-import { CurrencyPipe } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import Swal from 'sweetalert2';
+import { ExperienceCartModel } from '../../cart/experienceCartModel';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { map } from 'rxjs/operators';
+import { selectTotalExperiencesCount, selectTotalPrice } from '../../cart/cartSelectors';
+import { AppState } from '../../cart';
+import { checkout } from '../../cart/cartActions';
 
 @Component({
   selector: 'app-checkout-page',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, CartExperienceComponent, ReactiveFormsModule, CurrencyPipe],
+  imports: [HeaderComponent, FooterComponent, CartExperienceComponent, ReactiveFormsModule, CurrencyPipe, CommonModule],
   templateUrl: './checkout-page.component.html',
   styleUrl: './checkout-page.component.css',
 })
 export class CheckoutPageComponent {
+
+  experiences$: Observable<ExperienceCartModel[]>;
+  total$: Observable<number>;
+  totalExperiencesCount: number = 0;
+
+  constructor(private store: Store<AppState>) {
+    this.experiences$ = this.store.select(state => state.cart.experiences)
+      .pipe(
+        map(experiencesMap => Array.from(experiencesMap.values()))
+      );
+
+      this.total$ = this.store.select(selectTotalPrice);
+      this.store.select(selectTotalExperiencesCount).subscribe(count => {
+        this.totalExperiencesCount = count;
+      });
+      
+      
+  }
+
+  trackByFn(index: number, item: ExperienceCartModel) {
+    return item._id;
+  }
 
   private cartService = inject(CartService);
   private Router = inject(Router);
@@ -48,8 +77,8 @@ export class CheckoutPageComponent {
   cartExperiences = this.cartService.experiences;
   cartTotal = this.cartService.total;
 
-  onSubmit(event: Event){
-    if(this.paymentForm.valid && this.cartExperiences().size > 0){
+  /* onSubmit(event: Event){
+    if(this.paymentForm.valid && this.totalExperiencesCount > 0){
 
       this.cartService.checkout(this.paymentForm.value).subscribe({
         next: (response) => {
@@ -66,55 +95,15 @@ export class CheckoutPageComponent {
     } else {
       this.showCustomAlert();
     }
-  }
+  } */
+
+    onSubmit(formValues: any) {
+      this.store.dispatch(checkout({ formValues }));
+    }
 
   // Notification logic
 
-  showNotification() {
-    this.notificationService.toggleBookingNotification();
-  }
-
-  showCustomAlert() {
-    Swal.fire({
-      title: 'Please fill all the fields or add at least one experience',
-      icon: 'warning',
-      confirmButtonText: 'Okay',
-      confirmButtonColor: '#5d9046',
-      customClass: {
-        popup: 'custom-popup-class',
-        title: 'custom-title-class',
-      },
-      background: "url('assets/img/main_bg.png')",
-      showCloseButton: true,
-      allowOutsideClick: true,
-      backdrop: `
-        rgba(0,0,0,0.4)
-        left top
-        no-repeat
-      `
-    });
-  }  
-
-  showCustomErrorAlert() {
-    Swal.fire({
-      title: 'There was an internal server error, Try it later',
-      icon: 'warning',
-      confirmButtonText: 'Okay',
-      confirmButtonColor: '#5d9046',
-      customClass: {
-        popup: 'custom-popup-class',
-        title: 'custom-title-class',
-      },
-      background: "url('assets/img/main_bg.png')",
-      showCloseButton: true,
-      allowOutsideClick: true,
-      backdrop: `
-        rgba(0,0,0,0.4)
-        left top
-        no-repeat
-      `
-    });
-  } 
+  
 
 }
 

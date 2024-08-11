@@ -6,9 +6,9 @@
         <h2 class="experience-cart__main-title">Your Experiences:</h2>
         <section class="main__experience-cart">
             
-            @for(cartExperience of cartExperiences().values(); track cartExperience._id) {
+            <ng-container *ngFor="let cartExperience of experiences$ | async; trackBy: trackByFn">
                 <app-cart-experience [experience]="cartExperience"></app-cart-experience>
-            }
+            </ng-container>
 
         </section>
         <div class="total-info">

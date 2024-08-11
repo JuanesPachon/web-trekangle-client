@@ -11,13 +11,14 @@ import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { cartReducer } from './cart/cartReducer';
+import { CartEffects } from './cart/cartEffects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes, withComponentInputBinding(), withViewTransitions()),
     provideHttpClient(),
     provideStore({ cart: cartReducer }),
-    provideEffects(),
+    provideEffects([CartEffects]),
     provideStoreDevtools(),
   ],
 };
