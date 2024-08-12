@@ -1,7 +1,7 @@
 import { Injectable, computed, signal, inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Store } from '@ngrx/store';
-import { addToCart, decrementQuantity, deleteExperience, incrementQuantity } from '../cart/cartActions';
+import { addToCart, checkout, decrementQuantity, deleteExperience, incrementQuantity } from '../cart/cartActions';
 import { AppState } from '../cart';
 
 @Injectable({
@@ -121,7 +121,7 @@ export class CartService {
     });
   } */
 
-  checkout(formValues: any) {
+  /* checkout(formValues: any) {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       Authorization: 'Bearer ' + localStorage.getItem('user_token'),
@@ -144,5 +144,5 @@ export class CartService {
       body,
       { headers: headers }
     );
-  }
+  } */
 }

@@ -19,3 +19,18 @@ export const addToCart = createAction(
     '[Cart] Delete Experience',
     props<{ experienceId: string }>()
   );  
+
+  export const checkout = createAction(
+    '[Cart] Checkout',
+    props<{ formValues: any }>()
+  );
+  
+  export const checkoutSuccess = createAction(
+    '[Cart] Checkout Success',
+    props<{ response: any }>()
+  );
+  
+  export const checkoutFailure = createAction(
+    '[Cart] Checkout Failure',
+    props<{ error: any }>()
+  );

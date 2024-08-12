@@ -13,3 +13,10 @@ export const selectTotalPrice = createSelector(
     return total;
   }
 );
+
+export const selectTotalExperiencesCount = createSelector(
+  selectCartState,
+  (cartState) => {
+    return Array.from(cartState.experiences.values()).length;
+  }
+);
