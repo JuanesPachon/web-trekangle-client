@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, mergeMap, tap } from 'rxjs/operators';
+import { catchError, map, mergeMap, take, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Store } from '@ngrx/store';
@@ -29,28 +29,26 @@ export class CartEffects {
           'Content-Type': 'application/json',
           Authorization: 'Bearer ' + localStorage.getItem('user_token'),
         });
-
+  
         return this.store.select(state => state.cart.experiences).pipe(
-          map(experiencesMap => {
+          take(1),
+          mergeMap(experiencesMap => {
             const experiencesArray = Array.from(experiencesMap.values()).map((experience: any) => ({
               experienceId: experience._id,
               quantity: experience.quantity,
             }));
-
+  
             const body = {
               name: formValues.cardHolderName,
               cardNumber: formValues.cardNumber,
               experiences: experiencesArray,
             };
-
-            return this.http.post('http://3.14.151.214:3000/bookings', body, { headers });
-          }),
-          mergeMap(httpCall$ =>
-            httpCall$.pipe(
+  
+            return this.http.post('http://3.14.151.214:3000/bookings', body, { headers }).pipe(
               map(response => checkoutSuccess({ response })),
               catchError(error => of(checkoutFailure({ error })))
-            )
-          )
+            );
+          })
         );
       })
     )
