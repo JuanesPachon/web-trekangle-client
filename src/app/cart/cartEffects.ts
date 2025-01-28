@@ -44,7 +44,7 @@ export class CartEffects {
               experiences: experiencesArray,
             };
   
-            return this.http.post('http://3.14.151.214:3000/bookings', body, { headers }).pipe(
+            return this.http.post('https://web-trekangle-server.onrender.com/bookings', body, { headers }).pipe(
               map(response => checkoutSuccess({ response })),
               catchError(error => of(checkoutFailure({ error })))
             );

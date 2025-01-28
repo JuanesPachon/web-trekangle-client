@@ -140,7 +140,7 @@ export class CartService {
     };
 
     return this.http.post(
-      'http://3.14.151.214:3000/bookings',
+      'https://web-trekangle-server.onrender.com/bookings',
       body,
       { headers: headers }
     );

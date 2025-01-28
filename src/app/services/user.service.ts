@@ -9,7 +9,7 @@ export class UserService {
   private http = inject(HttpClient);
 
   registerUser(formValues: any) {
-    return this.http.post('http://3.14.151.214:3000/users', {
+    return this.http.post('https://web-trekangle-server.onrender.com/users', {
       name: formValues.name,
       userName: formValues.userName,
       email: formValues.email,
@@ -18,7 +18,7 @@ export class UserService {
   }
 
   loginUser(formValues: any) {
-    return this.http.post('http://3.14.151.214:3000/users/login', {
+    return this.http.post('https://web-trekangle-server.onrender.com/users/login', {
       email: formValues.email,
       password: formValues.password,
     });
@@ -40,7 +40,7 @@ export class UserService {
     console.log('hasta aqui funciona');
 
     return this.http.patch(
-      'http://3.14.151.214:3000/users/' + decodedToken.sub,
+      'https://web-trekangle-server.onrender.com/users/' + decodedToken.sub,
       filteredFormData,
       { headers: headers }
     );
@@ -66,7 +66,7 @@ export class UserService {
     }
 
     const decodedToken: any = jwtDecode(token);
-    return this.http.get(`http://3.14.151.214:3000/users/` + decodedToken.sub);
+    return this.http.get(`https://web-trekangle-server.onrender.com/users/` + decodedToken.sub);
   }
 
   isLoggedIn() {

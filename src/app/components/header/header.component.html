@@ -25,7 +25,7 @@
                     </div>
                     <div class="right__button__user">
                         <img *ngIf="!isloggedIn() || !user().profileImage" src="assets\img\MaleUser.svg" alt="User logo">
-                        <img class="active-image" *ngIf="isloggedIn() && user().profileImage" [src]="'https://fzjqlxogwhycbjgrxtlo.supabase.co/storage/v1/object/public/trekangle-files/' + user()?.profileImage" alt="User Logo">
+                        <img class="active-image" *ngIf="isloggedIn() && user().profileImage" [src]="'https://squctahczjhynshgqbyv.supabase.co/storage/v1/object/public/trekangle-files/' + user()?.profileImage" alt="User Logo">
                     </div>
                 </div>
             </div>
